@@ -181,12 +181,12 @@ exec --no-startup-id compton -f
 exec --no-startup-id notify-send "Welcome back 116!" -i ~/.happy.png
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xbindkeys
-exec clipit
+exec --no-startup-id clipit
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
-exec firewall-applet
-exec start-pulseaudio-x11
-exec redshift-gtk
-exec xset r rate 200 30
+exec --no-startup-id firewall-applet
+exec --no-startup-id start-pulseaudio-x11
+exec --no-startup-id redshift-gtk
+exec --no-startup-id xset r rate 200 30
 exec --no-startup-id compton --config ~/.config/compton.conf
 
