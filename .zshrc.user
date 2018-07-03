@@ -1,0 +1,30 @@
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
+	source /usr/share/powerline/bindings/zsh/powerline.zsh
+fi
+
+export PATH="$PATH:$HOME/.local/script:$HOME/.yarn/bin:$HOME/.local/bin"
+export TMP=/tmp/$USER
+if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
+
+export WORKON_HOME=~/.virtualenvs
+source ~/.local/bin/virtualenvwrapper.sh
+
+export LESS="-j.5 -R --hilite-search"
+
+# system info
+neofetch
+
+
+alias click="xdg-open"
+alias g="git"
+alias gradlest="./gradlew --stacktrace"
+alias gradlew="./gradlew"
+alias ikotlin="kotlinc-jvm"
+alias listwifi="iwlist wlp2s0 scan"
+alias ls="ls --color"
+alias mvnw="./mvnw"
+alias pipsi="python3 -m pipsi --home $WORKON_HOME"
+alias speedometerwifi='speedometer -r wlp2s0 -t wlp2s0'
