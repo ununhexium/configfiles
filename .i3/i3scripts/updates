@@ -4,6 +4,7 @@ source ~/.config/palette/palette.sh
 
 val=$(/usr/lib/update-notifier/apt-check 2>&1)
 #val="10;15"
+#val="10;0"
 
 normal=$(echo $val | cut -d';' -f1)
 security=$(echo $val | cut -d';' -f2)
