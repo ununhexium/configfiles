@@ -1,0 +1,16 @@
+#!/bin/bash
+
+TRASH="$HOME/holygrenade/trash/$(date "+%Y-%m-%d")"
+
+if [ ! -d "$TRASH" ]; then
+  if [ -e "$TRASH" ]; then
+    echo "The trash file $TRASH already exists but is not a folder"
+    exit 1
+  fi
+  mkdir -p "$TRASH"
+fi
+
+mv $@ "$TRASH"
+
+exit 0
+
