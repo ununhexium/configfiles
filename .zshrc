@@ -1,4 +1,4 @@
-source ~/.antigen/antigen.zsh
+source ~/dev/zsh-users/antigen/antigen.zsh
 
 source ~/.config/palette/palette.sh
 
@@ -101,3 +101,4 @@ antigen bundle mvn
 antigen apply
 
 source ~/.zshrc.user
+

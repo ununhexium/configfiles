@@ -15,13 +15,14 @@ font pango: FuraMono Nerd Font Bold 10
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec konsole
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
 # Start rofi
 bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec rofi -show run
 
 # Move between windows
 bindsym $mod+Left focus left
@@ -181,7 +182,6 @@ exec --no-startup-id compton -f
 bindsym $mod+I exec --no-startup-id ~/.i3/i3scripts/focus-first-window.sh
 
 # Others
-exec --no-startup-id /home/ununhexium/.local/script/2screens.sh
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id clipit
 exec --no-startup-id compton --config ~/.config/compton.conf

@@ -5,20 +5,20 @@ if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
 	source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
-export PATH="$PATH:$HOME/.local/script:$HOME/.yarn/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/script:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin"
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 export WORKON_HOME=~/.virtualenvs
-source ~/.local/bin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 export LESS="-j.5 -R --hilite-search"
 
-# system info
-neofetch
-
+# network interface to consider for speedometer
+IFACE=enp4s0
 
 alias click="xdg-open"
+alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias g="git"
 alias gradlest="./gradlew --stacktrace"
 alias gradlew="./gradlew"
@@ -26,5 +26,43 @@ alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
 alias ls="ls --color"
 alias mvnw="./mvnw"
+alias mkvirtualenv3="mkvirtualenv --python=/usr/bin/python3"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"
-alias speedometerwifi='speedometer -r wlp2s0 -t wlp2s0'
+alias sarahconnor="cd $PWD"
+alias speedometer="speedometer -r $IFACE -t $IFACE"
+
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+plugins=(fzf-zsh)
+
+function echopath() {
+	echo $PATH | sed -e "s/:/\n/g"
+}
+
+function setup() {
+	for s in "$@"; do
+		source "/home/uuh/dev/setup/$s"
+	done
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+_fzf_compgen_path() {
+  echo "$1"
+  command bfs -L "$1" \
+    -name .git -prune -o -name .svn -prune -o \( -type d -o -type f -o -type l \) \
+    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+}
+
+_fzf_compgen_dir() {
+  command bfs -L "$1" \
+    -name .git -prune -o -name .svn -prune -o -type d \
+    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+}
+
