@@ -68,7 +68,6 @@ if ($temperature >= $t_crit) {
     print "#FFFC00\n";
 } else {
     print "\x{f2c9} $temperature°C\n" x2;
-    print "#4ec2f7\n";
 }
 
 exit 0;

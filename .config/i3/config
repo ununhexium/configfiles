@@ -148,7 +148,7 @@ client.placeholder          $magenta $magenta   $silver  $magenta
 bar
 {
 	position top
-	status_command i3blocks
+	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
 	font pango: FuraMono Nerd Font 13
 	colors

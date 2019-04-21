@@ -1,0 +1,62 @@
+# i3blocks config file
+# Global properties
+command=~/.config/i3/i3scripts/$BLOCK_NAME
+align=center
+separator=false
+separator_block_width=30
+markup=pango
+#border_top=0
+#border_right=0
+#border_left=0
+#border_bottom=0
+
+# Blocks
+
+# Wifi signal strenght
+#[wifi]
+#label=
+#instance=wlp2s0
+#color=#00cde0
+#border=#00cde0
+#interval=5
+
+# CPU usage
+[cpu_usage]
+interval=2
+min_width=100
+
+# Free space of /
+[disk]
+label=
+instance=/home
+interval=3600
+
+#Available security updates
+[updates]
+interval=3600
+
+# Temperature
+[temperature]
+interval=2
+
+# Free RAM
+[memory]
+label=
+interval=2
+
+# Volume
+[volume]
+interval=1
+signal=10
+
+# Screen brightness indicator
+#[brightness]
+#command=~/.i3/i3scripts/brightness
+#interval=1
+
+# Time
+[time]
+label=
+command=date '+%H:%M' 
+interval=5
+

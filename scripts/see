@@ -1,0 +1,16 @@
+#!/usr/bin/zsh
+
+function show() {
+	case "$1" in
+		*.md)
+			mdv "$1"
+		*) 
+			echo "Don't know how to open:"
+			file "$1"
+	esac
+}
+
+for file in "$@"; do
+	show "$file"
+done
+

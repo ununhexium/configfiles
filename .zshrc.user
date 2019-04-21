@@ -5,12 +5,14 @@ if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
 	source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
-export PATH="$PATH:$HOME/.local/script:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin"
+export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin"
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 export WORKON_HOME=~/.virtualenvs
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+export MYGIT="$HOME/dev/116/"
 
 export LESS="-j.5 -R --hilite-search"
 
@@ -38,6 +40,9 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
+
+#MDV set theme
+export MDV_THEME="884.0134"
 
 plugins=(fzf-zsh)
 

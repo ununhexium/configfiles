@@ -1,6 +1,5 @@
 source ~/dev/zsh-users/antigen/antigen.zsh
 
-source ~/.config/palette/palette.sh
 
 # POWERLEVEL9
 
