@@ -64,14 +64,14 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Name the workspaces
-set $workspace1 "1:  www"
-set $workspace2 "2:  code"
-set $workspace3 "3:  terminal"
-set $workspace4 "4:  files"
-set $workspace5 "5:  virtual machines"
-set $workspace6 "6:  status"
-set $workspace7 "7: ♬ music"
-set $workspace8 "8:  random"
+set $workspace1 ""
+set $workspace2 ""
+set $workspace3 ""
+set $workspace4 " files"
+set $workspace5 " virtual machines"
+set $workspace6 " status"
+set $workspace7 "♬ music"
+set $workspace0 " random"
 
 # Switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -81,9 +81,9 @@ bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
+bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 10 $workspace0
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -165,7 +165,11 @@ bar
 # Screenshots
 bindsym Print exec flameshot gui
 
+# hex pixel locker
 bindsym $mod+Pause exec ~/.i3/locker.sh
+
+# emoji search
+bindsym $mod+grave exec --no-startup-id rofiemoji
 
 # No crazy mouse
 focus_follows_mouse no
@@ -196,3 +200,5 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id krb5-auth-dialog
+exec --no-startup-id /home/uuh/.local/scripts/i3background
+

@@ -5,38 +5,43 @@
  */
 
 /* Global settings and color variables */
+/**
+ */
 * {
-   maincolor:        #8CE000;
-   highlight:        bold #8CE000;
-   urgentcolor:      #C40000;
+   maincolor:        #ff00ff;
+   urgentcolor:      #ff0000;
+   highlight:        bold #ff00ff;
 
-   fgwhite:          #cfcfcf;
+   cyan:             #00ffff;
+   gray:             #aaaaaa;
+
    blackdarkest:     #1d1d1d;
-   blackwidget:      #262626;
-   blackentry:       #292929;
-   blackselect:      #303030;
+   blackwidget:      #000000;
+   blackentry:       #000000;
    darkgray:         #848484;
    scrollbarcolor:   #505050;
-   font: "Source Code Pro Bold 15";
-   background-color: @blackdarkest;
+   font: "DejaVuSansMono Nerd Font Mono 20";
+   background-color: black;
 }
 
 window {
-   background-color: @blackdarkest;
-   anchor: north;
-   location: north;
+   background-color: black;
+   anchor: center;
+   location: center;
    y-offset: 0%;
 }
 
 mainbox {
-   background-color: @blackdarkest;
+   background-color: @cyan;
    spacing: 0px;
+   border: 1;
+   padding: 10px;
    children: [inputbar, message, sidebar, listview];
 }
 
 message {
    padding: 6px 10px;
-   background-color:@blackwidget;
+   background-color: @blackwidget;
 }
 
 textbox {
@@ -48,10 +53,10 @@ listview {
    fixed-height: false;
    dynamic: true;
    scrollbar: true;
-   spacing: 0px;
+   spacing: 5px;
    padding: 1px 0px 0px 0px;
    margin: 0px 0px 1px 0px;
-   background: @blackdarkest;
+   background: black;
 }
 
 element {
@@ -60,54 +65,47 @@ element {
 
 element normal.normal {
    padding: 0px 15px;
-   background-color: @blackentry;
-   text-color: @fgwhite;
+   text-color: @gray;
 }
 
 element normal.urgent {
-   background-color: @blackentry;
    text-color: @urgentcolor;
 }
 
 element normal.active {
-   background-color: @blackentry;
    text-color: @maincolor;
 }
 
 element selected.normal {
-    background-color: @blackselect;
-    text-color: @fgwhite;
+    text-color: cyan;
 }
 
 element selected.urgent {
     background-color: @urgentcolor;
-    text-color: @blackdarkest;
+    text-color: black;
 }
 
 element selected.active {
-    background-color: @maincolor;
-    text-color: @blackdarkest;
+    background-color: black;
+    text-color: @cyan;
 }
 
 element alternate.normal {
-    background-color: @blackentry;
-    text-color: @fgwhite;
+    text-color: @gray;
 }
 
 element alternate.urgent {
-    background-color: @blackentry;
     text-color: @urgentcolor;
 }
 
 element alternate.active {
-    background-color: @blackentry;
     text-color: @maincolor;
 }
 
 scrollbar {
    background-color: @blackwidget;
-   handle-color: @darkgray;
-   handle-width: 15px;
+   handle-color: magenta;
+   handle-width: 20px;
 }
 
 sidebar {
@@ -124,20 +122,21 @@ button selected {
 }
 
 inputbar {
-   background-color: @blackdarkest;
+   background-color: black;
+   text-color: @cyan;
    spacing: 0px;
 }
 
 prompt {
    padding: 6px 9px;
-   background-color: @maincolor;
-   text-color: @blackwidget;
+   background-color: cyan;
+   text-color: black;
 }
 
 entry {
    padding: 6px 10px;
    background-color: @blackwidget;
-   text-color: @fgwhite;
+   text-color: magenta;
 }
 
 case-indicator {

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mpv --border --wid=0 --loop-file=inf --speed=1.0 --scale=nearest /home/uuh/Pictures/bg/rolly_rocket_by_valenberg-d9y6rvp.gif
