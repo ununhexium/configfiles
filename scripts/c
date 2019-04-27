@@ -1,10 +1,26 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
-import re
-import sys
-import subprocess
+function guesstype() {
+	executor=$(cat c | head -n1 | egrep '#!' | sed -e 's/#!//')
+	last=${executor##*/}
+	pygmentize -l $last $1
+}
 
-for arg in sys.argv[1:]:
-	if re.match('.*\.md',arg):
-		subprocess.run(['mdv', arg])
-	subprocess.run(['pygmentize', arg])
+function show() {
+	filename=$(basename -- "$1")
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+
+	case $extension in
+		md) mdv $1
+		;;
+		*) pygmentize -Ostyle=friendly -g $1
+		;;
+	esac
+}
+
+while (( "$#" )); do
+	show $1
+	shift
+done
+
