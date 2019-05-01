@@ -71,7 +71,7 @@ set $workspace4 ""
 set $workspace5 ""
 set $workspace6 ""
 set $workspace7 "♬"
-set $workspace8 "🙊"
+set $workspace8 "🗣"
 set $workspace0 ""
 
 # Switch to workspace
@@ -182,7 +182,7 @@ exec --no-startup-id compton -f
 
 #Clipboard
 exec --no-startup-id clipster -d
-bindsym $mod+Mod1+V exec --no-startup-id i2paste
+bindsym $mod+Mod1+V exec --no-startup-id i3paste
 
 #i3 menu
 bindsym $mod+M exec --no-startup-id i3menu

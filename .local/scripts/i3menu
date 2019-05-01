@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choice=$(cat "$HOME"/.resources/menu | cut -d\| -f1 | rofi -dmenu)
+choice=$(cat "$HOME"/.resources/menu | cut -d\| -f1 | rofi -i -dmenu)
 
 if [ ! -z "$choice" ]; then 
 	script=$(cat "$HOME"/.resources/menu | grep $choice\| | cut -d\| -f2)
