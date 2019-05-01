@@ -9,13 +9,14 @@ import subprocess
 
 
 m=re.match('git@github.com:(.*)/(.*).git', sys.argv[1])
+devDir=os.environ['HOME'] + '/dev/'
 
 if m:
 	repogroup=os.path.join(os.getcwd(), m.group(1))
 	folder=os.path.join(os.getcwd(), repogroup)
 	if not os.path.exists(folder):
 		os.mkdir(folder)
-	subprocess.run(['git', 'clone', sys.argv[1], m.group(1) + '/' + m.group(2)])
+	subprocess.run(['git', 'clone', sys.argv[1], devDir + m.group(1) + '/' + m.group(2)])
 else:
 	print("Don't know how to clone " + sys.argv[1])
 

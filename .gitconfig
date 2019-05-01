@@ -1,0 +1,28 @@
+[user]
+	name = Christophe '116' Loiseau
+	email = 116@lab0.net
+
+[alias]
+    aa = add -A
+	amend = commit --amend
+	b = branch
+	co = checkout
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg = !"git lg1"
+	d = diff
+	dc = diff --cached
+	s = status
+    quick-stats = /usr/local/bin/git-quick-stats
+    pat = pull --all --tags
+
+[credential]
+	helper = cache --timeout=36000
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true

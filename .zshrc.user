@@ -1,4 +1,4 @@
-
+#SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
@@ -9,9 +9,11 @@ export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
+# Virtualenv
 export WORKON_HOME=~/.virtualenvs
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
+#Git
 export MYGIT="$HOME/dev/116/"
 
 export LESS="-j.5 -R --hilite-search"
@@ -43,6 +45,11 @@ setopt HIST_SAVE_NO_DUPS
 
 #MDV set theme
 export MDV_THEME="884.0134"
+
+#move to git repo
+function ggo {
+		cd $(find -name ".git" | cut -d\/ -f 4 --complement | grep $1)
+}
 
 plugins=(fzf-zsh)
 
