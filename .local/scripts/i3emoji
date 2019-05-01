@@ -2,9 +2,6 @@
 # adapted from https://github.com/LukeSmithxyz/voidrice/blob/9524786a864ee3614e37ab260e413c3eaadf78fd/.scripts/i3cmds/dmenuunicode
 # Give rofi list of all unicode characters to copy.
 
-# Must have xclip installed to even show menu.
-xclip -h >/dev/null || exit
-
 chosen=$(grep -v "#" ~/.resources/emoji | rofi -dmenu)
 
 [ "$chosen" != "" ] || exit

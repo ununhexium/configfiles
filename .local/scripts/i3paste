@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+clipster -o -n 999 | rofi -dmenu
+
