@@ -67,10 +67,10 @@ bindsym $mod+a focus parent
 set $workspace1 ""
 set $workspace2 ""
 set $workspace3 ""
-set $workspace4 " files"
-set $workspace5 " virtual machines"
-set $workspace6 " status"
-set $workspace7 "♬ music"
+set $workspace4 ""
+set $workspace5 ""
+set $workspace6 ""
+set $workspace7 "♬"
 set $workspace0 " random"
 
 # Switch to workspace
@@ -176,9 +176,6 @@ focus_follows_mouse no
 
 # Startup programs
 
-# Wallpaper
-exec_always --no-startup-id feh --bg-fill --no-xinerama ~/Images/bg/cyberpunk.png
-
 # Compositor for window transparency
 exec --no-startup-id compton -f
 
@@ -198,7 +195,8 @@ exec --no-startup-id unclutter -idle 1 -root
 exec --no-startup-id xbindkeys
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xset r rate 200 30
-exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id krb5-auth-dialog
+
+# Wallpaper
 exec --no-startup-id /home/uuh/.local/scripts/i3background
 

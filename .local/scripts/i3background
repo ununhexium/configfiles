@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-mpv --border --wid=0 --loop-file=inf --speed=1.0 --scale=nearest /home/uuh/Pictures/bg/rolly_rocket_by_valenberg-d9y6rvp.gif
+gifdir=/home/uuh/Pictures/bg/gif
+gif="$gifdir/$(ls -1 /home/uuh/Pictures/bg/gif | shuf -n 1)"
+
+mpv --border --wid=0 --loop-file=inf --speed=1.0 --scale=nearest $gif

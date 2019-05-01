@@ -1,26 +1,18 @@
 /**
  * ROFI Color theme
- * User: andrea
- * Copyright: None
+ * User: ununhexium
+ * Copyright: Creative commons, Attribution
  */
 
 /* Global settings and color variables */
-/**
- */
 * {
-   maincolor:        #ff00ff;
-   urgentcolor:      #ff0000;
    highlight:        bold #ff00ff;
 
-   cyan:             #00ffff;
    gray:             #aaaaaa;
 
-   blackdarkest:     #1d1d1d;
-   blackwidget:      #000000;
    blackentry:       #000000;
    darkgray:         #848484;
-   scrollbarcolor:   #505050;
-   font: "DejaVuSansMono Nerd Font Mono 20";
+   font: "ProggyCleanTT Nerd Font Mono 30";
    background-color: black;
 }
 
@@ -32,7 +24,7 @@ window {
 }
 
 mainbox {
-   background-color: @cyan;
+   background-color: cyan;
    spacing: 0px;
    border: 1;
    padding: 10px;
@@ -41,12 +33,12 @@ mainbox {
 
 message {
    padding: 6px 10px;
-   background-color: @blackwidget;
+   background-color: black;
 }
 
 textbox {
-   text-color:@darkgray;
-   background-color:@blackwidget;
+   text-color:gray;
+   background-color:black;
 }
 
 listview {
@@ -60,20 +52,20 @@ listview {
 }
 
 element {
-   padding: 2px 15px;
+   padding: 15px 50px;
 }
 
 element normal.normal {
    padding: 0px 15px;
-   text-color: @gray;
+   text-color: gray;
 }
 
 element normal.urgent {
-   text-color: @urgentcolor;
+   text-color: red;
 }
 
 element normal.active {
-   text-color: @maincolor;
+   text-color: magenta;
 }
 
 element selected.normal {
@@ -81,49 +73,49 @@ element selected.normal {
 }
 
 element selected.urgent {
-    background-color: @urgentcolor;
+    background-color: red;
     text-color: black;
 }
 
 element selected.active {
     background-color: black;
-    text-color: @cyan;
+    text-color: cyan;
 }
 
 element alternate.normal {
-    text-color: @gray;
+    text-color: gray;
 }
 
 element alternate.urgent {
-    text-color: @urgentcolor;
+    text-color: red;
 }
 
 element alternate.active {
-    text-color: @maincolor;
+    text-color: magenta;
 }
 
 scrollbar {
-   background-color: @blackwidget;
+   background-color: black;
    handle-color: magenta;
-   handle-width: 20px;
+   handle-width: 40px;
 }
 
 sidebar {
-   background-color: @blackwidget;
+   background-color: black;
 }
 
 button {
-   background-color: @blackwidget;
-   text-color: @darkgray;
+   background-color: black;
+   text-color: darkgray;
 }
 
 button selected {
-    text-color: @maincolor;
+    text-color: magenta;
 }
 
 inputbar {
    background-color: black;
-   text-color: @cyan;
+   text-color: cyan;
    spacing: 0px;
 }
 
@@ -135,12 +127,12 @@ prompt {
 
 entry {
    padding: 6px 10px;
-   background-color: @blackwidget;
+   background-color: black;
    text-color: magenta;
 }
 
 case-indicator {
    padding: 6px 10px;
-   text-color: @maincolor;
-   background-color: @blackwidget;
+   text-color: magenta;
+   background-color: black;
 }
