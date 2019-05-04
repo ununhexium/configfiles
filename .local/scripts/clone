@@ -1,22 +1,22 @@
-#!/usr/bin/env python3
+#!/usr/bin/env bash
 
 # clones urls like git@github.com:tavianator/bfs.git
 
-import re
-import sys
-import os
-import subprocess
 
+format='git@github.com:(.*)/(.*).git'
+devDir="$HOME/dev"
 
-m=re.match('git@github.com:(.*)/(.*).git', sys.argv[1])
-devDir=os.environ['HOME'] + '/dev/'
-
-if m:
-	repogroup=os.path.join(os.getcwd(), m.group(1))
-	folder=os.path.join(devDir, repogroup)
-	if not os.path.exists(folder):
-		os.mkdir(folder)
-	subprocess.run(['git', 'clone', sys.argv[1], devDir + m.group(1) + '/' + m.group(2)])
-else:
-	print("Don't know how to clone " + sys.argv[1])
+if [[ $1 =~ $format ]]; then
+	repogroup="${BASH_REMATCH[1]}"
+	folder="$devDir/$repogroup/${BASH_REMATCH[2]}"
+	if [ ! -e "$folder" ]; then
+		cecho cyan "Create $folder"
+		mkdir -p "$folder"
+		cd "$folder"
+		echo git clone "$1" "$folder"
+		git clone "$1" "$folder"
+	fi
+else
+	echo "Don't know how to clone $1"
+fi
 
