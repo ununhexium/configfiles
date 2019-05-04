@@ -178,7 +178,7 @@ focus_follows_mouse no
 # Startup programs
 
 # Compositor for window transparency
-exec --no-startup-id compton -f
+# exec --no-startup-id compton -f
 
 #Clipboard
 exec --no-startup-id clipster -d
@@ -190,7 +190,6 @@ bindsym $mod+M exec --no-startup-id i3menu
 
 # Others
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id firewall-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id notify-send "Welcome back 116!"
