@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+here=$PWD
+
+IFS=$'\n'
+for dir in $(find -name ".git" -not -path ".git"); do
+	cd "$here/$(dirname $dir)"
+	git update-index -q --refresh
+	CHANGED=$(git diff-index --name-only HEAD --)
+	if [[ $(git status --porcelain) ]]; then 
+			cecho cyan $PWD
+			git $*
+	fi
+done
+

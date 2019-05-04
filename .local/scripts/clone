@@ -13,7 +13,7 @@ devDir=os.environ['HOME'] + '/dev/'
 
 if m:
 	repogroup=os.path.join(os.getcwd(), m.group(1))
-	folder=os.path.join(os.getcwd(), repogroup)
+	folder=os.path.join(devDir, repogroup)
 	if not os.path.exists(folder):
 		os.mkdir(folder)
 	subprocess.run(['git', 'clone', sys.argv[1], devDir + m.group(1) + '/' + m.group(2)])
