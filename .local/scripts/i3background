@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 gifdir=/home/uuh/Pictures/bg/gif
-gif="$gifdir/$(ls -1 /home/uuh/Pictures/bg/gif | shuf -n 1)"
+gif="$gifdir/$(ls -1 /home/uuh/.resources/bg/gif | shuf -n 1)"
 
 mpv --border --wid=0 --loop-file=inf --speed=1.0 --scale=nearest $gif

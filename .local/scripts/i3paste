@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-clipster -o -n 999 | rofi -dmenu
+clipster -o -n 999 | rofi -dmenu | tr -d '\n' | xclip -selection clipboard
 
