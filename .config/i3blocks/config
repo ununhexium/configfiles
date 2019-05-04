@@ -22,12 +22,13 @@ markup=pango
 
 # CPU usage
 [cpu_usage]
+label=
 interval=2
 min_width=100
 
 # Free space of /
 [disk]
-label=
+label=
 instance=/home
 interval=3600
 
@@ -41,7 +42,7 @@ interval=2
 
 # Free RAM
 [memory]
-label=
+label=
 interval=2
 
 # Volume
@@ -60,3 +61,5 @@ label=
 command=date '+%H:%M' 
 interval=5
 
+[pulseaudio]
+interval=once

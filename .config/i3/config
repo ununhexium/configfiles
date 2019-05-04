@@ -9,7 +9,8 @@ gaps inner 5
 smart_borders on
 
 # Font for window titles.
-font pango: FuraMono Nerd Font Bold 10
+#font pango: FuraMono Nerd Font Bold 10
+font pango: ProggyCleanTT Nerd Font Mono 15
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -71,7 +72,7 @@ set $workspace4 ""
 set $workspace5 ""
 set $workspace6 ""
 set $workspace7 "♬"
-set $workspace8 "🗣"
+set $workspace8 "﬐"
 set $workspace0 ""
 
 # Switch to workspace
@@ -151,7 +152,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: FuraMono Nerd Font 13
+	font pango: ProggyCleanTT Nerd Font Mono 20
 	colors
 	{
                         # Border	# Background	# Text
