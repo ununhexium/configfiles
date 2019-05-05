@@ -11,12 +11,12 @@ output=""
 if [ $security -ne 0 ]; then
 	indicator=""
 	if [ $normal -ne 0 ]; then
-		indicator="<sup><span foreground='#$ORANGE_FG'>+$normal</span></sup>"
+		indicator="<sup><span foreground='#FF00FF'>+$normal</span></sup>"
 	fi
-	output="<span foreground='#FF0000'> </span><span font_weight='bold' foreground='#$WHITE_FG'>${security}$indicator</span>"
-	#notify-send --urgency critical "$security Secutiry updates available"
+	output="<span foreground='#FF00FF'> </span><span font_weight='bold' foreground='#FF00FF'>${security}$indicator</span>"
+	notify-send --urgency critical "$security Secutiry updates available"
 elif [ $normal -ne 0 ]; then
-	output="<span foreground='#ff8c00'> $normal</span>"
+	output="<span foreground='#00FFFF'> $normal</span>"
 fi
 
 echo "$output"

@@ -20,6 +20,11 @@ markup=pango
 #border=#00cde0
 #interval=5
 
+#GPU usage
+[gpu_usage]
+label=
+interval=2
+
 # CPU usage
 [cpu_usage]
 label=

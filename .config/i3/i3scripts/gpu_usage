@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+src="/mnt/ramdisk/nvidia-smi"
+
+nvidia-smi -q --xml-format > "$src"
+gpu=$(cat "$src" | xmlstarlet fo -D | xmlstarlet sel -t -v "//nvidia_smi_log/gpu/utilization/gpu_util")
+
+echo "$gpu"
+
+exit 0;
