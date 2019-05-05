@@ -25,6 +25,9 @@ markup=pango
 label=
 interval=2
 
+[separator]
+interval=once
+
 # CPU usage
 [cpu_usage]
 label=

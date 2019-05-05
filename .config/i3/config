@@ -162,7 +162,7 @@ bar
 		inactive_workspace  $elegant  $elegant 	$cyan
 		urgent_workspace    $acqua    $acqua    $silver
 		background          $elegant
-    	}
+   	}
 }
 
 # Screenshots
