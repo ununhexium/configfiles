@@ -1,0 +1,6 @@
+#!/usrbin/env bash
+
+program="$1"
+version="$2"
+
+ln -s 

@@ -12,20 +12,7 @@ use utf8;
 use Getopt::Long;
 
 # default values
-my $t_warn = 50;
-my $t_crit = 80;
 my $cpu_usage = -1;
-
-sub help {
-    print "Usage: cpu_usage [-w <warning>] [-c <critical>]\n";
-    print "-w <percent>: warning threshold to become yellow\n";
-    print "-c <percent>: critical threshold to become red\n";
-    exit 0;
-}
-
-GetOptions("help|h" => \&help,
-           "w=i"    => \$t_warn,
-           "c=i"    => \$t_crit);
 
 # Get CPU usage
 $ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
@@ -42,15 +29,12 @@ $cpu_usage eq -1 and die 'Can\'t find CPU information';
 
 # Print short_text, full_text
 printf "%.2f%%\n", $cpu_usage;
+# No idea why printing it twce makes the coloration work ...
+printf "%.2f%%\n", $cpu_usage;
 
 # Print color, if needed
-if ($cpu_usage >= $t_crit) {
-    print "#f2021a\n";
-    exit 33;
-} elsif ($cpu_usage >= $t_warn) {
-    print "#fd971f\n";
-} else {
-    print "#8CE000\n";
+if ($cpu_usage >= 95) {
+    print "#00FFFF\n";
 }
 
 exit 0;

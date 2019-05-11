@@ -26,7 +26,7 @@ binmode(STDOUT, ":utf8");
 
 # default values
 my $t_warn = 70;
-my $t_crit = 90;
+my $t_crit = 75;
 my $chip = "";
 my $temperature = -9999;
 
@@ -61,11 +61,10 @@ $temperature eq -9999 and die 'Cannot find temperature';
 # Print color, if needed
 if ($temperature >= $t_crit) {
     print "\x{f2c7} $temperature°C\n" x2;
-    print "#FF0000\n";
-    exit 33;
+    print "#FF00FF\n";
 } elsif ($temperature >= $t_warn) {
     print "\x{f2c8} $temperature°C\n" x2;
-    print "#FFFC00\n";
+    print "#FFFF00\n";
 } else {
     print "\x{f2c9} $temperature°C\n" x2;
 }
