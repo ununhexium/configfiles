@@ -9,6 +9,7 @@ markup=pango
 #border_right=0
 #border_left=0
 #border_bottom=0
+min_width=200
 
 # Blocks
 
@@ -24,16 +25,15 @@ markup=pango
 [gpu_usage]
 label=
 interval=2
-min_width=150
 
 [separator]
 interval=once
+min_width=0
 
 # CPU usage
 [cpu_usage]
 label=
 interval=2
-min_width=150
 
 # Free space of /
 [disk]
