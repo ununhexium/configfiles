@@ -1,40 +1,22 @@
-#!/usr/bin/perl
-#
-# Copyright 2014 Pierre Mavro <deimos@deimos.fr>
-# Copyright 2014 Vivien Didelot <vivien@didelot.org>
-# Copyright 2014 Andreas Guldstrand <andreas.guldstrand@gmail.com>
-#
-# Licensed under the terms of the GNU GPL v3, or any later version.
+#!/usr/bin/env bash
 
-use strict;
-use warnings;
-use utf8;
-use Getopt::Long;
+cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
+load=$(cat "/proc/loadavg" | cut -d' ' -f1)
+count=$(cat "/proc/cpuinfo" | grep processor | wc -l)
 
-# default values
-my $cpu_usage = -1;
+high=$(echo "scale=1 ; $count / 2" | bc)
+warn=$(echo "scale=1 ; $count / 2 + $count / 4" | bc)
+crit=$count
 
-# Get CPU usage
-$ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
-open (MPSTAT, 'mpstat 1 1 |') or die;
-while (<MPSTAT>) {
-    if (/^.*\s+(\d+\.\d+)\s+$/) {
-        $cpu_usage = 100 - $1; # 100% - %idle
-        last;
-    }
-}
-close(MPSTAT);
-
-$cpu_usage eq -1 and die 'Can\'t find CPU information';
 
 # Print short_text, full_text
-printf "%.2f%%\n", $cpu_usage;
-# No idea why printing it twce makes the coloration work ...
-printf "%.2f%%\n", $cpu_usage;
+echo "$cpu_usage%"
+echo "H $high W $warn C $crit"
 
 # Print color, if needed
-if ($cpu_usage >= 95) {
-    print "#00FFFF\n";
-}
+[[ $(echo "$load > $crit" | bc -l) == 1 ]] && echo "#FF00FF" && exit 0
+[[ $(echo "$load > $warn" | bc -l) == 1 ]] && echo "#FFFF00" && exit 0
+[[ $(echo "$load > $high" | bc -l) == 1 ]] && echo "#00FFFF" && exit 0
+
 
 exit 0;
