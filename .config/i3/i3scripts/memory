@@ -9,7 +9,7 @@ function extract() {
 
 extract "MemAvailable"
 kb="$ext"
-#kb="22456789"
+#kb="4456789"
 gb=$(echo "scale=1 ; $kb / 1024 / 1024" | bc)
 
 extract "MemTotal"
@@ -17,14 +17,14 @@ total=$ext
 usage=$(echo "$kb * 100 / $total" | bc)
 
 high=50
-warn=75
-crit=90
+warn=25
+crit=10
 
 echo $gb GB
 echo $gb GB
 
-[[ "$usage" -gt "$crit" ]] && echo "#FF00FF" && exit 0
-[[ "$usage" -gt "$warn" ]] && echo "#FFFF00" && exit 0
-[[ "$usage" -gt "$high" ]] && echo "#00FFFF" && exit 0
+[[ "$usage" -lt "$crit" ]] && echo "#FF00FF" && exit 0
+[[ "$usage" -lt "$warn" ]] && echo "#FFFF00" && exit 0
+[[ "$usage" -lt "$high" ]] && echo "#00FFFF" && exit 0
 
 exit 0
