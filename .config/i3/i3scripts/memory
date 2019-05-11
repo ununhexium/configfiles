@@ -1,49 +1,30 @@
-#!/bin/sh
-# Copyright (C) 2014 Julien Bonjean <julien@bonjean.info>
+#!/usr/bin/env bash
 
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
+# to hold the result of extract
+ext=""
 
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
+function extract() {
+    ext=$(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
+}
 
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+extract "MemAvailable"
+kb="$ext"
+#kb="22456789"
+gb=$(echo "scale=1 ; $kb / 1024 / 1024" | bc)
 
-TYPE="${BLOCK_INSTANCE:-mem}"
+extract "MemTotal"
+total=$ext
+usage=$(echo "$kb * 100 / $total" | bc)
 
-awk -v type=$TYPE '
-/^MemTotal:/ {
-	mem_total=$2
-}
-/^MemFree:/ {
-	mem_free=$2
-}
-/^Buffers:/ {
-	mem_free+=$2
-}
-/^Cached:/ {
-	mem_free+=$2
-}
-/^SwapTotal:/ {
-	swap_total=$2
-}
-/^SwapFree:/ {
-	swap_free=$2
-}
-END {
-	# full text
-	if (type == "swap")
-		printf("%.1fG\n", (swap_total-swap_free)/1024/1024)
-	else
-		printf("%.1fG\n", mem_free/1024/1024)
+high=50
+warn=75
+crit=90
 
-	# TODO: short text
+echo $gb GB
+echo $gb GB
 
-	# TODO: color (if less than X%)
-}
-' /proc/meminfo
+[[ "$usage" -gt "$crit" ]] && echo "#FF00FF" && exit 0
+[[ "$usage" -gt "$warn" ]] && echo "#FFFF00" && exit 0
+[[ "$usage" -gt "$high" ]] && echo "#00FFFF" && exit 0
+
+exit 0
