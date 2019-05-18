@@ -1,0 +1,5 @@
+#compdef ggo
+
+_alternative "arguments:custom arg:($(find "$HOME/dev" -name ".git" | xargs dirname))"
+
+
