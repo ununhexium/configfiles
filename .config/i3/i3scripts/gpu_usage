@@ -3,8 +3,23 @@
 src="/mnt/ramdisk/nvidia-smi"
 
 nvidia-smi -q --xml-format > "$src"
-gpu=$(cat "$src" | xmlstarlet fo -D | xmlstarlet sel -t -v "//nvidia_smi_log/gpu/utilization/gpu_util")
 
-echo "$gpu"
+high=70
+warn=80
+crit=90
+
+usage=$(cat "$src" | xmlstarlet fo -D | xmlstarlet sel -t -v "//nvidia_smi_log/gpu/utilization/gpu_util")
+
+temperature=$(cat "$src" | xmlstarlet fo -D | xmlstarlet sel -t -v "//nvidia_smi_log/gpu/temperature/gpu_temp")
+
+
+echo "$usage | $temperature"
+echo ""
+
+number=$(echo $temperature | cut -d' ' -f1)
+
+[[ $number -gt $crit ]] && echo "#ff00ff" && exit 0
+[[ $number -gt $warn ]] && echo "#ffff00" && exit 0
+[[ $number -gt $high ]] && echo "#00ffff" && exit 0
 
 exit 0;
