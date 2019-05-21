@@ -4,6 +4,26 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 
+echo "Installing system dependencies"
+sudo apt install \
+    dunst \
+    entr \
+    pip \
+    rofi \
+    zsh
+
+
+echo "Installing python dependencies"
+pip install pipsi
+
+
+echo "Installing rust dependencies"
+cargo install --force \
+    fd-find \
+    lsd \
+    ripgrep
+
+
 mark=$(date "+%Y-%m-%dT%H:%M:%S")
 bkpdir="$HOME/.backup/setup/$mark"
 
