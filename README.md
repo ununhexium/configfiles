@@ -74,3 +74,10 @@ Equivalent to `vi $(which scriptname))`
 
 
 
+## TODOs
+
+### cargo install --skip
+
+https://github.com/rust-lang/cargo/issues/6813
+
+
