@@ -1,7 +1,7 @@
 
 echo "Installing python dependencies"
 
-pip install --python $(which python3) pipsi || exit 1
+pip3 install pipsi || exit 1
 
 
 function pipsii() {

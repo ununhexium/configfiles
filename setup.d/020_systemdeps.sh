@@ -5,9 +5,9 @@ sudo apt install -y \
     dunst \
     entr \
     flameshot \
-    glances \ 
+    glances \
     gource \
-    htop \ 
+    htop \
     python3 \
     python3-pip \
     rofi \
