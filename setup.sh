@@ -16,6 +16,14 @@ fi
 DONEDIR="$HOME/.backup/setup/done/"
 mkdir "$DONEDIR"
 
+
+echo "Base config"
+for file in $(ls "$SCRIPTPATH/setup.d" | sort -n); do
+    [[ ! -e "$DONEDIR/$file" ]] && source "$SCRIPTPATH/setup.d/$file" && touch "$DONEDIR/$file"
+done
+
+source "$SCRIPTPATH/setup.d/core.sh"
+
 bnl .config/clipster.ini
 bnl .config/dunst
 bnl .config/i3
@@ -28,11 +36,4 @@ bnl .resources
 bnl .vimrc
 bnl .zshrc
 bnl .zshrc.user
-
-
-echo "Base config"
-for file in $(ls "$SCRIPTPATH/setup.d"); do
-    [[ ! -e "$DONEDIR/$file" ]] && source "$SCRIPTPATH/setup.d/$file" && touch "$DONEDIR/$file"
-done
-
 
