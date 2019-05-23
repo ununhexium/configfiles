@@ -16,6 +16,7 @@ sudo apt install -y \
     curl \
     dunst \
     entr \
+    flameshot \
     glances \
     gource \
     htop \
@@ -27,6 +28,11 @@ sudo apt install -y \
     vim-runtime \
     virtualbox-6.0 \
     zsh
+
+echo "Base config"
+for file in $(ls "$SCRIPTPATH/setup.d"); do
+    source "$SCRIPTPATH/setup.d/$file"
+done
 
 echo "Install vim dependencies"
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
