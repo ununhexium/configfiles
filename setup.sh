@@ -4,6 +4,7 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 
+export PATH="$PATH:$HOME/.local/bin"
 
 mark=$(date "+%Y-%m-%dT%H:%M:%S")
 bkpdir="$HOME/.backup/setup/$mark"
