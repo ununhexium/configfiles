@@ -12,6 +12,7 @@ function pipsii() {
 }   
 
 pipsii \
+    clipster \
     thefuck \
     tldr
 

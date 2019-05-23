@@ -4,7 +4,7 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts"
 
 mark=$(date "+%Y-%m-%dT%H:%M:%S")
 bkpdir="$HOME/.backup/setup/$mark"
@@ -17,11 +17,6 @@ fi
 DONEDIR="$HOME/.backup/setup/done/"
 mkdir "$DONEDIR"
 
-
-echo "Base config"
-for file in $(ls "$SCRIPTPATH/setup.d" | sort -n); do
-    [[ ! -e "$DONEDIR/$file" ]] && source "$SCRIPTPATH/setup.d/$file" && touch "$DONEDIR/$file"
-done
 
 source "$SCRIPTPATH/setup.d/core.sh"
 
@@ -37,4 +32,10 @@ bnl .resources
 bnl .vimrc
 bnl .zshrc
 bnl .zshrc.user
+
+
+echo "Base config"
+for file in $(ls "$SCRIPTPATH/setup.d" | sort -n); do
+    [[ ! -e "$DONEDIR/$file" ]] && source "$SCRIPTPATH/setup.d/$file" && touch "$DONEDIR/$file"
+done
 
