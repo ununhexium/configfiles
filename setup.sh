@@ -4,13 +4,25 @@ SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 echo $SCRIPTPATH
 
+echo "Adding third party repos"
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+
+sudo apt update
+
 echo "Installing system dependencies"
 sudo apt install \
     dunst \
     entr \
+    glances \
+    gource \
+    htop \
     python3 \
     python3-pip \
     rofi \
+    tree \
+    virtualbox-6.0 \
     zsh
 
 
