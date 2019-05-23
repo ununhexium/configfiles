@@ -1,0 +1,5 @@
+
+echo "Configuring flameshot"
+
+flameshot config --maincolor '#00ffff' --contrastcolor '#ff00ff'
+
