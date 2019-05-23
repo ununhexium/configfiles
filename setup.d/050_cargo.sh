@@ -14,4 +14,5 @@ cargoi \
     lsd \
     ripgrep
 
+source "$HOME/.cargo/env"
 
