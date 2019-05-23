@@ -4,7 +4,9 @@ My personal config files with a setup script.
 
 The theme is 8-bit style making good use of 4k screens: now shows up to 25 pixels per pixel 🙃.
 
-⚠ Do not use with compton.
+## Quick install
+
+git clone 'https://github.com/ununhexium/configfiles.git' && cd configfiles && ./setup.sh
 
 ## Content
 

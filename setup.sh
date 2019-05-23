@@ -12,7 +12,8 @@ sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bi
 sudo apt update
 
 echo "Installing system dependencies"
-sudo apt install \
+sudo apt install -y \
+    curl \
     dunst \
     entr \
     glances \
@@ -22,12 +23,18 @@ sudo apt install \
     python3-pip \
     rofi \
     tree \
+    vim-gui-common \
+    vim-runtime \
     virtualbox-6.0 \
     zsh
 
+echo "Install vim dependencies"
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 
 echo "Installing python dependencies"
-pip install pipsi
+pip install --python $(which python3) pipsi
 
 
 function pipsii() {
@@ -38,7 +45,8 @@ function pipsii() {
 }
 
 pipsii \
-    thefuck
+    thefuck \
+    tldr
 
 function cargoi() {
     for var in "$@"; do
@@ -46,8 +54,9 @@ function cargoi() {
     done
 }
 
-
 echo "Installing rust dependencies"
+command cargo || curl https://sh.rustup.rs -sSf | sh
+
 cargoi \
     fd-find \
     lsd \
