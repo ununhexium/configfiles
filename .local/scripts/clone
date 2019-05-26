@@ -7,16 +7,18 @@ format='git@github.com:(.*)/(.*).git'
 devDir="$HOME/dev"
 
 if [[ $1 =~ $format ]]; then
-	repogroup="${BASH_REMATCH[1]}"
-	folder="$devDir/$repogroup/${BASH_REMATCH[2]}"
-	if [ ! -e "$folder" ]; then
-		cecho cyan "Create $folder"
-		mkdir -p "$folder"
-		cd "$folder"
-		echo git clone "$1" "$folder"
-		git clone "$1" "$folder"
-	fi
+    repogroup="${BASH_REMATCH[1]}"
+    reponame="${BASH_REMATCH[2]}"
+    basefolder="$devDir/$repogroup/"
+    folder="$basefolder/$reponame"
+    if [ ! -e "$folder" ]; then
+        cecho cyan "Create $basefolder"
+        mkdir -p "$basefolder"
+        cd "$basefolder"
+        echo git clone "$1" "$reponame"
+        git clone "$1" "$folder"
+    fi
 else
-	echo "Don't know how to clone $1"
+    echo "Don't know how to clone $1"
 fi
 

@@ -12,7 +12,7 @@ function pipsii() {
 }   
 
 pipsii \
-    clipster \
+    ipython \
     thefuck \
     tldr
 

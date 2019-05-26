@@ -1,6 +1,7 @@
 echo "Installing system dependencies"
 
 sudo apt install -y \
+    arandr \
     compton \
     curl \
     dunst \
@@ -9,8 +10,10 @@ sudo apt install -y \
     glances \
     gource \
     htop \
+    imagemagick \
     python3 \
     python3-pip \
+    ranger \
     redshift-gtk \
     rofi \
     tree \

@@ -103,6 +103,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 # Always open some programs on specified workspace
 assign [class="Firefox"]    $workspace1
 assign [class="idea"]	   	$workspace2
+assign [class="Nautilus"]	$workspace4
 assign [class="VirtualBox"]	$workspace5
 assign [class="cmus"]		$workspace7
 
