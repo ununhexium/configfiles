@@ -1,6 +1,7 @@
 echo "Installing nerdfonts"
 
-clone git@github.com:ryanoasis/nerd-fonts.git
+into=$(clone git@github.com:ryanoasis/nerd-fonts.git | grep "Cloning into" | grep -o "'.*'")
 
-"$HOME/dev/ryanoasis/nerd-fonts/install ProggyCleanTT"
+cd "$into"
+"./install ProggyCleanTT"
 
