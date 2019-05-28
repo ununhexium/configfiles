@@ -1,22 +1,41 @@
 #!/usr/bin/env bash
 
-cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
-load=$(cat "/proc/loadavg" | cut -d' ' -f1)
-count=$(cat "/proc/cpuinfo" | grep processor | wc -l)
+function show_usage() {
 
-high=$(echo "scale=1 ; $count / 2" | bc)
-warn=$(echo "scale=1 ; $count / 2 + $count / 4" | bc)
-crit=$count
+    cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
+    load=$(cat "/proc/loadavg" | cut -d' ' -f1)
+    count=$(cat "/proc/cpuinfo" | grep processor | wc -l)
+    
+    high=$(echo "scale=1 ; $count / 2" | bc)
+    warn=$(echo "scale=1 ; $count / 2 + $count / 4" | bc)
+    crit=$count
+    
+    
+    # Print short_text, full_text
+    echo "$cpu_usage%"
+    echo "H $high W $warn C $crit"
+    
+    # Print color, if needed
+    [[ $(echo "$load > $crit" | bc -l) == 1 ]] && echo "#FF00FF" && exit 0
+    [[ $(echo "$load > $warn" | bc -l) == 1 ]] && echo "#FFFF00" && exit 0
+    [[ $(echo "$load > $high" | bc -l) == 1 ]] && echo "#00FFFF" && exit 0
+
+}
 
 
-# Print short_text, full_text
-echo "$cpu_usage%"
-echo "H $high W $warn C $crit"
+case $BLOCK_BUTTON in
+    1) 
+        terminator -T cpu_usage_click -e "htop --sort-key PERCENT_CPU" &
+        # Dirty hack to give to to xterm to start
+        while [ -z "$ID" ]; do
+            ID=$(xdotool search --name cpu_usage_click)
+            sleep "0.1"
+        done
+        xdotool windowmove $ID $(expr $BLOCK_X - 500) 100
+        xdotool windowsize $ID 1000 700
+        ;;
+esac
 
-# Print color, if needed
-[[ $(echo "$load > $crit" | bc -l) == 1 ]] && echo "#FF00FF" && exit 0
-[[ $(echo "$load > $warn" | bc -l) == 1 ]] && echo "#FFFF00" && exit 0
-[[ $(echo "$load > $high" | bc -l) == 1 ]] && echo "#00FFFF" && exit 0
-
+show_usage
 
 exit 0;

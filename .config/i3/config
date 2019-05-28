@@ -107,6 +107,8 @@ assign [class="Nautilus"]	$workspace4
 assign [class="VirtualBox"]	$workspace5
 assign [class="cmus"]		$workspace7
 
+for_window [title="cpu_usage_click"] floating enable 
+
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 

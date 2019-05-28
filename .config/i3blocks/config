@@ -33,7 +33,7 @@ min_width=0
 # CPU usage
 [cpu_usage]
 label=
-interval=2
+interval=5
 
 # Free space of /
 [disk]

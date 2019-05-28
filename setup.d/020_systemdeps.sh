@@ -16,11 +16,13 @@ sudo apt install -y \
     ranger \
     redshift-gtk \
     rofi \
+    terminator \
     tree \
     unclutter \
     vim-gui-common \
     vim-runtime \
     virtualbox-6.0 \
+    xterm \
     zsh
 
 sudo chsh --shell /usr/bin/zsh

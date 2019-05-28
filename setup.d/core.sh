@@ -6,9 +6,11 @@ bkpdir="$HOME/.backup/setup/$mark"
 function backup() {
     name="$(echo $1 | sed -e 's#/#_#g')"
     archive="$bkpdir/$name"
-    echo "Archiving $1 to $archive"
-    mv "$1" "$archive"
-}   
+    if [ -e $1 ]; then
+        echo "Archiving $1 to $archive"
+        mv "$1" "$archive"
+    fi
+}
 
 # Backup and Link
 function bnl() {
@@ -18,10 +20,12 @@ function bnl() {
         if [ -L "$dst" -a $(readlink -f "$dst") = "$src" ]; then
             echo "Skip replacement of $dst, it is already the right target"
         else
-            echo "Backup $1 to $dst"
-            backup "$dst"
-            echo "Linking $src to $dst"
-            ln -s "$src" "$dst"
+            if [ -e $1 ]; then
+                echo "Backup $1 to $dst"
+                backup "$dst"
+                echo "Linking $src to $dst"
+                ln -s "$src" "$dst"
+            fi
         fi
     fi
 
