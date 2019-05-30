@@ -2,7 +2,11 @@
 
 function show_usage() {
 
-    cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+    source "$DIR/cpu_usage_location.sh"
+    # cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
+    "$DIR/refresh_cpu_usage.sh" &
+    cpu_usage=$(cat "$cpu_usage_location") || exit 1
     load=$(cat "/proc/loadavg" | cut -d' ' -f1)
     count=$(cat "/proc/cpuinfo" | grep processor | wc -l)
     
@@ -37,6 +41,7 @@ case $BLOCK_BUTTON in
         # give some time for the WM to focus the terminator window
         # sleep 0.5
 
+        # Close htop cleanly
         xdotool search --name cpu_usage_click behave %@ blur windowfocus key F10
         xdotool keyup F10
 #        while IFS= read -r line
