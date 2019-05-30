@@ -11,6 +11,7 @@ sudo apt install -y \
     gource \
     htop \
     imagemagick \
+    kdiff3 \
     python3 \
     python3-pip \
     ranger \

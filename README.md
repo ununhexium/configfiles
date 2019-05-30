@@ -85,3 +85,8 @@ https://github.com/rust-lang/cargo/issues/6813
 ### Clipster
 
 Install clipter automatically
+
+### Tmpfs Setup
+
+make /mnt/tmpfs a ramdisk
+
