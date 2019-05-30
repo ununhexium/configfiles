@@ -7,24 +7,45 @@ function extract() {
     ext=$(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
 }
 
-extract "MemAvailable"
-kb="$ext"
-#kb="4456789"
-gb=$(echo "scale=1 ; $kb / 1024 / 1024" | bc)
+function memory() {
+    extract "MemAvailable"
+    kb="$ext"
+    #kb="4456789"
+    gb=$(echo "scale=1 ; $kb / 1024 / 1024" | bc)
 
-extract "MemTotal"
-total=$ext
-usage=$(echo "$kb * 100 / $total" | bc)
+    extract "MemTotal"
+    total=$ext
+    usage=$(echo "$kb * 100 / $total" | bc)
 
-high=50
-warn=25
-crit=10
+    high=50
+    warn=25
+    crit=10
 
-echo $gb GB
-echo $gb GB
+    echo $gb GB
+    echo $gb GB
 
-[[ "$usage" -lt "$crit" ]] && echo "#FF00FF" && exit 0
-[[ "$usage" -lt "$warn" ]] && echo "#FFFF00" && exit 0
-[[ "$usage" -lt "$high" ]] && echo "#00FFFF" && exit 0
+    [[ "$usage" -lt "$crit" ]] && echo "#FF00FF" && exit 0
+    [[ "$usage" -lt "$warn" ]] && echo "#FFFF00" && exit 0
+    [[ "$usage" -lt "$high" ]] && echo "#00FFFF" && exit 0
+}
+
+case $BLOCK_BUTTON in
+    1)
+        name=memory_usage_click
+        terminator -T $name -e "htop --sort-key PERCENT_MEM" &
+        # Dirty hack to give time to terminator to start
+        while [ -z "$ID" ]; do
+            ID=$(xdotool search --name $name)
+        done
+        xdotool windowmove $ID $(expr $BLOCK_X - 500) 100
+        xdotool windowsize $ID 1000 700
+
+        # Close htop cleanly
+        xdotool search --name $name behave %@ blur windowfocus key F10
+        xdotool keyup F10
+        ;;
+esac
+
+memory
 
 exit 0
