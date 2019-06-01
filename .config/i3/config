@@ -106,6 +106,7 @@ assign [class="idea"]	   	$workspace2
 assign [class="Nautilus"]	$workspace4
 assign [class="VirtualBox"]	$workspace5
 assign [class="cmus"]		$workspace7
+assign [class="Steam"]		$workspace0
 
 for_window [title="cpu_usage_click"] floating enable 
 for_window [title="memory_usage_click"] floating enable 
@@ -184,7 +185,7 @@ focus_follows_mouse no
 # Startup programs
 
 # Compositor for window transparency
-exec --no-startup-id compton
+exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
 
 #Clipboard
 exec --no-startup-id clipster -d
