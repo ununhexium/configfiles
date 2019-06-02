@@ -6,17 +6,45 @@ function guesstype() {
 	pygmentize -l $last $1
 }
 
+function show_as_jar() {
+    unzip -l "$1" && javaversion "$1"
+}
+
 function show() {
 	filename=$(basename -- "$1")
 	extension="${filename##*.}"
 	filename="${filename%.*}"
+    filetype=$(file --brief --mime "$1")
 
-	case $extension in
-		md) mdv $1
-		;;
-		*) pygmentize -Ostyle=friendly -g $1
-		;;
-	esac
+    echo "Filetype: $filetype"
+
+    case $filetype in
+
+        application/java-archive*)
+            show_as_jar "$1"
+            ;;
+
+        application/zip*)
+            case $extension in
+                jar) show_as_jar "$1"
+                    ;;
+                *) unzip -l "$1"
+                    ;;
+            esac
+            ;;
+
+        text/plain*)
+            case $extension in
+                md) mdv "$1"
+                    ;;
+                *) pygmentize -Ostyle=friendly -g "$1"
+                    ;;
+            esac
+            ;;
+
+        *) cecho RED "Don't know how to best show $1"
+            ;;
+    esac
 }
 
 while (( "$#" )); do
