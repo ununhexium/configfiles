@@ -21,7 +21,11 @@ export LESS="-j.5 -R --hilite-search"
 # network interface to consider for speedometer
 IFACE=enp4s0
 
-# more custom completion
+# Completion
+## Gradle
+fpath=(/home/uuh/.zsh/gradle-completion $fpath)
+
+## custom
 fpath=(~/.local/scripts/completion $fpath)
 
 # fuck it! >_<
@@ -32,8 +36,7 @@ alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{
 alias df="df -hl"
 alias f="fuck"
 alias g="git"
-alias gradlest="./gradlew --stacktrace"
-alias gradlew="./gradlew"
+alias gradle="./gradlew"
 alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
 alias ls="lsd --color auto"
