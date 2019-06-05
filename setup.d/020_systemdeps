@@ -22,7 +22,6 @@ sudo apt install -y \
     unclutter \
     vim-gui-common \
     vim-runtime \
-    virtualbox-6.0 \
     xterm \
     zsh \
     zsh-syntax-highlighting

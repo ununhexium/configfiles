@@ -36,6 +36,10 @@ bnl .zshrc.user
 
 echo "Base config"
 for file in $(ls "$SCRIPTPATH/setup.d" | sort -n); do
+    echo
+    echo "############################################################"
     [[ ! -e "$DONEDIR/$file" ]] && source "$SCRIPTPATH/setup.d/$file" && touch "$DONEDIR/$file"
+    echo "############################################################"
+    echo
 done
 
