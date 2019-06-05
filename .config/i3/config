@@ -110,6 +110,8 @@ assign [class="Steam"]		$workspace0
 
 for_window [title="cpu_usage_click"] floating enable 
 for_window [title="memory_usage_click"] floating enable 
+for_window [class="qweasd"] floating enable 
+
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload

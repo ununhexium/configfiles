@@ -23,8 +23,7 @@ sudo apt install -y \
     vim-gui-common \
     vim-runtime \
     xterm \
-    zsh \
-    zsh-syntax-highlighting
+    zsh
 
 sudo chsh --shell /usr/bin/zsh
 

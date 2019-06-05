@@ -33,6 +33,10 @@ function show() {
             esac
             ;;
 
+        inode/directory*)
+            lsd "$1"
+            ;;
+
         text/plain*)
             case $extension in
                 md) mdv "$1"
