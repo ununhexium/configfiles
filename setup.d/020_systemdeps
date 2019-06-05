@@ -24,7 +24,8 @@ sudo apt install -y \
     vim-runtime \
     virtualbox-6.0 \
     xterm \
-    zsh
+    zsh \
+    zsh-syntax-highlighting
 
 sudo chsh --shell /usr/bin/zsh
 

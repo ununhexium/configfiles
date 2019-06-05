@@ -1,3 +1,112 @@
+
+# POWERLEVEL9
+
+POWERLEVEL9K_MODE="nerdfont-complete"
+
+POWERLEVEL9K_LINUX_ICON=""
+POWERLEVEL9K_HOME_SUB_ICON=""
+POWERLEVEL9K_FOLDER_ICON=""
+
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%K{white}%k"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%K{black}%F{cyan} \uf155%f%F{black} %k\ue0b0%f "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir dir_writable vcs)
+
+# Separators
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=$'\ue0b0'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=$'\ue231'
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=$'\ue0b2'
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=$'\ue0b7'
+
+# Context
+DEFAULT_USER=$USER
+POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
+POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='cyan'
+POWERLEVEL9K_CONTEXT_TEMPLATE="%F{cyan}%n%f"
+POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='black'
+
+# Dirs
+POWERLEVEL9K_DIR_HOME_BACKGROUND='white'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='black'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='white'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='black'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='magenta'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='black'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="015"
+
+# OS segment
+POWERLEVEL9K_OS_ICON_BACKGROUND='black'
+
+# VCS icons
+POWERLEVEL9K_VCS_GIT_ICON=""
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
+POWERLEVEL9K_VCS_STAGED_ICON=$'\uf055'
+POWERLEVEL9K_VCS_UNSTAGED_ICON=$'\uf421'
+POWERLEVEL9K_VCS_UNTRACKED_ICON=$'\uf00d'
+POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=$'\uf0ab '
+POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=$'\uf0aa '
+
+# VCS colours
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='black'
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='red'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='black'
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
+
+# VCS CONFIG
+POWERLEVEL9K_SHOW_CHANGESET=false
+
+# Status
+POWERLEVEL9K_OK_ICON="%F{cyan}"
+POWERLEVEL9K_FAIL_ICON=""
+POWERLEVEL9K_CARRIAGE_RETURN_ICON=""
+
+# Battery
+POWERLEVEL9K_BATTERY_LOW_FOREGROUND='red'
+POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='yellow'
+POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='green'
+POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='blue'
+
+# Time
+POWERLEVEL9K_TIME_FORMAT="%F{black}\uf017 %D{%I:%M}%f"
+POWERLEVEL9K_TIME_BACKGROUND='cyan'
+POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
+
+# Runtime
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
+
+antigen use oh-my-zsh
+
+export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin:$HOME/bin:/usr/local/bin:$HOME/.local/script:$HOME/.yarn/bin"
+
+
+POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs virtualenv command_execution_time battery load)
+
+#Load
+POWERLEVEL9K_LOAD_WHICH=1
+POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="black"
+POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="magenta"
+POWERLEVEL9K_LOAD_WARNING_BACKGROUND="black"
+POWERLEVEL9K_LOAD_WARNING_FOREGROUND="cyan"
+POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="black"
+POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="white"
+
+antigen theme bhilburn/powerlevel9k powerlevel9k
+
+antigen bundle mvn
+
+#zstyle ':completion:*:mvn:*' show-all-phases true
+
+antigen apply
+
+
 #SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -5,7 +114,6 @@ if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
 	source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
-export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin"
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
@@ -47,6 +155,7 @@ alias pipsi="python3 -m pipsi --home $WORKON_HOME"
 alias pomodoro='while true; do notify-send Pomodoro Resume; sleep 1500; notify-send --urgency critical --expire-time 300000 Pomodoro Pause; done'
 alias sarahconnor="cd $PWD"
 alias speedometer="speedometer -r $IFACE -t $IFACE"
+alias zu="vi $HOME/.zshrc.user"
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -91,3 +200,8 @@ _fzf_compgen_dir() {
     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
 }
 
+## Last lines
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Really the last one
+source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-package=$(apt list | fzf --preview 'echo {} | cut -d\/ -f1 | xargs apt show' | cut -d\/ -f1)
+package=$(apt list 2> /dev/null | fzf --preview 'echo {} | cut -d\/ -f1 | xargs apt show' | cut -d\/ -f1)
 
-sudo apt install "$package"
+[[ ! -z $package ]] && sudo apt install "$package"
 
+echo ": $(date +%s):0;sudo apt install $package" >> ~/.zsh_history
+
+exit 0
