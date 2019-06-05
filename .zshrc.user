@@ -103,6 +103,9 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen bundle mvn
 
 #zstyle ':completion:*:mvn:*' show-all-phases true
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select
 
 antigen apply
 
