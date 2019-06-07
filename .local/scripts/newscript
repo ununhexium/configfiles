@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+newfile="$HOME/.local/scripts/$1"
+
+if [ -e "$newfile" ]; then
+    echo "Skipping: file $newfile exists"
+    exit 1
+fi
+
+
+echo "#!/usr/bin/env bash" > "$newfile"
+chmod u+x "$newfile"
+
+vi "$newfile"
+
+
