@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-choice=$(cat "$HOME"/.resources/menu | cut -d\| -f1 | rofi -i -dmenu)
+choice="$(cut -d\| -f1 < "$HOME"/.resources/menu | rofi -i -dmenu)"
 
 if [ ! -z "$choice" ]; then 
-	script=$(cat "$HOME"/.resources/menu | grep $choice\| | cut -d\| -f2)
+	script="$(grep "$choice|" < "$HOME"/.resources/menu | cut -d\| -f2)"
 fi
 
 $script

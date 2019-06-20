@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+location=$(rofi -dmenu)
+
+sensible-browser "https://maps.google.com/?q=$location"
+
+i3-msg workspace ""
+
+exit 0

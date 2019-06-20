@@ -176,7 +176,7 @@ bar
 bindsym Print exec flameshot gui
 
 # hex pixel locker
-bindsym $mod+Pause exec ~/.i3/locker.sh
+bindsym $mod+Pause exec ~/.config/i3/locker.sh
 
 # emoji search
 bindsym $mod+grave exec --no-startup-id i3emoji
@@ -195,6 +195,7 @@ bindsym $mod+Mod1+V exec --no-startup-id i3paste
 
 #i3 menu
 bindsym $mod+M exec --no-startup-id i3menu
+bindsym $mod+Shift+M exec --no-startup-id i3maps
 
 
 # Others

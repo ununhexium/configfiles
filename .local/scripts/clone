@@ -7,7 +7,7 @@ sshformat='git@github.com:(.*)/(.*).git'
 httpsformat='https://github.com/(.*)/(.*).git'
 devDir="$HOME/dev"
 
-function cloneit() {
+cloneit() {
     repogroup="$2"
     reponame="$3"
     basefolder="$devDir/$repogroup/"
@@ -15,7 +15,7 @@ function cloneit() {
     if [ ! -e "$folder" ]; then
         cecho cyan "Create $basefolder"
         mkdir -p "$basefolder"
-        cd "$basefolder"
+        cd "$basefolder" || exit 1
         echo git clone "$1" "$reponame"
         git clone "$1" "$folder"
     fi

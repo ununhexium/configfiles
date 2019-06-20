@@ -23,6 +23,7 @@ sudo apt install -y \
     vim-gui-common \
     vim-runtime \
     xterm \
+    xz-utils \
     zsh
 
 sudo chsh --shell /usr/bin/zsh

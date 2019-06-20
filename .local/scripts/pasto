@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ $# -gt 1 ]; then
   echo "Only 1 argument: the file where to paste the clipboard content"
 fi
 
-xclip -o > $1
-echo $(xclip -o)
+xclip -o > "$1"
+xclip -o
 
 exit 0

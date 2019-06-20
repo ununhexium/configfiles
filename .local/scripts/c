@@ -1,16 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-function guesstype() {
-	executor=$(cat c | head -n1 | egrep '#!' | sed -e 's/#!//')
-	last=${executor##*/}
-	pygmentize -l $last $1
-}
-
-function show_as_jar() {
+show_as_jar() {
     unzip -l "$1" && javaversion "$1"
 }
 
-function show() {
+show() {
 	filename=$(basename -- "$1")
 	extension="${filename##*.}"
 	filename="${filename%.*}"
@@ -24,6 +18,10 @@ function show() {
             show_as_jar "$1"
             ;;
 
+        application/x-xz*)
+            tar --list --verbose --file="$1"
+            ;;
+
         application/zip*)
             case $extension in
                 jar) show_as_jar "$1"
@@ -33,11 +31,15 @@ function show() {
             esac
             ;;
 
+        inode/x-empty*)
+            cecho blue "Empty file"
+            ;;
+
         inode/directory*)
             lsd "$1"
             ;;
 
-        text/plain*)
+        text/*)
             case $extension in
                 md) mdv "$1"
                     ;;
@@ -51,8 +53,7 @@ function show() {
     esac
 }
 
-while (( "$#" )); do
-	show $1
-	shift
+for file in "$@"; do
+	show "$file"
 done
 

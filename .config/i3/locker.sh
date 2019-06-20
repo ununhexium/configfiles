@@ -1,13 +1,12 @@
 #!/bin/bash
 
-screen='/tmp/screen.png'
-scrot $screen
+screen='/tmp/screen'
+scrot "$screen.jpg"
 
 here=$(dirname "$0")
 
-source ~/.virtualenv/locker/bin/activate
-"$here/hexpixel/hexpxl.py" --input $screen --output $screen
+hexpxl "$screen.jpg" "$screen.png" 15 --mode hex
 
-i3lock -f -i /tmp/screen.png
+i3lock -f -i "$screen.png"
 
 

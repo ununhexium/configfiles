@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-gifdir=/home/uuh/.resources/bg/gif
-gif="$gifdir/$(ls -1 $gifdir | shuf -n 1)"
+gifdir="/home/uuh/.resources/bg/gif"
+gif="$(find "$gifdir" -iname \*.gif | shuf -n 1)"
 pid="$TMP/i3background_pid"
 
-kill -4 $(cat $pid)
-xwinwrap -ov -fs -- mpv --no-input-cursor --border --wid WID --loop-file=inf --speed=1.0 --scale=nearest $gif &
+kill -4 "$(cat "$pid")"
+xwinwrap -ov -fs -- mpv --no-input-cursor --border --wid WID --loop-file=inf --speed=1.0 --scale=nearest "$gif" &
 echo "$!" > "$pid"
 

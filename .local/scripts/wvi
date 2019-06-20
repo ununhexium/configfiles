@@ -4,5 +4,5 @@ if [ "$#" -ne 1 ]; then
 	echo "Must give 1 arg: the name of the executable to look for and edit"
 fi
 
-vi $(which $1)
+vi "$(which "$1")"
 

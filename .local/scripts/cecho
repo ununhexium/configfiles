@@ -3,7 +3,7 @@
 
 
 code="\033["
-case $(echo $1 | tr '[:upper:]' '[:lower:]') in
+case $(echo "$1" | tr '[:upper:]' '[:lower:]') in
   black  | bk) color="${code}0;30m";;
   red    |  r) color="${code}1;31m";;
   green  |  g) color="${code}1;32m";;
