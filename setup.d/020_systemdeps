@@ -2,6 +2,7 @@ echo "Installing system dependencies"
 
 sudo apt install -y \
     arandr \
+    build-essential \
     compton \
     curl \
     dunst \

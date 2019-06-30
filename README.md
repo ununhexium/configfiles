@@ -22,6 +22,10 @@ Dunst, i3, i3blocks and rofi themes.
 
 My git shortcuts
 
+### `aptinstall`
+
+Combines `apt` with `fzf` to have a quick search tool with package description. No more off by 1 char mistake in `apt install`. No more listing totally irrelevant packages names just because a keyword is in the package's description.
+
 ### `c`
 
 A coomand to show any kind of file the the colors/editor I like.
@@ -54,6 +58,14 @@ Nerd font select via rofi
 
 Access the clipboard history, using clipster daemon, via rofi
 
+### `javaversion`
+
+Tells the version of the class files inside a jar.
+
+### `newscript`
+
+Creates a new scripts in the right folder, with executable rights.
+
 ### `pasto`
 
 Paste the current clipboard content to a file
@@ -61,10 +73,6 @@ Paste the current clipboard content to a file
 ### `rGit`
 
 Execute git commands recursively in all subfolders which contain a `.git` folder
-
-### `see`
-
-see `c`
 
 ### `trash`
 

@@ -172,6 +172,11 @@ bar
    	}
 }
 
+# Volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
 # Screenshots
 bindsym Print exec flameshot gui
 
