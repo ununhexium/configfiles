@@ -143,6 +143,7 @@ fpath=(~/.local/scripts/completion $fpath)
 eval $(thefuck --alias)
 
 alias click="xdg-open"
+alias cg='cyberghostvpn'
 alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias df="df -hl"
 alias f="fuck"
@@ -205,5 +206,14 @@ _fzf_compgen_dir() {
 ## Last lines
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+## Perl
+
+PATH="/home/uuh/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/uuh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/uuh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/uuh/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
+
 # Really the last one
 source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
