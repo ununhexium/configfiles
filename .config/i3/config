@@ -196,7 +196,7 @@ exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
 
 #Clipboard
 exec --no-startup-id clipster -d
-bindsym $mod+Mod1+V exec --no-startup-id i3paste
+bindsym $mod+Control+Mod1+H exec --no-startup-id i3paste
 
 #i3 menu
 bindsym $mod+M exec --no-startup-id i3menu
