@@ -22,6 +22,10 @@ show() {
             tar --list --verbose --file="$1"
             ;;
 
+        application/x-bzip2*)
+            tar --bzip2 --list --verbose --file="$1"
+            ;;
+
         application/zip*)
             case $extension in
                 jar) show_as_jar "$1"
