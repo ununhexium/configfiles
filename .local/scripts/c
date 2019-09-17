@@ -18,6 +18,10 @@ show() {
             show_as_jar "$1"
             ;;
 
+        application/pdf*)
+            mupdf "$1"
+            ;;
+
         application/x-xz*)
             tar --list --verbose --file="$1"
             ;;
