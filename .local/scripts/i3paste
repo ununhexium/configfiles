@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 
-clipster -o -n 999 | rofi -dmenu | tr -d '\n' | xclip -selection clipboard
 
+selection=$(clipster -0 --output --number 100 | tr --delete '\n' | rofi -dmenu -sep '\0')
+
+grepIndex=$(clipster --output --number 100 -0 | tr --delete '\n' | tr '\0' '\n' | grep --fixed-strings "${selection}" --line-number | cut -d':' -f1 | head -n 1)
+
+index=$(echo $grepIndex - 1 | bc)
+
+# notify-send test "Index=$index"
+
+clipster -0 --output --position $index | tr --delete '\0' | xclip -selection clipboard
