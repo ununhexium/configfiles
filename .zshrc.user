@@ -169,6 +169,10 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
+# Allows for item negation in command. For instance, delete all but foo: "rm ^foo"
+setopt extended_glob 
+
+
 #MDV set theme
 export MDV_THEME="884.0134"
 
