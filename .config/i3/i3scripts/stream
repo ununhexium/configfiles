@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ps aux | grep -i "[O]BS" 2&>1 /dev/null
+val=$?
+val=0
+#val=1
+
+output=""
+if [ $val -eq 0 ]; then
+	output="<span face='DejaVuSansMono Nerd Font Mono' foreground='#FF00FF'>🎥</span>"
+else
+	output="<span></span>"
+fi
+
+echo "$output"
+
+exit 0

@@ -69,5 +69,10 @@ signal=10
 label=
 interval=5
 
+# Streaming/recording
+#[stream]
+#interval=10
+
 [pulseaudio]
 interval=once
+
