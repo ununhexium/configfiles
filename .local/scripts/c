@@ -39,6 +39,10 @@ show() {
             esac
             ;;
 
+        image/*)
+            feh "$1"
+            ;;
+
         inode/x-empty*)
             cecho blue "Empty file"
             ;;
