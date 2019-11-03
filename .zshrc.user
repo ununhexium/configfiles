@@ -127,7 +127,7 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 #Git
 export MYGIT="$HOME/dev/116/"
 
-export LESS="-j.5 -R --hilite-search"
+export LESS="-j.5 -R --HILITE-SEARCH"
 
 # network interface to consider for speedometer
 IFACE=enp4s0

@@ -1,0 +1,13 @@
+#!/bin/sh
+# adapted from https://github.com/LukeSmithxyz/voidrice/blob/9524786a864ee3614e37ab260e413c3eaadf78fd/.scripts/i3cmds/dmenuunicode
+# Give rofi list of all unicode characters to copy.
+
+chosen=$(grep -v "#" ~/.resources/thailetters | rofi -dmenu -i)
+
+[ "$chosen" != "" ] || exit
+
+c=$(echo "$chosen" | sed "s/ .*//")
+echo "$c" | tr -d '\n' | xclip -selection clipboard
+
+s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
+echo "$s" | tr -d '\n' | xclip
