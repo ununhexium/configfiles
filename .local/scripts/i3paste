@@ -9,4 +9,8 @@ index=$(echo $grepIndex - 1 | bc)
 
 # notify-send test "Index=$index"
 
-clipster -0 --output --position $index | tr --delete '\0' | xclip -selection clipboard
+for selection in primary secondary clipboard
+do
+    clipster -0 --output --position $index | tr --delete '\0' | xclip -selection $selection
+done
+
