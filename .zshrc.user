@@ -1,4 +1,3 @@
-
 # POWERLEVEL9
 
 POWERLEVEL9K_MODE="nerdfont-complete"
@@ -111,9 +110,6 @@ zstyle ':completion:*:man:*'      menu yes select
 antigen apply
 
 
-#SDK Man
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 if [ -f /usr/share/powerline/bindings/zsh/powerline.zsh ]; then
 	source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
@@ -122,8 +118,9 @@ export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 # Virtualenv
-export WORKON_HOME=~/.virtualenvs
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# Use python3 venv
 
 #Git
 export MYGIT="$HOME/dev/116/"
@@ -141,7 +138,23 @@ fpath=(/home/uuh/.zsh/gradle-completion $fpath)
 fpath=(~/.local/scripts/completion $fpath)
 
 # fuck it! >_<
-eval $(thefuck --alias)
+fuck () {
+    TF_PYTHONIOENCODING=$PYTHONIOENCODING;
+    export TF_SHELL=zsh;
+    export TF_ALIAS=fuck;
+    TF_SHELL_ALIASES=$(alias);
+    export TF_SHELL_ALIASES;
+    TF_HISTORY="$(fc -ln -10)";
+    export TF_HISTORY;
+    export PYTHONIOENCODING=utf-8;
+    TF_CMD=$(
+    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+    ) && eval $TF_CMD;
+    unset TF_HISTORY;
+    export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
+    test -n "$TF_CMD" && print -s $TF_CMD
+}
+
 
 alias ai='aptinstall'
 alias click="xdg-open"
@@ -181,8 +194,6 @@ function ggo {
 		cd "$1"
 }
 
-plugins=(fzf-zsh)
-
 function echopath() {
 	echo $PATH | sed -e "s/:/\n/g"
 }
@@ -192,6 +203,8 @@ function setup() {
 		source "/home/uuh/dev/setup/$s"
 	done
 }
+
+plugins=(fzf-zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -208,8 +221,15 @@ _fzf_compgen_dir() {
     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
 }
 
-## Last lines
+## FZF history
+
+function _fzf_paste_history() { fzf_paste_history }
+zle -N _fzf_paste_history
+bindkey '^h' _fzf_paste_history
+
+#SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 
 ## Perl
 
