@@ -55,7 +55,7 @@ show() {
             case $extension in
                 md) mdv "$1"
                     ;;
-                *) pygmentize -Ostyle=friendly -g "$1"
+                *) pygmentize -g "$1"
                     ;;
             esac
             ;;
