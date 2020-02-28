@@ -221,6 +221,9 @@ _fzf_compgen_dir() {
     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
 }
 
+# HISTORY
+export HISTSIZE=100000
+
 ## FZF history
 
 function _fzf_paste_history() { fzf_paste_history }
