@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # sed escapes \... sequences, especially \0, so echo can show it properly and TEXT contains a literal \0 instead of the NULL character
-TEXT=$(clipster -0 --output --number 100 2> /dev/null | sed -e 's/\\/\\\\/g' | fzf --read0 --print0 --preview "echo -n {}")
+TEXT=$(clipster -0 --output --number 100 2> /dev/null | sed -e 's/\\/\\\\/g' | fzf --read0 --print0 --multi --preview "echo -n {}" | tr '\0' ' ')
 
 # Ctrl+C
 if [ $? -eq 130 ]; then 
@@ -14,4 +14,4 @@ do
     echo -n "$TEXT" | xclip -selection $selection
 done
 
-
+exit 0
