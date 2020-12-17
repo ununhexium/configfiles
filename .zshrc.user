@@ -56,7 +56,7 @@ POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='yellow'
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
 
-# VCS CONFIG
+# VCS config
 POWERLEVEL9K_SHOW_CHANGESET=false
 
 # Status
@@ -79,7 +79,11 @@ POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
 
+# ANTIGEN
+
 antigen use oh-my-zsh
+
+# GENERAL PATH
 
 export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin:$HOME/bin:/usr/local/bin:$HOME/.local/script:$HOME/.yarn/bin"
 
@@ -122,7 +126,7 @@ if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 # Use python3 venv
 
-#Git
+# GIT
 export MYGIT="$HOME/dev/116/"
 
 export LESS="-j.5 -R --hilite-unread"
@@ -130,14 +134,14 @@ export LESS="-j.5 -R --hilite-unread"
 # network interface to consider for speedometer
 IFACE=enp4s0
 
-# Completion
+# COMPLETION
 ## Gradle
 fpath=(/home/uuh/.zsh/gradle-completion $fpath)
 
 ## custom
 fpath=(~/.local/scripts/completion $fpath)
 
-# fuck it! >_<
+# FUCK IT! >_<
 fuck () {
     TF_PYTHONIOENCODING=$PYTHONIOENCODING;
     export TF_SHELL=zsh;
@@ -234,7 +238,7 @@ bindkey '^h' _fzf_paste_history
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 
-## Perl
+## PERL
 
 PATH="/home/uuh/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/uuh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -242,7 +246,7 @@ PERL_LOCAL_LIB_ROOT="/home/uuh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROO
 PERL_MB_OPT="--install_base \"/home/uuh/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 
-# Really the last one
+# ZSH
 source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
@@ -251,3 +255,11 @@ source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 
+# ANDROID
+
+export PATH="$PATH:$HOME/app/android/tools/bin:/home/uuh/app/android/sdk/root/platform-tools"
+export ANDROID_SDK_ROOT="$HOME/app/android/sdk/root"
+
+# FLUTTER
+#
+export PATH="$PATH:$HOME/app/flutter/current/bin"

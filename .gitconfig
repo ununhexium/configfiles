@@ -1,7 +1,3 @@
-[user]
-	name = Christophe '116' Loiseau
-	email = 116@lab0.net
-
 [alias]
 	aa = add -A
 	amend = commit --amend
@@ -10,6 +6,7 @@
 	d = diff
 	dc = diff --cached
 	dh = diff --cached HEAD^
+	ds = diff --cached --stat
 	fat = fetch --all --tags
 	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
@@ -19,9 +16,6 @@
 	quick-stats = /usr/local/bin/git-quick-stats
 	pat = pull --all --tags
 
-[credential]
-	helper = cache --timeout=36000
-
 [color]
 	diff = auto
 	status = auto
@@ -29,3 +23,25 @@
 	interactive = auto
 	ui = true
 	pager = true
+
+[core]
+    pager = delta
+
+[credential]
+	helper = cache --timeout=36000
+
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+	tool = kdiff3
+
+[user]
+	name = Christophe '116' Loiseau
+	email = 116@lab0.net
+

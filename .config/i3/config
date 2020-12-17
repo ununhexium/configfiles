@@ -103,16 +103,19 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 
 # Always open some programs on specified workspace
-assign [class="Firefox"]    $workspace1
-assign [class="idea"]	   	$workspace2
-assign [class="Nautilus"]	$workspace4
-assign [class="VirtualBox"]	$workspace5
-assign [class="cmus"]		$workspace7
-assign [class="Steam"]		$workspace0
+assign [class="Firefox"]                $workspace1
+assign [class="idea"]	   	            $workspace2
+assign [class="jetbrains-studio"]	   	$workspace2
+assign [class="Nautilus"]	            $workspace4
+assign [class="VirtualBox"]	            $workspace5
+assign [class="cmus"]		            $workspace7
+assign [class="Steam"]		            $workspace0
+assign [title="Android Emulator - Nexus_5X_API_28:5554"] $workspace5
 
 for_window [title="cpu_usage_click"] floating enable 
 for_window [title="memory_usage_click"] floating enable 
 for_window [class="qweasd"] floating enable 
+for_window [title="Android Emulator - Nexus_5X_API_28:5554"] floating enable
 
 
 # Reload the configuration file
@@ -197,8 +200,10 @@ focus_follows_mouse no
 exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
 
 #Clipboard
-exec --no-startup-id clipster -d
-bindsym $mod+Control+Mod1+H exec --no-startup-id i3paste
+#exec --no-startup-id clipster -d
+#bindsym $mod+Control+Mod1+H exec --no-startup-id i3paste
+exec --no-startup-id clipit
+
 
 #i3 menu
 bindsym $mod+M exec --no-startup-id i3menu

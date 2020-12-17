@@ -1,5 +1,5 @@
 #compdef ggo
 
-_alternative "arguments:custom arg:($(find "$HOME/dev" -maxdepth 3 -name ".git" -type d -prune | xargs dirname))"
+_alternative "arguments:custom arg:($(find "$HOME/dev" -maxdepth 4 -name ".git" -type d -prune | xargs dirname))"
 
 
