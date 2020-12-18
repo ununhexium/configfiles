@@ -122,8 +122,9 @@ export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 # Virtualenv
-# export WORKON_HOME=~/.virtualenvs
+# export WORKON_HOME="$HOME/.virtualenvs"
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 # Use python3 venv
 
 # GIT
