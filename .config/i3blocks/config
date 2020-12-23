@@ -14,32 +14,28 @@ min_width=200
 # Blocks
 
 # Wifi signal strenght
-#[wifi]
-#label=
-#instance=wlp2s0
+[wifi]
+label=
+instance=wlp0s20f3
 #color=#00cde0
 #border=#00cde0
-#interval=5
+interval=5
 
 #GPU usage
-[gpu_usage]
-label=
-interval=2
-
-[separator]
-interval=once
-min_width=0
+#[gpu_usage]
+#label=
+#interval=2
 
 # CPU usage
-[cpu_usage]
-label=
-interval=2
+#[cpu_usage]
+#label=
+#interval=2
 
 # Free space of /
 [disk]
 label=
 instance=/home
-interval=3600
+interval=600
 
 #Available security updates
 [updates]
@@ -73,6 +69,9 @@ interval=5
 #[stream]
 #interval=10
 
-[pulseaudio]
-interval=once
+[brightness]
+interval=5
+
+[battery]
+interval=60
 

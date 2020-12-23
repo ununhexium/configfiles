@@ -196,7 +196,7 @@ export MDV_THEME="884.0134"
 
 #move to git repo
 function ggo {
-		cd "$1"
+    cd $(fzf_ggo)
 }
 
 function echopath() {
@@ -229,15 +229,11 @@ _fzf_compgen_dir() {
 # HISTORY
 export HISTSIZE=100000
 
-## FZF history
-
-function _fzf_paste_history() { fzf_paste_history }
-zle -N _fzf_paste_history
-bindkey '^h' _fzf_paste_history
-
 #SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# Multiscreen
+PATH="$PATH:$HOME/.screenlayout"
 
 ## PERL
 
@@ -258,8 +254,8 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 
 # ANDROID
 
-export PATH="$PATH:$HOME/app/android/tools/bin:/home/uuh/app/android/sdk/root/platform-tools"
-export ANDROID_SDK_ROOT="$HOME/app/android/sdk/root"
+export PATH="$PATH:$HOME/app/android/tools/bin:/home/uuh/Android/Sdk/platform-tools"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
 # FLUTTER
 #

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-newfile="$HOME/.local/scripts/$1"
+newfile="$HOME/dev/ununhexium/configfiles/.local/scripts/$1"
 
 if [ -e "$newfile" ]; then
     echo "Skipping: file $newfile exists"
@@ -10,6 +10,8 @@ fi
 
 echo "#!/usr/bin/env bash" > "$newfile"
 chmod u+x "$newfile"
+
+ln -s "$newfile" "$HOME/.local/bin/$1"
 
 vi "$newfile"
 

@@ -9,10 +9,11 @@
    highlight:        bold #ff00ff;
 
    gray:             #aaaaaa;
+   red:              #aa0000;
 
    blackentry:       #000000;
    darkgray:         #848484;
-   font: "ProggyCleanTT Nerd Font Mono 30";
+   font: "FuraCode Nerd Font Mono 30";
    background-color: black;
 }
 
@@ -28,7 +29,7 @@ mainbox {
    spacing: 0px;
    border: 1;
    padding: 10px;
-   children: [inputbar, message, sidebar, listview];
+   children: [inputbar, message,/* sidebar,*/ listview];
 }
 
 message {
@@ -101,7 +102,7 @@ scrollbar {
 }
 
 sidebar {
-   background-color: black;
+   background-color: red;
 }
 
 button {

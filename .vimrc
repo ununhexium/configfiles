@@ -16,3 +16,5 @@ endif
 execute pathogen#infect()
 filetype plugin indent on
 
+set cursorline
+

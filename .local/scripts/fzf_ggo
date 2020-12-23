@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+find "$HOME/dev" -maxdepth 4 -name ".git" -type d -prune | xargs dirname | fzf
+

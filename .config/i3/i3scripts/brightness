@@ -6,6 +6,7 @@ levels=(  )
 levels_count=${#levels[@]}
 
 index=$(echo "(($current-1) * $levels_count / $max)" | bc)
+percent=$(echo "100 * $current / $max" | bc)
 
-echo ${levels[$index]}
+echo "${levels[$index]} $percent%"
 

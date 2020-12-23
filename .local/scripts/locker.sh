@@ -1,9 +1,7 @@
 #!/bin/bash
 
 screen='/tmp/screen'
-scrot "$screen.jpg"
-
-here=$(dirname "$0")
+scrot -o "$screen.jpg"
 
 hexpxl "$screen.jpg" "$screen.png" 15 --mode hex
 

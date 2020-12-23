@@ -3,20 +3,17 @@
 function show_usage() {
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-    source "$DIR/cpu_usage_location.sh"
-    # cpu_usage=$(echo "scale=1 ; 100 - "$(mpstat 1 1 -o JSON | jq '.sysstat.hosts[0].statistics[0]."cpu-load"[0].idle') | bc)
-    "$DIR/refresh_cpu_usage.sh" &
-    cpu_usage=$(cat "$cpu_usage_location") || exit 1
     load=$(cat "/proc/loadavg" | cut -d' ' -f1)
     count=$(cat "/proc/cpuinfo" | grep processor | wc -l)
-    
+
+    cpu_usage=$(echo "scale=2 ; $load / $count" | bc)
     high=$(echo "scale=1 ; $count / 2" | bc)
     warn=$(echo "scale=1 ; $count / 2 + $count / 4" | bc)
+    
     crit=$count
     
-    
     # Print short_text, full_text
-    echo "$cpu_usage%"
+    echo "$cpu_usage"
     echo "H $high W $warn C $crit"
     
     # Print color, if needed

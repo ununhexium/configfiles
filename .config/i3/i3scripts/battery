@@ -19,12 +19,17 @@ use strict;
 use warnings;
 use utf8;
 
+
 my $acpi;
 my $status;
 my $percent;
 my $full_text;
 my $short_text;
 my $bat_number = $ENV{BLOCK_INSTANCE} || 0;
+
+if ($ENV{BLOCK_BUTTON} eq '1') {
+    exec '/usr/bin/gnome-power-statistics';
+}
 
 # Read the first line of the "acpi" command output
 open (ACPI, "acpi -b | grep 'Battery $bat_number' |") or die;
