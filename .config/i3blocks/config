@@ -47,7 +47,6 @@ interval=2
 
 # Free RAM
 [memory]
-label=
 interval=2
 
 # Volume

@@ -3,30 +3,43 @@
 # to hold the result of extract
 ext=""
 
+high=50
+warn=25
+crit=10
+
 function extract() {
-    ext=$(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
+    echo $(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
+}
+
+function compute_color() {
+    [[ "$1" -lt "$crit" ]] && echo "#FF00FF" && return
+    [[ "$1" -lt "$warn" ]] && echo "#FFFF00" && return
+    [[ "$1" -lt "$high" ]] && echo "#00FFFF" && return
+    echo "#FFFFFF"
 }
 
 function memory() {
-    extract "MemAvailable"
-    kb="$ext"
-    #kb="4456789"
-    gb=$(echo "scale=1 ; $kb / 1024 / 1024" | bc)
+    mem_kb=$(extract "MemAvailable")
+    #mem_kb="4456789"
+    mem_gb=$(echo "scale=1 ; $mem_kb / 1024 / 1024" | bc)
 
-    extract "MemTotal"
-    total=$ext
-    usage=$(echo "$kb * 100 / $total" | bc)
+    mem_total=$(extract "MemTotal")
+    mem_percent=$(echo "$mem_kb * 100 / $mem_total" | bc)
 
-    high=50
-    warn=25
-    crit=10
+    swap_kb=$(extract "SwapFree")
+    #swap_kb="4456789"
+    swap_mb=$(echo "scale=1 ; $swap_kb / 1024 / 1024" | bc)
 
-    echo $gb GB
-    echo $gb GB
+    swap_total=$(extract "SwapTotal")
+    swap_percent=$(echo "($swap_kb) * 100 / $swap_total" | bc)
 
-    [[ "$usage" -lt "$crit" ]] && echo "#FF00FF" && exit 0
-    [[ "$usage" -lt "$warn" ]] && echo "#FFFF00" && exit 0
-    [[ "$usage" -lt "$high" ]] && echo "#00FFFF" && exit 0
+    mem_color=$(compute_color $mem_percent)
+    swap_color=$(compute_color $swap_percent)
+
+    if [ $swap_percent -gt 10 ]; then 
+        swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
+    fi
+    echo "<span foreground='$mem_color'></span><span font_weight='bold' foreground='$mem_color'>${mem_gb} BG $swap_message</span>"
 }
 
 case $BLOCK_BUTTON in
