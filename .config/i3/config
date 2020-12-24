@@ -195,7 +195,7 @@ bindsym $mod+Pause exec locker.sh
 
 # emoji search
 # TODO: rebuild emoji resource file
-#bindsym $mod+grave exec --no-startup-id i3emoji
+bindsym $mod+grave exec --no-startup-id i3emoji
 
 # No crazy mouse
 focus_follows_mouse no
