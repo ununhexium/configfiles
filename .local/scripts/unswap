@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo "Disabling swap..."
+sudo swapoff -a &
+
+until cat /proc/meminfo | grep -E -i "SwapTotal: +0 kB"
+do
+    cat /proc/meminfo | grep -i "SwapTotal"
+    sleep 1
+done
+
+echo "Enabling swap..."
+sudo swapon -a
+
+cat /proc/meminfo | grep -i "swap"
+

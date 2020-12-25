@@ -36,10 +36,10 @@ function memory() {
     mem_color=$(compute_color $mem_percent)
     swap_color=$(compute_color $swap_percent)
 
-    if [ $swap_percent -gt 10 ]; then 
+    if [ $swap_percent -lt 75 ]; then 
         swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
     fi
-    echo "<span foreground='$mem_color'></span><span font_weight='bold' foreground='$mem_color'>${mem_gb} BG $swap_message</span>"
+    echo "<span foreground='$mem_color'></span><span font_weight='bold' foreground='$mem_color'>${mem_gb} GB $swap_message</span>"
 }
 
 case $BLOCK_BUTTON in
