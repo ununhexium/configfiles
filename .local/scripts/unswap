@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Request sudo ahead of time with a "noop" task
+sudo cat /dev/null
+
 echo "Disabling swap..."
 sudo swapoff -a &
 
