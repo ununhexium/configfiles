@@ -36,6 +36,10 @@ function memory() {
     mem_color=$(compute_color $mem_percent)
     swap_color=$(compute_color $swap_percent)
 
+    if [ $mem_percent -lt 5 ]; then
+        notify-send "LOW MEMORY" "The memory is used at $mem_percent%"
+    fi
+
     if [ $swap_percent -lt 75 ]; then 
         swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
     fi
@@ -47,16 +51,16 @@ case $BLOCK_BUTTON in
         name=memory_usage_click
         terminator -T $name -e "htop --sort-key PERCENT_MEM" &
         # Dirty hack to give time to terminator to start
-        while [ -z "$ID" ]; do
-            ID=$(xdotool search --name $name)
-        done
-        xdotool windowmove $ID $(expr $BLOCK_X - 500) 100
-        xdotool windowsize $ID 1000 700
+        #while [ -z "$ID" ]; do
+        #    ID=$(xdotool search --name $name)
+        #done
+        #xdotool windowmove $ID $(expr $BLOCK_X - 500) 100
+        #xdotool windowsize $ID 1000 700
 
-        # Close htop cleanly
-        xdotool search --name $name behave %@ blur windowfocus key F10
-        xdotool keyup F10
-        ;;
+        ## Close htop cleanly
+        #xdotool search --name $name behave %@ blur windowfocus key F10
+        #xdotool keyup F10
+        #;;
 esac
 
 memory
