@@ -45,6 +45,12 @@ interval=3600
 [temperature]
 interval=2
 
+[cpu_freq]
+interval=2
+
+[turbo]
+interval=2
+
 # Free RAM
 [memory]
 interval=2

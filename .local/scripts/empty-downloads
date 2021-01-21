@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+DOWNLOADS="$HOME/Downloads"
+
+IFS=$'\n'
+for f in $(ls -1tr "$DOWNLOADS" | head -n -9); do
+     trash "$DOWNLOADS/$f"
+done
+

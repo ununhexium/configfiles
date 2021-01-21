@@ -111,11 +111,13 @@ assign [class="jetbrains-studio"]	   	$workspace2
 assign [class="Nautilus"]	            $workspace4
 assign [class="Steam"]		            $workspace0
 assign [class="VirtualBox"]	            $workspace5
-assign [title="Android Emulator -.*"]    $workspace5
+assign [title="Android Emulator -.*"]   $workspace5
+assign [title="discord"]                $workspace7 
 
 for_window [title="Android Emulator -.*"]       floating enable
 for_window [title="cpu_usage_click"]            floating enable 
 for_window [class="Gnome-power-statistics"]     floating enable 
+for_window [class="feh"]                        floating enable 
 
 
 # Reload the configuration file
@@ -203,7 +205,8 @@ focus_follows_mouse no
 # Startup programs
 
 # Compositor for window transparency
-exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
+#exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
+exec --no-startup-id compton
 
 #Clipboard
 #exec --no-startup-id clipster -d
@@ -219,7 +222,8 @@ bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 
 
 # Others
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id firewall-applet
 exec --no-startup-id nm-applet
 exec --no-startup-id notify-send "Welcome back 116!"
@@ -234,4 +238,5 @@ exec --no-startup-id xset r rate 200 30
 
 # Wallpaper
 #exec --no-startup-id /home/uuh/.local/scripts/i3background
+exec --no-startup-id feh --bg-scale /home/uuh/Pictures/reunion.jpeg
 

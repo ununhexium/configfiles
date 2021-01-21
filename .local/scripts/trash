@@ -10,7 +10,7 @@ if [ ! -d "$TRASH" ]; then
   mkdir -p "$TRASH"
 fi
 
-mv "$@" "$TRASH"
+mv -v "$@" "$TRASH"
 
 exit 0
 
