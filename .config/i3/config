@@ -23,7 +23,7 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # Start rofi
-bindsym $mod+Shift+d exec /home/uuh/.config/rofi/launchers/colorful/launcher.sh
+bindsym $mod+Shift+d exec rofi -show drun
 bindsym $mod+d exec rofi -show run
 
 # Move between windows
@@ -186,8 +186,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 #bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Backlight
-bindsym XF86MonBrightnessDown exec brightnessctl --device=intel_backlight set 10%-
-bindsym XF86MonBrightnessUp   exec brightnessctl --device=intel_backlight set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
+bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
 
 # Screenshots
 bindsym Print exec flameshot gui

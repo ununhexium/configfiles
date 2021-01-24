@@ -13,7 +13,7 @@
 
    blackentry:       #000000;
    darkgray:         #848484;
-   font: "FuraCode Nerd Font Mono 30";
+   font: "FuraCode Nerd Font Mono 24";
    background-color: black;
 }
 

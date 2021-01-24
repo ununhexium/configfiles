@@ -2,8 +2,8 @@
 # Global properties
 command=~/.config/i3/i3scripts/$BLOCK_NAME
 align=center
-separator=false
-separator_block_width=100
+separator=true
+separator_block_width=50
 markup=pango
 #border_top=0
 #border_right=0
@@ -40,6 +40,9 @@ interval=600
 #Available security updates
 [updates]
 interval=3600
+
+[usedcpu]
+interval=1
 
 # Temperature
 [temperature]
