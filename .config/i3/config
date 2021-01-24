@@ -23,7 +23,7 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # Start rofi
-bindsym $mod+Shift+d exec rofi -show drun
+bindsym $mod+Shift+d exec /home/uuh/.config/rofi/launchers/colorful/launcher.sh
 bindsym $mod+d exec rofi -show run
 
 # Move between windows
@@ -134,8 +134,8 @@ mode "resize"
 {
         # Resize with the arrow keys
         bindsym Left resize shrink width 2 px or 2 ppt
-        bindsym Down resize grow height 2 px or 2 ppt
-        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Down resize shrink height 2 px or 2 ppt
+        bindsym Up resize grow height 2 px or 2 ppt
         bindsym Right resize grow width 2 px or 2 ppt
 
         # Back to normal: Enter or Escape
@@ -226,6 +226,7 @@ bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id firewall-applet
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id notify-send "Welcome back 116!"
 exec --no-startup-id redshift-gtk
 exec --no-startup-id start-pulseaudio-x11

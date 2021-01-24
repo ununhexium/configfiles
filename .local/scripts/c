@@ -63,7 +63,7 @@ show() {
             case $extension in
                 md) mdv "$1"
                     ;;
-                *) pygmentize -g "$1"
+                *) bat "$1"
                     ;;
             esac
             ;;
