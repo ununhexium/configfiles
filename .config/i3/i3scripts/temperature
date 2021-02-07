@@ -69,4 +69,6 @@ if ($temperature >= $t_crit) {
     print "\x{f2c9} $temperature°C\n" x2;
 }
 
+#system("/home/uuh/.local/bin/graphite", "monitoring.cpu.temperature", "$temperature")
+
 exit 0;

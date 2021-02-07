@@ -34,6 +34,8 @@ if [[ "${PREV_TOTAL}" != "" ]] && [[ "${PREV_IDLE}" != "" ]]; then
   let "DIFF_TOTAL=$TOTAL-$PREV_TOTAL"
   let "DIFF_USAGE=(1000*($DIFF_TOTAL-$DIFF_IDLE)/$DIFF_TOTAL+5)/10"
 
+  graphite "monitoring.cpu.usage" "$DIFF_USAGE"
+
   COLOR="white"
   if [[ $DIFF_USAGE -gt 50 ]] ; then
     COLOR="cyan"

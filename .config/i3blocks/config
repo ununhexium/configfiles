@@ -45,7 +45,7 @@ interval=3600
 interval=1
 
 # Temperature
-[temperature]
+[temperature.sh]
 interval=2
 
 [cpu_freq]

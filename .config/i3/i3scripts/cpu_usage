@@ -20,7 +20,6 @@ function show_usage() {
     [[ $(echo "$load > $crit" | bc -l) == 1 ]] && echo "#FF00FF" && exit 0
     [[ $(echo "$load > $warn" | bc -l) == 1 ]] && echo "#FFFF00" && exit 0
     [[ $(echo "$load > $high" | bc -l) == 1 ]] && echo "#00FFFF" && exit 0
-
 }
 
 
