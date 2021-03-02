@@ -191,6 +191,7 @@ bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_bac
 
 # Screenshots
 bindsym Print exec flameshot gui
+bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
 bindsym $mod+Pause exec locker.sh
