@@ -3,7 +3,7 @@
 filename=$(basename -- "$1")
 extension="${filename##*.}"
 
-unzipdir='/mnt/ramdisk/unzip/'
+unzipdir='/tmp/ram/unzip/'
 
 classversion() {
     regex=".*major version: ([0-9]+).*"
