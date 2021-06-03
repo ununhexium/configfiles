@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 file=$(readlink -f "$1")
-command=$(echo $2 | sed -e "s/{}/$1/")
+sep=${3-foo}
+command=$(echo $2 | sed -e "s${sep}{}${sep}$1${sep}")
 echo "$file" | entr -s "$command"
 
