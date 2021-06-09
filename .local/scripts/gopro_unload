@@ -1,29 +1,24 @@
 #!/usr/bin/env bash
 
-GOPRO_BASE="/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1"
+DRIVE="/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1"
 MOUNT="/mnt/gopro"
 TARGET="$HOME/holygrenade/gopro/$(date +%F)"
 
+#Check SD card is present
+if [ ! -L "$DRIVE" ]; then
+    cecho red "Did you forget to put the sdcard in?"
+    exit 1
+fi
+
+# mount SD card if needed
 mount | grep /mnt/gopro
-if [ ! $? ]; then 
-    sudo mount "/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1" "$MOUNT"
+if [ ! $? -eq 0 ]; then 
+    sudo mount "/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1" "$MOUNT" || exit 1
 else
     cecho yellow "Already mounted"
 fi
 
-if [ ! -d "$TARGET" ]; then
-    mkdir "$TARGET"
-    mkdir "$TARGET/previews"
-fi
-
-echo green "Copying previews..."
-
-for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".LRV"); do
-    output="$TARGET/previews/"$(basename -- "$f")
-    echo GREEN "Copying $f to $output..."
-    pv "$f" > "$output"
-done
-
+# Copy videos
 echo green "Copying videos"
 
 for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
@@ -32,4 +27,4 @@ for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
     pv "$f" > "$output"
 done
 
-
+sudo umount "$MOUNT"
