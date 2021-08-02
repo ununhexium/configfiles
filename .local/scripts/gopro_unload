@@ -11,15 +11,18 @@ if [ ! -L "$DRIVE" ]; then
 fi
 
 # mount SD card if needed
-mount | grep /mnt/gopro
-if [ ! $? -eq 0 ]; then 
+if [ -z $(mount | grep /mnt/gopro) ]; then
+    echo "Mounting..."
     sudo mount "/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1" "$MOUNT" || exit 1
+    cecho green "Mounted"
 else
     cecho yellow "Already mounted"
 fi
 
+mkdir -p "$TARGET"
+
 # Copy videos
-echo green "Copying videos"
+cecho green "Copying videos"
 
 for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
     output="$TARGET/"$(basename -- "$f")
@@ -27,4 +30,7 @@ for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
     pv "$f" > "$output"
 done
 
-sudo umount "$MOUNT"
+sudo umount "$MOUNT" && cecho green "Unmounted"
+
+exit 0
+

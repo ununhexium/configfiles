@@ -195,6 +195,7 @@ bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
 bindsym $mod+Pause exec locker.sh
+bindsym $mod+P exec locker.sh
 
 # emoji search
 # TODO: rebuild emoji resource file
