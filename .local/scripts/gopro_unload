@@ -26,7 +26,7 @@ cecho green "Copying videos"
 
 for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
     output="$TARGET/"$(basename -- "$f")
-    echo GREEN "Copying $f to $output..."
+    cecho green "Copying $f to $output..."
     pv "$f" > "$output"
 done
 
