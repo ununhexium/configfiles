@@ -10,7 +10,7 @@ show() {
 	filename="${filename%.*}"
     filetype=$(file --brief --mime "$1")
 
-    echo "Filetype: $filetype"
+    #echo "Filetype: $filetype"
 
     case $filetype in
 
@@ -63,6 +63,10 @@ show() {
             lsd "$1"
             ;;
 
+        inode/symlink*)
+            c $(readlink -f "$1")
+            ;;
+
         text/*)
             case $extension in
                 md) mdv "$1"
@@ -70,6 +74,10 @@ show() {
                 *) bat "$1"
                     ;;
             esac
+            ;;
+
+        video/*)
+            vlc "$1" --fullscreen --play-and-exit
             ;;
 
         *) cecho RED "Don't know how to best show $1"

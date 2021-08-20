@@ -20,6 +20,7 @@ else
 fi
 
 mkdir -p "$TARGET"
+cecho yellow "$TARGET"
 
 # Copy videos
 cecho green "Copying videos"

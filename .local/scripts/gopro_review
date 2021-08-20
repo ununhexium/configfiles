@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+for f in $(ls -1); do
+    again=true
+
+    while $again; do
+
+        c "$f"
+
+        echo -n "What to do with $f? "
+        cecho2 -n -- red "(d)elete "
+        echo -n "(k)eep "
+        echo -n "watch a(g)ain "
+
+        read choice
+
+        case $choice in
+            d*)
+                rm -v "$f"
+                cecho red Deleted
+                again=false
+                ;;
+            k*)
+                cecho green Kept
+                again=false
+                ;;
+            g*)
+                c "$f"
+                ;;
+        esac
+    done 
+done
