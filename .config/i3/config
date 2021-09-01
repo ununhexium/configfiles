@@ -189,6 +189,9 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
 bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
 
+bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
+bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
+
 # Screenshots
 bindsym Print exec flameshot gui
 bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
