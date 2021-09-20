@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 MYZONE="Indian/Reunion"
-ZONES=("Europe/London" "Europe/Berlin" "Indian/Reunion")
+ZONES=("Europe/London" "Europe/Berlin" "Europe/Warsaw" "Indian/Reunion")
 
 if [ $# -eq 0 ]; then
 
