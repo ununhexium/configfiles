@@ -200,6 +200,11 @@ function ggo {
     cd $(fzf_ggo)
 }
 
+function dgo {
+    ranger --choosedir=/tmp/dirselection
+    cd $(cat /tmp/dirselection)
+}
+
 function echopath() {
 	echo $PATH | sed -e "s/:/\n/g"
 }

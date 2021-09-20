@@ -2,6 +2,7 @@
 
 if [ "$#" -ne 1 ]; then
 	echo "Must give 1 arg: the name of the executable to look for and edit"
+    exit 1
 fi
 
 vi "$(which "$1")"

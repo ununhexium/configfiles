@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+for z in "Europe/London" "Europe/Berlin" "Indian/Reunion"; do
+    echo -ne "$z\t-> "
+    TZ="$z" date
+done
+
+exit 0

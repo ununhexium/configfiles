@@ -52,7 +52,7 @@ show() {
             ;;
 
         image/*)
-            feh "$1"
+            feh --auto-zoom --fullscreen "$1"
             ;;
 
         inode/x-empty*)
