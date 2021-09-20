@@ -1,8 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-for z in "Europe/London" "Europe/Berlin" "Indian/Reunion"; do
-    echo -ne "$z\t-> "
-    TZ="$z" date
-done
+MYZONE="Indian/Reunion"
+ZONES=("Europe/London" "Europe/Berlin" "Indian/Reunion")
+
+if [ $# -eq 0 ]; then
+
+    for z ("$ZONES[@]"); do
+        echo -ne "$z\t-> "
+        TZ="$z" date
+    done
+
+else
+
+    for z ("$ZONES[@]"); do
+        echo -ne "$z\t-> "
+        TZ="$z" date --date="$1"
+    done
+
+fi
 
 exit 0
