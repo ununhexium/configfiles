@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 1 ]; then 
+    case $1 in
+        on)
+            pactl load-module module-loopback latency_msec=1
+            ;;
+        off)
+            pactl unload-module module-loopback
+            ;;
+        *)
+            cecho red "Argument 1 must be either 'on' or 'off'"
+            ;;
+    esac
+else
+    cecho red "Expected 1 argument: 'on' or 'off'"
+fi
+
