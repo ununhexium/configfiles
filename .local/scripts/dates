@@ -3,18 +3,35 @@
 MYZONE="Indian/Reunion"
 ZONES=("Europe/London" "Europe/Berlin" "Europe/Warsaw" "Indian/Reunion")
 
+function pecho() {
+    z=$1
+    shift
+
+    if [ $MYZONE = $z ]; then
+        cecho green $@
+    else
+        echo $@
+    fi
+
+    return
+}
+
+function pdate() {
+    z=$1
+    shift
+    pecho $z "$z\t-> $(TZ="$z" date $@)"
+}
+
 if [ $# -eq 0 ]; then
 
     for z ("$ZONES[@]"); do
-        echo -ne "$z\t-> "
-        TZ="$z" date
+        pdate $z
     done
 
 else
 
     for z ("$ZONES[@]"); do
-        echo -ne "$z\t-> "
-        TZ="$z" date --date="$1"
+        pdate $z --date="$1"
     done
 
 fi
