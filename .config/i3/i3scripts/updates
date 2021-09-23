@@ -14,7 +14,7 @@ if [ $security -ne 0 ]; then
 		indicator="<sup><span foreground='#FF00FF'>+$normal</span></sup>"
 	fi
 	output="<span foreground='#FF00FF'> </span><span font_weight='bold' foreground='#FF00FF'>${security}$indicator</span>"
-	notify-send --urgency critical "$security Secutiry updates available"
+	notify-send --urgency critical "$security Security updates available"
 elif [ $normal -ne 0 ]; then
 	output="<span foreground='#00FFFF'> $normal</span>"
 fi
