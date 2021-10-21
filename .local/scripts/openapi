@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+java -jar /home/uuh/app/openapi/openapi-generator-cli.jar "$@"

@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 MYZONE="Indian/Reunion"
-ZONES=("Europe/London" "Europe/Berlin" "Europe/Warsaw" "Indian/Reunion")
+ZONES=("America/Mexico_City" "Europe/London" "Europe/Dublin" "Europe/Berlin" "Europe/Warsaw" "Indian/Reunion")
 
 function pecho() {
     z=$1
@@ -31,7 +31,8 @@ if [ $# -eq 0 ]; then
 else
 
     for z ("$ZONES[@]"); do
-        pdate $z --date="$1"
+        utc_us=$(TZ="Etc/UTC" LC_TIME="" date --date="$@")
+        pdate $z --date="${utc_us}"
     done
 
 fi

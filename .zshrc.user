@@ -103,7 +103,7 @@ POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="white"
 
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
-antigen bundle mvn
+#antigen bundle mvn
 antigen bundle "greymd/docker-zsh-completion"
 
 #zstyle ':completion:*:mvn:*' show-all-phases true
@@ -171,11 +171,13 @@ alias g="git"
 alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
 alias la="lsd --long --all --icon never --"
-alias ll="lsd --long --all --icon never --"
+alias l="lsd --long --all --icon never --"
+alias ll=l
 alias mvnw="./mvnw"
 alias mkvirtualenv3="mkvirtualenv --python=/usr/bin/python3"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"
 alias pomodoro='while true; do notify-send Pomodoro Resume; sleep 1500; notify-send --urgency critical --expire-time 300000 Pomodoro Pause; done'
+alias rlf='readlink -f'
 alias sarahconnor="cd $PWD"
 alias speedometer="speedometer -r $IFACE -t $IFACE"
 alias zu="vi $HOME/.zshrc.user"
@@ -214,6 +216,10 @@ function setup() {
 		source "/home/uuh/dev/setup/$s"
 	done
 }
+
+# FZF
+
+FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
 plugins=(fzf-zsh ripgrep)
 
@@ -272,3 +278,13 @@ export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
 # FLUTTER
 #
 export PATH="$PATH:$HOME/app/flutter/current/bin"
+
+# BRYTER
+#
+export PATH="$PATH:$HOME/.local/bin/bryter"
+export BASEURL="http://localhost:8080"
+
+function b(){
+    bryter "$@"
+}
+

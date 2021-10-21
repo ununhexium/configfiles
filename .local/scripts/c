@@ -23,7 +23,7 @@ show() {
             ;;
 
         application/json*)
-            bat "$1"
+            cat "$1" | rq
             ;;
 
         application/pdf*)
@@ -56,7 +56,7 @@ show() {
             ;;
 
         inode/x-empty*)
-            cecho blue "Empty file"
+            cecho purple "Empty file"
             ;;
 
         inode/directory*)
