@@ -17,7 +17,7 @@ font pango: FuraCode Nerd Font Mono 15
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec konsole
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -231,12 +231,12 @@ bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id firewall-applet
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 exec --no-startup-id notify-send "Welcome back 116!"
 exec --no-startup-id redshift-gtk
 exec --no-startup-id start-pulseaudio-x11
 # needed?
-# exec --no-startup-id unclutter -idle 1 -root
+#exec --no-startup-id unclutter -idle 1 -root
 exec --no-startup-id xbindkeys
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xset r rate 200 30
