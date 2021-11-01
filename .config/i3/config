@@ -11,7 +11,7 @@ new_window pixel
 # Font for window titles.
 #font pango: FuraMono Nerd Font Bold 10
 #font pango: Monospace 15
-font pango: FuraCode Nerd Font Mono 15
+font pango: UbuntuMono Nerd Font Mono 15
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -167,7 +167,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: FuraCode Nerd Font Mono 20
+	font pango: UbuntuMono Nerd Font Mono 15
 	colors
 	{
                         # Border	# Background	# Text
@@ -186,11 +186,11 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 #bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Backlight
-bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
-bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
+#bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
+#bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
 
-bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
-bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
+#bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
+#bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
 
 # Screenshots
 bindsym Print exec flameshot gui
