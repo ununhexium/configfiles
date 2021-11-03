@@ -12,8 +12,11 @@ case $(echo "$1" | tr '[:upper:]' '[:lower:]') in
   purple |  p) color="${code}1;35m";;
   cyan   |  c) color="${code}1;36m";;
   gray   | gr) color="${code}0;37m";;
-  *) text="$1"
 esac
-[ -z "$text" ] && text="$color${@: 2}${code}0m"
-echo -e "$text"
+if [ -z "$color" ]; then 
+    echo no color
+    echo -- "$@"
+else
+    echo -e "$color${@: 2}${code}0m"
+fi
 
