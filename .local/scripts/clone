@@ -10,7 +10,7 @@ devDir="$HOME/dev"
 cloneit() {
     repogroup="$2"
     reponame="$3"
-    basefolder="$devDir/$repogroup/"
+    basefolder="$devDir/$repogroup"
     folder="$basefolder/$reponame"
     if [ ! -e "$folder" ]; then
         cecho cyan "Create $basefolder"

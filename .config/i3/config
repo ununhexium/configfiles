@@ -11,7 +11,7 @@ new_window pixel
 # Font for window titles.
 #font pango: FuraMono Nerd Font Bold 10
 #font pango: Monospace 15
-font pango: UbuntuMono Nerd Font Mono 15
+font pango: UbuntuMono Nerd Font Mono 20
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -167,7 +167,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: UbuntuMono Nerd Font Mono 15
+	font pango: UbuntuMono Nerd Font Mono 25
 	colors
 	{
                         # Border	# Background	# Text

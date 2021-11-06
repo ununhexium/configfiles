@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DRIVE="/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1"
+DRIVE="/dev/disk/by-id/usb-USB_Mass_Storage_Device_812320100708-0:0-part1"
 MOUNT="/mnt/gopro"
 TARGET="$HOME/holygrenade/gopro/$(date +%F)"
 
@@ -13,7 +13,7 @@ fi
 # mount SD card if needed
 if [ -z $(mount | grep /mnt/gopro) ]; then
     echo "Mounting..."
-    sudo mount "/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1" "$MOUNT" || exit 1
+    sudo mount "$DRIVE" "$MOUNT" || exit 1
     cecho green "Mounted"
 else
     cecho yellow "Already mounted"

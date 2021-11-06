@@ -11,5 +11,10 @@ verylate="2[3-4]:.*"
 [[ $now =~ $late ]] &&  echo "#00FFFF"
 [[ $now =~ $verylate ]] &&  echo "#FF00FF"
 
+case $BLOCK_BUTTON in
+    1) notify-send "$(date)"
+esac
+
+
 
 exit 0

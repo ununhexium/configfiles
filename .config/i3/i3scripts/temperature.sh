@@ -6,7 +6,7 @@ mid=70
 low=60
 
 if [ -z ${temp+x} ]; then
-    temp=$(sensors -u coretemp-isa-0000 | grep temp1_input | awk '{print $2}' | cut -d\. -f1)
+    temp=$(sensors -u acpitz-acpi-0 | grep temp2_input | awk '{print $2}' | cut -d\. -f1)
 fi
 
 function echox2 {
@@ -19,16 +19,17 @@ if [[ $temp > $critical ]]; then
     echo "#FF00FF"
 elif [[ $temp > $high ]]; then
     echox2 " $temp°C"
-    echo "#FFFF00"
+    echo "#FF0000"
 elif [[ $temp > $mid ]]; then
     echox2 " $temp°C"
+    echo "#FFFF00"
 elif [[ $temp > $low ]]; then
     echox2 " $temp°C"
+    echo "#00FF00"
 else
     echox2 " $temp°C"
     echo "#00FFFF"
 fi
 
-graphite monitoring.cpu.temperature $temp
-
 exit 0
+

@@ -5,7 +5,8 @@
 PREV_TOTAL=0
 PREV_IDLE=0
 
-cpuFile="/tmp/ram/.cpu"
+#! use tmpfs
+cpuFile="/tmp/.cpu"
 
 if [[ -f "${cpuFile}" ]]; then
   fileCont=$(cat "${cpuFile}")

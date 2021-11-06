@@ -69,7 +69,7 @@ show() {
 
         text/*)
             case $extension in
-                md) mdv "$1"
+                md) glow "$1"
                     ;;
                 *) bat "$1"
                     ;;
