@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+ffmpeg -f concat -safe 0 -i <(for f in ./GX*"$1".MP4; do echo "file '$(pwd)/$f'"; done) -c copy "$2"

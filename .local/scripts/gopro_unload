@@ -1,23 +1,6 @@
 #!/usr/bin/env bash
 
-DRIVE="/dev/disk/by-id/usb-USB_Mass_Storage_Device_812320100708-0:0-part1"
-MOUNT="/mnt/gopro"
 TARGET="$HOME/holygrenade/gopro/$(date +%F)"
-
-#Check SD card is present
-if [ ! -L "$DRIVE" ]; then
-    cecho red "Did you forget to put the sdcard in?"
-    exit 1
-fi
-
-# mount SD card if needed
-if [ -z $(mount | grep /mnt/gopro) ]; then
-    echo "Mounting..."
-    sudo mount "$DRIVE" "$MOUNT" || exit 1
-    cecho green "Mounted"
-else
-    cecho yellow "Already mounted"
-fi
 
 mkdir -p "$TARGET"
 cecho yellow "$TARGET"
@@ -25,13 +8,14 @@ cecho yellow "$TARGET"
 # Copy videos
 cecho green "Copying videos"
 
-for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
-    output="$TARGET/"$(basename -- "$f")
-    cecho green "Copying $f to $output..."
-    pv "$f" > "$output"
+for f in $(ls "$1"); do
+    if [[ "$f" =~ .*\.MP4 ]]; then
+        output="$TARGET/"$(basename -- "$f")
+        cecho green "Copying $f to $output..."
+        pv "$f" > "$output"
+    # else skip that file
+    fi
 done
-
-sudo umount "$MOUNT" && cecho green "Unmounted"
 
 exit 0
 
