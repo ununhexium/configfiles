@@ -85,7 +85,7 @@ antigen use oh-my-zsh
 
 # GENERAL PATH
 
-export PATH="$PATH:$HOME/.local/scripts:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/cuda/bin:$HOME/bin:/usr/local/bin:$HOME/.local/script:$HOME/.yarn/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
 
 
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
@@ -128,8 +128,6 @@ source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 # Use python3 venv
 
 # GIT
-export MYGIT="$HOME/dev/116/"
-
 export LESS="-j.5 -R --hilite-unread"
 
 # network interface to consider for speedometer
@@ -153,7 +151,7 @@ fuck () {
     export TF_HISTORY;
     export PYTHONIOENCODING=utf-8;
     TF_CMD=$(
-    thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
+        thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@
     ) && eval $TF_CMD;
     unset TF_HISTORY;
     export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
@@ -191,7 +189,7 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 # Allows for item negation in command. For instance, delete all but foo: "rm ^foo"
-setopt extended_glob 
+# setopt extended_glob 
 
 
 #MDV set theme
@@ -241,8 +239,11 @@ _fzf_compgen_dir() {
 # HISTORY
 export HISTSIZE=100000
 
-#SDK Man
+# SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# KScript
+export KSCRIPT_IDEA_COMMAND="$HOME/.local/bin/idea.sh"
 
 # Multiscreen
 PATH="$PATH:$HOME/.screenlayout"

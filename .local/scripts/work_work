@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+
+idea.sh /home/uuh/dev/bryter/integrations/kotlin-jvm &
+
+firefox &
+
+i3-msg workspace 3
+
+i3-msg layout splitv
+
+konsole --workdir "/home/uuh/dev/bryter/integrations/kotlin-jvm" &
+
+sleep 5
+idea.sh /home/uuh/dev/bryter/integrations-libs &
+

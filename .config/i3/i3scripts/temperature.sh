@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-critical=95
+critical=90
 high=80
 mid=70
 low=60
