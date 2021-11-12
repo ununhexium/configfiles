@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+selection=$(git branch --all | fzf)
+
+case $? in
+    0)
+        git checkout "$selection"
+        ;;
+    1)
+        cecho red "No match"
+        ;;
+    *)
+        # Ctrl-C
+        ;;
+esac
+

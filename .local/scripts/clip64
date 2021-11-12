@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+input=$(mktemp)
+xclip -o > "$input"
+base64 --decode "$input"
