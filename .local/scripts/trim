@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+while IFS= read -r line
+do
+  echo "$line" | sed -E "s/^ +//" | sed -E "s/ +$//"
+done < "${1:-/dev/stdin}"
+
