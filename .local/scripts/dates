@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+tmp=$(mktemp)
 MYZONE="Indian/Reunion"
 ZONES=("America/Mexico_City" "Europe/London" "Europe/Dublin" "Europe/Berlin" "Europe/Warsaw" "Indian/Reunion")
 
@@ -19,7 +20,7 @@ function pecho() {
 function pdate() {
     z=$1
     shift
-    pecho $z "$z\t-> $(TZ="$z" date $@)"
+    pecho $z "$z|$(TZ="$z" date $@)"
 }
 
 if [ $# -eq 0 ]; then
@@ -35,6 +36,8 @@ else
         pdate $z --date="${utc_us}"
     done
 
-fi
+fi | column -t -s "|"
+
+
 
 exit 0
