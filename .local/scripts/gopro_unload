@@ -8,11 +8,21 @@ cecho yellow "$TARGET"
 # Copy videos
 cecho green "Copying videos"
 
-for f in $(ls "$1"); do
-    if [[ "$f" =~ .*\.MP4 ]]; then
+if [ -z "$1" ]; then
+    mtps=$(ls "/run/user/$UID/gvfs/")
+    if [ $(echo "$mtps" | wc -l) -gt 1 ]; then
+        selection=$(echo "$mtps" | fzf)
+    else
+        selection="$mtps"
+    fi
+    src="/run/user/$UID/gvfs/$selection/GoPro MTP Client Disk Volume/DCIM/100GOPRO"
+fi
+
+for f in $(ls "$src"); do
+    if [[ "$f" =~ .*\.(MP4|WAV)$ ]]; then
         output="$TARGET/"$(basename -- "$f")
         cecho green "Copying $f to $output..."
-        pv "$f" > "$output"
+        rsync --info=progress2 --append-verify "$src/$f" "$output"
     # else skip that file
     fi
 done

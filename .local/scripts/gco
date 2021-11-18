@@ -4,7 +4,7 @@ selection=$(git branch --all | fzf)
 
 case $? in
     0)
-        git checkout "$selection"
+        git checkout $(echo "$selection" | trim)
         ;;
     1)
         cecho red "No match"

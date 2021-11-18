@@ -219,6 +219,8 @@ exec --no-startup-id compton
 exec --no-startup-id greenclip daemon
 bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
+# Video
+bindsym $mod+z exec --no-startup-id /home/uuh/dev/ununhexium/configfiles/.local/scripts/startcam
 
 #i3 menu
 #Not used anymore

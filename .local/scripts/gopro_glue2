@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+regex='([2-9][0-9]*) ([0-9]+)'
+
+while read -r t; do
+    if [[ "$t" =~ $regex ]]; then
+        cecho green "Glueing GX[1-${BASH_REMATCH[1]}]${BASH_REMATCH[2]}.MP4 files"
+        list=$(mktemp)
+        ls . | xargs readlink -f | grep "${BASH_REMATCH[2]}.MP4" | awk '{print "file " $0}' > "$list"
+        cat "$list"
+
+        # map 0:3 is for gopro metadata
+        ffmpeg -loglevel warning \
+            -f concat \
+            -safe 0 \
+            -i "$list" \
+            -c copy \
+            "GX__${BASH_REMATCH[2]}.MP4"
+            # -copy_unknown -map 0:v -map 0:a -map 0:3 -map_metadata 0
+        cecho green "Finished processing GX__${BASH_REMATCH[2]}.MP4"
+    else
+        echo "Skipping $t"
+    fi
+    echo $t
+done < <(ls . | grep -E "[0-9]{6}\.MP4$" | cut -c 5-8 | sort --numeric-sort | uniq --count)
+
+exit 0
+

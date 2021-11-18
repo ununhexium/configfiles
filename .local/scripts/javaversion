@@ -19,7 +19,7 @@ case "$extension" in
         classversion "$major"
         ;;
     jar)
-        [ ! -d "$unzipdir" ] && mkdir "$unzipdir"
+        [ ! -d "$unzipdir" ] && mkdir -p "$unzipdir"
         cecho GREEN "Unzipping..."
         unzip -q -o "$1" -d "$unzipdir/$filename"
         classversion "$(fd . --extension class "$unzipdir/$filename" | xargs javap -verbose | grep --text major | sort -r | head -n1)"

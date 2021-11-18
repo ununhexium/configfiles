@@ -83,10 +83,6 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
 
 antigen use oh-my-zsh
 
-# GENERAL PATH
-
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
-
 
 POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 
@@ -103,8 +99,14 @@ POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="white"
 
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
-#antigen bundle mvn
+# GENERAL PATH
+
+export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+
+# ANTIGEN
 antigen bundle "greymd/docker-zsh-completion"
+antigen bundle "MenkeTechnologies/zsh-cargo-completion"
+
 
 #zstyle ':completion:*:mvn:*' show-all-phases true
 zstyle ':completion:*:manuals'    separate-sections true
@@ -123,8 +125,8 @@ if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 # Virtualenv
 export WORKON_HOME="$HOME/.virtualenvs"
-# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+# source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 # Use python3 venv
 
 # GIT
@@ -165,12 +167,14 @@ alias cg='cyberghostvpn'
 alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias df="df -hl"
 alias f="fuck"
+alias feh="feh --fullscreen --auto-zoom"
 alias g="git"
 alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
 alias la="lsd --long --all --icon never --"
 alias l="lsd --long --all --icon never --"
 alias ll=l
+alias mt=milkytracker
 alias mvnw="./mvnw"
 alias mkvirtualenv3="mkvirtualenv --python=/usr/bin/python3"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"
@@ -209,17 +213,16 @@ function echopath() {
 	echo $PATH | sed -e "s/:/\n/g"
 }
 
-function setup() {
-	for s in "$@"; do
-		source "/home/uuh/dev/setup/$s"
-	done
+function cdgopro {
+    selection=$(ls "/run/user/$UID/gvfs/" | fzf)
+    cd "/run/user/$UID/gvfs/$selection/GoPro MTP Client Disk Volume/DCIM/100GOPRO"
 }
 
 # FZF
 
 FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
-plugins=(fzf-zsh ripgrep)
+plugins=(fzf-zsh ripgrep zsh-sdkman)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -280,11 +283,25 @@ export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
 
 # FLUTTER
-#
+
 export PATH="$PATH:$HOME/app/flutter/current/bin"
 
+# NEXUS
+
+function Nexus(){
+    current=$(sdk current | grep java | cut -d' ' -f2)
+    echo "$current" | grep '8\.0'
+    if [[ $? -eq 0 ]]; then
+        nexus "$@"
+    else
+        sdk use java '8.0.302-open'
+        nexus "$@"
+        sdk use java "$current"
+    fi
+}
+
 # BRYTER
-#
+
 export PATH="$PATH:$HOME/.local/bin/bryter"
 export BASEURL="http://localhost:8080"
 
