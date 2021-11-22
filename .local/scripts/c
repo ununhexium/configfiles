@@ -14,6 +14,10 @@ show() {
 
     case $filetype in
 
+        'application/csv;'*)
+            xsv table "$1"
+            ;;
+
     	application/gzip*)
             tar tvf "$1"
             ;;
