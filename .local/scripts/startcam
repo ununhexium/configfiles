@@ -4,3 +4,4 @@
 
 ffmpeg -f pulse -i 2 -f v4l2 -framerate 30 -video_size 1280x720 -i /dev/video0 "/home/uuh/holygrenade/security/$(date).mkv"
 
+

@@ -111,6 +111,7 @@ assign [class="jetbrains-studio"]	   	$workspace2
 assign [class="Nautilus"]	            $workspace4
 assign [class="Steam"]		            $workspace0
 assign [class="VirtualBox"]	            $workspace5
+assign [class="Postman"]	            $workspace4
 assign [title="Android Emulator -.*"]   $workspace5
 assign [title="discord"]                $workspace7 
 
