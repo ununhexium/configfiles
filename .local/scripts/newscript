@@ -16,7 +16,7 @@ fi
 echo "#!/usr/bin/env bash" > "$newfile"
 chmod u+x "$newfile"
 
-ln -s "$newfile" "$HOME/.local/bin/$1"
+ln -s "$newfile" "$HOME/.local/scripts/$1"
 
 vi "$newfile"
 

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+needs gopro || return
+
+sudo apt install -y ffmpeg
+
+inst_script_base
+inst_script gopro_glue
+inst_script gopro_glue2
+inst_script gopro_review
+inst_script gopro_unload
+
+

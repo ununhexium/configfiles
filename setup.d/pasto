@@ -1,0 +1,8 @@
+#!/bin/bash
+
+needs pasto || return
+
+sudo apt install -y xclip
+
+inst_script pasto
+

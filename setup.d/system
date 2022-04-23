@@ -1,31 +1,41 @@
 echo "Installing system dependencies"
 
 sudo apt install -y \
+    apt-file \
     arandr \
     build-essential \
     compton \
     curl \
     dunst \
     entr \
+    feh \
     flameshot \
+    fzf \
     glances \
     gource \
     htop \
     imagemagick \
     kdiff3 \
+    konsole \
+    mupdf \
     python3 \
     python3-pip \
     ranger \
     redshift-gtk \
     rofi \
-    terminator \
+    scrot \
+    snap \
     tree \
     unclutter \
     vim-gui-common \
     vim-runtime \
+    vlc \
+    xclip \
     xterm \
     xz-utils \
-    zsh
+    zsh \
+    > /dev/null
 
 sudo chsh --shell /usr/bin/zsh
+
 

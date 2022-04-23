@@ -1,0 +1,10 @@
+#!/bin/bash
+
+inst base
+
+if [ -d "/usr/local/go" ]; then
+    rm -r "/usr/local/go"
+fi
+
+sudo snap install go --classic > /dev/null
+

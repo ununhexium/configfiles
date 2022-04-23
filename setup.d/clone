@@ -1,0 +1,9 @@
+#!/bin/sh
+
+needs clone || return
+
+inst cecho
+
+sudo apt install -y git
+
+inst_script "clone"

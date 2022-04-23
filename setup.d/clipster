@@ -1,0 +1,24 @@
+#!/bin/sh
+
+clipster --help > /dev/null && return
+
+bnl .config/clipster.ini
+
+target="$SCRIPT_DIR/clipster"
+
+if [ -e "$target" ]; then
+    echo "Clipster is already installed"
+    return
+fi
+
+echo "Installing clipster"
+
+bnl .config/clipster.ini
+
+inst clone cecho
+
+clone 'https://github.com/mrichar1/clipster.git'
+
+ln -s "$HOME/dev/mrichar1/clipster/clipster" "$target"
+
+

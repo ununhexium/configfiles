@@ -1,0 +1,12 @@
+#!/bin/bash
+
+glow --help > /dev/null && return
+
+inst go
+
+clone 'https://github.com/charmbracelet/glow.git'
+
+echo "cd $HOME/dev/charmbracelet/glow && go build > /dev/null" | bash
+
+ln -s "$HOME/dev/charmbracelet/glow/glow" "$HOME/.local/bin/glow"
+

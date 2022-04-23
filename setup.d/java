@@ -1,0 +1,22 @@
+#!/bin/bash
+
+java -h 2> /dev/null && return
+
+echo "Installing Java dependencies"
+
+if [ ! -e "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+    echo "Installing SDKman"
+    curl -s "https://get.sdkman.io" | bash
+fi
+
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk version
+
+
+echo "Installing completions"
+
+if [ ! -e "$HOME/.zsh/gradle-completion" ]; then
+    git clone 'https://github.com/gradle/gradle-completion.git' ~/.zsh/gradle-completion
+fi
+

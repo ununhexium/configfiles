@@ -101,7 +101,7 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # GENERAL PATH
 
-export PATH="$PATH:$HOME/.local/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.local/bin:$HOME/.local/scripts"
 
 # ANTIGEN
 antigen bundle "greymd/docker-zsh-completion"
@@ -122,12 +122,6 @@ fi
 
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
-
-# Virtualenv
-export WORKON_HOME="$HOME/.virtualenvs"
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-# source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
-# Use python3 venv
 
 # GIT
 export LESS="-j.5 -R --hilite-unread"
@@ -263,10 +257,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 # GO
 PATH="$PATH:$HOME/go/bin/"
 
-# ZSH
-source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
 # NPM, NVM, Node JS
 
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -284,9 +274,35 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools"
 
+
+
+# BRYTER
+
+export PATH="$PATH:$HOME/.local/bin/bryter"
+export BASEURL="http://localhost:8080"
+
+function b(){
+    bryter "$@"
+}
+
+
+
+# Cargo
+
+PATH="$PATH:$HOME/.cargo/bin"
+
+
+
+# DFinity
+
+export PATH="$PATH:/home/uuh/app/dfx"
+export DFX_INSTALL_ROOT="$HOME/app/dfx"
+
+
 # FLUTTER
 
 export PATH="$PATH:$HOME/app/flutter/current/bin"
+
 
 # NEXUS
 
@@ -302,16 +318,22 @@ function Nexus(){
     fi
 }
 
-# BRYTER
 
-export PATH="$PATH:$HOME/.local/bin/bryter"
-export BASEURL="http://localhost:8080"
+# PYTHON
 
-function b(){
-    bryter "$@"
-}
+# Virtualenv
+export WORKON_HOME="$HOME/.virtualenvs"
+VENV_WRAPPER_FILE='/usr/share/virtualenvwrapper/virtualenvwrapper.sh'
+if [ -f "$VENV_WRAPPER_FILE" ]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+else
+    echo "Can't find virtual env wrapper file at $VENV_WRAPPER_FILE"
+fi
+# source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
-# DFinity
 
-export PATH="$PATH:/home/uuh/app/dfx"
-export DFX_INSTALL_ROOT="$HOME/app/dfx"
+
+# ZSH
+source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+

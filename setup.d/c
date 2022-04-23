@@ -1,0 +1,12 @@
+#!/bin/sh
+
+needs c || return
+
+inst_script javaversion
+
+inst base
+inst java
+inst glow
+
+inst_script "c"
+

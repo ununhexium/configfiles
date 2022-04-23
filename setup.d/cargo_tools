@@ -1,3 +1,6 @@
+#!/bin/bash
+
+command cargo --quiet > /dev/null && return
 
 function cargoi() {
     for var in "$@"; do
@@ -7,11 +10,12 @@ function cargoi() {
 
 echo "Installing rust dependencies"
 
-command cargo || curl https://sh.rustup.rs -sSf | sh -s -- -y || exit 1
+command cargo --quiet > /dev/null || curl https://sh.rustup.rs -sSf | sh -s -- -y || exit 1
 
 source "$HOME/.cargo/env"
 
 cargoi \
+    bat \
     fd-find \
     hexyl \
     lsd \

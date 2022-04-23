@@ -1,0 +1,27 @@
+#!/bin/sh
+
+needs base || return
+
+inst system
+
+inst_script aptinstall
+inst_script cecho
+inst_script dates
+inst_script empty-downloads
+inst_script gco
+inst_script jqrepl
+inst_script loop
+inst_script onchange
+inst_script newscript
+inst_script pasto
+inst_script rGit
+inst_script trash
+inst_script trim
+inst_script unswap
+inst_script wvi
+
+inst cargo_tools
+
+# placeholder
+inst_script base
+

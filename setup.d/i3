@@ -1,0 +1,7 @@
+
+# screenshot
+
+sudo apt install scrot
+
+clone https://github.com/ununhexium/hexpxl.git
+
