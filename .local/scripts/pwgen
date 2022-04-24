@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+import random;
+import string;
+import sys;
+
+def gen(size: int):
+    print (
+            ''.join(
+                random.choice(
+                    string.ascii_uppercase + string.ascii_lowercase + string.digits
+                ) for _ in range(size))
+    )
+
+if __name__ == '__main__':
+    gen(int(sys.argv[1]))

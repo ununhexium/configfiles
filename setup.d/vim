@@ -1,6 +1,6 @@
-echo "Install vim dependencies"
+#!/bin/bash
 
-source core.sh
+echo "Install vim dependencies"
 
 backup "$HOME/.vim"
 
