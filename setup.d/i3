@@ -1,7 +1,40 @@
+#!/bin/bash
 
-# screenshot
+inst base
+inst locker.sh
 
-sudo apt install scrot
+sudo apt install -y \
+    compton \
+    feh \
+    firewall-applet \
+    flameshot \
+    i3 \
+    i3-wm \
+    i3blocks \
+    i3status \
+    i3lock \
+    konsole \
+    libnotify-bin \
+    libx11-dev \
+    libx11-xcb-dev \
+    libxcursor-dev \
+    lxpolkit \
+    numlockx \
+    redshift-gtk \
+    rofi
 
-clone https://github.com/ununhexium/hexpxl.git
+cargo install xcolor
+
+font_path="$HOME/.fonts/"
+
+if [ ! -e "$font_path" ]; then
+    mkdir "$font_path"
+fi
+
+wget --directory-prefix "$font_path" 'https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete%20Mono.ttf'
+
+# force regen of font cache
+fc-cache -f
+
+
 

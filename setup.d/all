@@ -6,6 +6,7 @@ inst clipster
 inst clone
 inst disabled
 inst flameshot
+inst git
 inst glow
 inst go
 inst gopro

@@ -94,8 +94,6 @@ bnl .config/dunst
 bnl .config/i3
 bnl .config/i3blocks
 bnl .config/rofi
-bnl .gitconfig
-bnl .gitignore
 bnl .resources
 bnl .vimrc
 bnl .zshrc

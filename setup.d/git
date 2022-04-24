@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo apt install -y \
+    cloc \
+    git \
+
+cargo install git-delta
+
+bnl .gitconfig
+bnl .gitignore
+

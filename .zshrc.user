@@ -194,11 +194,6 @@ setopt HIST_SAVE_NO_DUPS
 #MDV set theme
 export MDV_THEME="884.0134"
 
-#move to git repo
-function ggo {
-    cd $(fzf_ggo)
-}
-
 function dgo {
     ranger --choosedir=/tmp/dirselection
     cd $(cat /tmp/dirselection)
@@ -213,35 +208,25 @@ function cdgopro {
     cd "/run/user/$UID/gvfs/$selection/GoPro MTP Client Disk Volume/DCIM/100GOPRO"
 }
 
+
+
 # FZF
 
 FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
-plugins=(fzf-zsh ripgrep zsh-sdkman)
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-_fzf_compgen_path() {
-  echo "$1"
-  command bfs -L "$1" \
-    -name .git -prune -o -name .svn -prune -o \( -type d -o -type f -o -type l \) \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+#move to git repo
+function ggo {
+    cd $(fzf_ggo)
 }
 
-_fzf_compgen_dir() {
-  command bfs -L "$1" \
-    -name .git -prune -o -name .svn -prune -o -type d \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
-}
+
 
 # HISTORY
 export HISTSIZE=100000
-
-# SDK Man
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# KScript
-export KSCRIPT_IDEA_COMMAND="$HOME/.local/bin/idea.sh"
 
 # Multiscreen
 PATH="$PATH:$HOME/.screenlayout"
@@ -302,6 +287,20 @@ export DFX_INSTALL_ROOT="$HOME/app/dfx"
 # FLUTTER
 
 export PATH="$PATH:$HOME/app/flutter/current/bin"
+
+
+# JAVA
+
+plugins=(ripgrep zsh-sdkman)
+
+# SDK Man
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# KScript
+export KSCRIPT_IDEA_COMMAND="$HOME/.local/bin/idea.sh"
+
+# Idea
+export PATH="$PATH:$HOME/app/idea/current/bin"
 
 
 # NEXUS

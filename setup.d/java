@@ -12,7 +12,12 @@ fi
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 sdk version
-
+sdk install java
+sdk install gradle
+sdk install kotlin
+sdk install ki
+sdk install kscript
+sdk install maven
 
 echo "Installing completions"
 
