@@ -129,6 +129,7 @@ bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Pause exec "i3-nagbar -m 'You pressed the SHUTDOWN shortcut. Exit i3?' -b 'Yes, SHUTDOWN' 'shutdown now'"
 
 # Resize window (you can also use the mouse for that)
 mode "resize"
@@ -198,12 +199,12 @@ bindsym Print exec flameshot gui
 bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
-bindsym $mod+Pause exec locker.sh
-bindsym $mod+P exec locker.sh
+bindsym $mod+Pause exec /home/uuh/dev/ununhexium/configfiles/.local/scripts/locker.sh
+bindsym $mod+P exec /home/uuh/dev/ununhexium/configfiles/.local/scripts/locker.sh
 
 # emoji search
 # TODO: rebuild emoji resource file
-bindsym $mod+grave exec --no-startup-id i3emoji
+bindsym $mod+grave exec --no-startup-id /home/uuh/.local/scripts/i3emoji
 
 # No crazy mouse
 focus_follows_mouse no

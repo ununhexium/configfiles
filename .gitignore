@@ -1,8 +1,8 @@
 *.swp
-.idea/
+/.idea/
 *.iml
-.gradle/
-build/
+/.gradle/
+/build/
 *.class
 
 

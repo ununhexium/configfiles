@@ -6,7 +6,7 @@ mid=70
 low=60
 
 if [ -z ${temp+x} ]; then
-    temp=$(sensors -u acpitz-acpi-0 | grep temp2_input | awk '{print $2}' | cut -d\. -f1)
+    temp=$(sensors -u coretemp-isa-0000 | grep temp2_input | awk '{print $2}' | cut -d\. -f1)
 fi
 
 function echox2 {

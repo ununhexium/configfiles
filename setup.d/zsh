@@ -1,9 +1,9 @@
 #!/bin/bash
 
+inst_script fzf_ggo
 inst_script clone
 
 clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
 
 
 

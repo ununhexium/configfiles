@@ -212,6 +212,8 @@ function cdgopro {
 
 # FZF
 
+export PATH="$PATH:$HOME/.local/scripts"
+
 FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
 # zsh-fzf-history-search

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+needs image || return
+
+sudo apt install -y \
+    gimp \
+    inkscape \
+
+
+# placeholder
+inst_script image
+
