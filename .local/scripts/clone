@@ -18,6 +18,8 @@ cloneit() {
         cd "$basefolder" || exit 1
         echo git clone "$1" "$reponame"
         git clone "$1" "$folder"
+    else
+        cecho yellow "Already cloned at $folder"
     fi
 }
 

@@ -19,6 +19,8 @@ cargoi \
     fd-find \
     hexyl \
     lsd \
-    ripgrep
+    record-query \
+    ripgrep \
+
 
 

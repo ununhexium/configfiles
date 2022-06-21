@@ -188,8 +188,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 #bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Backlight
-#bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
-#bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
+bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
 
 #bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
 #bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
@@ -244,6 +244,7 @@ exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xbindkeys
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xset r rate 200 30
+exec --no-startup-id setxkbmap -option srvrkeys:none
 #exec --no-startup-id krb5-auth-dialog
 
 # Wallpaper

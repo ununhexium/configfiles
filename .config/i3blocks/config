@@ -72,3 +72,8 @@ interval=5
 #[stream]
 #interval=10
 
+[brightness]
+interval=10
+
+[battery]
+interval=10
