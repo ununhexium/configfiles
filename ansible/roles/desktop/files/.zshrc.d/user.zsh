@@ -5,14 +5,10 @@ source ~/.zshrc.d/p10k.zsh
 # ANTIGEN
 
 antigen use oh-my-zsh
-
-# GENERAL PATH
+antigen bundle unixorn/fzf-zsh-plugin@main
 
 # Custom scripts
 export PATH="$PATH:$HOME/.local/scripts:$HOME/.local/bin"
-
-# Rust
-export PATH="$PATH:$HOME/.cargo/bin"
 
 antigen theme romkatv/powerlevel10k
 
@@ -26,22 +22,17 @@ zstyle ':completion:*:man:*'      menu yes select
 
 antigen apply
 
+# General linux
+
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
+
+export LESS="-j.5 -R --hilite-unread"
 
 # Virtualenv
 export WORKON_HOME="$HOME/.virtualenvs"
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
-# Use python3 venv
-
-# GIT
-export MYGIT="$HOME/dev/116/"
-
-export LESS="-j.5 -R --hilite-unread"
-
-# network interface to consider for speedometer
-IFACE=enp4s0
 
 # COMPLETION
 ## Gradle
@@ -98,10 +89,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
-# Allows for item negation in command. For instance, delete all but foo: "rm ^foo"
-setopt extended_glob 
-
-
 #MDV set theme
 export MDV_THEME="884.0134"
 
@@ -129,22 +116,22 @@ function setup() {
 
 FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
-plugins=(fzf-zsh ripgrep)
+plugins=(ripgrep)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-_fzf_compgen_path() {
-  echo "$1"
-  command bfs -L "$1" \
-    -name .git -prune -o -name .svn -prune -o \( -type d -o -type f -o -type l \) \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
-}
-
-_fzf_compgen_dir() {
-  command bfs -L "$1" \
-    -name .git -prune -o -name .svn -prune -o -type d \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
-}
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+# _fzf_compgen_path() {
+#   echo "$1"
+#   command bfs -L "$1" \
+#     -name .git -prune -o -name .svn -prune -o \( -type d -o -type f -o -type l \) \
+#     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+# }
+#
+# _fzf_compgen_dir() {
+#   command bfs -L "$1" \
+#     -name .git -prune -o -name .svn -prune -o -type d \
+#     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+# }
 
 # HISTORY
 export HISTSIZE=100000
@@ -162,6 +149,9 @@ PERL5LIB="/home/uuh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/uuh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/uuh/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
+
+# Rust
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # ZSH
 source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

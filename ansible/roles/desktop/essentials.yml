@@ -27,6 +27,8 @@
           - fzf
           - htop
           - iftop
+          - redshift
+          - redshift-gtk
           - speedometer
           - vim
         state: latest
