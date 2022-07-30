@@ -1,0 +1,35 @@
+- name: "Zsh"
+  block:
+    - name: "Zsh packages"
+      ansible.builtin.package:
+        name:
+          - zsh
+          - zsh-antigen
+        state: latest
+
+    - name: ".zshrc"
+      ansible.builtin.copy:
+        src: ".zshrc"
+        dest: "/home/{{ current_user }}/.zshrc"
+
+    - name: ".zshrc.d"
+      ansible.builtin.file:
+        path: "/home/{{ current_user }}/.zshrc.d"
+        state: directory
+        mode: '0755'
+
+    - name: "user.zsh"
+      ansible.builtin.copy:
+        src: ".zshrc.d/user.zsh"
+        dest: "/home/{{ current_user }}/.zshrc.d/user.zsh"
+
+    - name: "Powerline 10k"
+      ansible.builtin.copy:
+        src: ".zshrc.d/p10k.zsh"
+        dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
+
+#    - name: ".zshrc.ansible.zsh"
+#      ansible.builtin.lineinfile:
+#        path: "/home/{{ current_user }}/.zsh.ansible"
+#        create: yes
+#        line: ""

@@ -1,0 +1,3 @@
+- src: git+https://github.com/ontic/ansible-role-fonts.git
+  version: master
+  name: ontic.fonts

@@ -1,9 +1,0 @@
-
-- name: Install the essential packages
-  ansible.builtin.package:
-    name:
-     - htop
-     - iftop
-     - speedometer
-     - zsh
-    state: latest
