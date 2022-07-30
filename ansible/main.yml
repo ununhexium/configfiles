@@ -14,11 +14,3 @@
       - name: "Rust"
         ansible.builtin.include: roles/desktop/rust.yml
         tags: rust
-
-      - name: "Git"
-        block:
-          - name: package
-            ansible.builtin.package:
-              name: git
-              state: latest
-

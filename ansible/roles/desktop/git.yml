@@ -1,0 +1,12 @@
+- name: "Git"
+  block:
+
+    - name: "Git package"
+      ansible.builtin.package:
+        name:
+          - git
+          - kdiff3
+        state: latest
+
+    - name: "Delta"
+      community.general.cargo: "git-delta"
