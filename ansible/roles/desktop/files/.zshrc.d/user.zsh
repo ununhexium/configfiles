@@ -5,7 +5,6 @@ source ~/.zshrc.d/p10k.zsh
 # ANTIGEN
 
 antigen use oh-my-zsh
-antigen bundle unixorn/fzf-zsh-plugin@main
 
 # Custom scripts
 export PATH="$PATH:$HOME/.local/scripts:$HOME/.local/bin"
@@ -14,6 +13,7 @@ antigen theme romkatv/powerlevel10k
 
 #antigen bundle mvn
 antigen bundle "greymd/docker-zsh-completion"
+antigen bundle unixorn/fzf-zsh-plugin@main
 
 #zstyle ':completion:*:mvn:*' show-all-phases true
 zstyle ':completion:*:manuals'    separate-sections true
@@ -69,9 +69,8 @@ alias f="fuck"
 alias g="git"
 alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
-alias la="lsd --long --all --icon never --"
-alias l="lsd --long --all --icon never --"
-alias ll=l
+alias la="ls -lah"
+alias ll="ls -lah"
 alias mvnw="./mvnw"
 alias mkvirtualenv3="mkvirtualenv --python=/usr/bin/python3"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"
@@ -106,17 +105,12 @@ function echopath() {
 	echo $PATH | sed -e "s/:/\n/g"
 }
 
-function setup() {
-	for s in "$@"; do
-		source "/home/uuh/dev/setup/$s"
-	done
-}
 
 # FZF
 
-FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
+# FZF_CTRL_R_OPTS="--preview='echo {} | fold --spaces --width=\$FZF_PREVIEW_COLUMNS'"
 
-plugins=(ripgrep)
+# plugins=(ripgrep)
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #

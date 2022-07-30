@@ -1,5 +1,8 @@
 ---
-- src: community.general
+
+- src: gantsign.golang
+
+- src: Comcast.sdkman
 
 - src: git+https://github.com/ontic/ansible-role-fonts.git
   version: master

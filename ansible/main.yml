@@ -1,11 +1,24 @@
 ---
   - name: "Setup 116"
     hosts: localhost
+
     roles:
-      - { role: ontic.fonts }
+      - role: ontic.fonts
+
+      - role: gantsign.golang
+        golang_gopath: '$HOME/.go'
+
+      - role: Comcast.sdkman
+        sdkman_user: "{{ current_user }}"
+        sdkman_group: "{{ current_user }}"
+        sdkman_auto_answer: true
+        sdkman_update: true
+
     vars:
       current_user: "uuh"
+
     connection: local
+
     tasks:
       - name: "Essentials"
         ansible.builtin.include: roles/desktop/essentials.yml

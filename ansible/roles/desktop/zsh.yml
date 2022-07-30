@@ -11,22 +11,30 @@
       ansible.builtin.copy:
         src: ".zshrc"
         dest: "/home/{{ current_user }}/.zshrc"
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
 
     - name: ".zshrc.d"
       ansible.builtin.file:
         path: "/home/{{ current_user }}/.zshrc.d"
         state: directory
         mode: '0755'
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
 
     - name: "user.zsh"
       ansible.builtin.copy:
         src: ".zshrc.d/user.zsh"
         dest: "/home/{{ current_user }}/.zshrc.d/user.zsh"
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
 
     - name: "Powerline 10k"
       ansible.builtin.copy:
         src: ".zshrc.d/p10k.zsh"
         dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
 
 #    - name: ".zshrc.ansible.zsh"
 #      ansible.builtin.lineinfile:
