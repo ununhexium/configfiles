@@ -11,8 +11,11 @@
         - name: "apt-file update"
           ansible.builtin.shell: "apt-file update"
 
-    - name: "SDKMan"
-      
+    - name: "Git config"
+      ansible.builtin.copy:
+        src: ".gitconfig"
+        dest: "/home/{{ current_user }}/.gitconfig"
+
 
     - name: "Zsh"
       include: zsh.yml
