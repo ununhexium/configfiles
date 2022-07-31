@@ -1,3 +1,4 @@
+# based on https://www.redhat.com/sysadmin/ansible-configure-vim
 - name: Config Vim with plugins
   block:
     - name: Install required packages
