@@ -1,6 +1,7 @@
 ---
   - name: "Setup 116"
     hosts: localhost
+    gather_facts: yes
 
     roles:
       - role: ontic.fonts
@@ -21,20 +22,32 @@
 
     vars:
       current_user: "uuh"
+      vim_dir: "{{ ansible_env.HOME }}/.vim"
+      vimrc: "{{ ansible_env.HOME }}/.vimrc"
 
     connection: local
 
     tasks:
-      - name: "Essentials"
+      - name: "Desktop Essentials"
         ansible.builtin.include: roles/desktop/essentials.yml
         tags:
           - never
           - system
 
+      - name: "CLI Essentials"
+        ansible.builtin.include: roles/cli/essentials.yml
+        tags:
+          - never
+          - system
+
       - name: "User"
-        ansible.builtin.include: roles/desktop/user.yml
+        ansible.builtin.include: roles/cli/user.yml
         tags: user
 
       - name: "Rust"
-        ansible.builtin.include: roles/desktop/rust.yml
+        ansible.builtin.include: roles/cli/rust.yml
+        tags: rust
+
+      - name: "Vim"
+        ansible.builtin.include: roles/cli/vim.yml
         tags: rust

@@ -9,6 +9,7 @@ sudo ansible-galaxy install -r ./ansible/requirements.yml
 ansible-galaxy install -r ./ansible/requirements.yml
 
 sudo ansible-playbook --tags system ./ansible/main.yml
+
 ansible-playbook ./ansible/main.yml
 
 [[ $(which zsh) ]] && sudo chsh --shell "$(which zsh)" "$USER"
