@@ -5,6 +5,7 @@
     - name: "Others: apt"
       ansible.builtin.package:
         name:
+          - deluge
           - kdiff3
           - redshift-gtk
         state: latest

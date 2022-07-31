@@ -8,11 +8,10 @@
         state: latest
 
     - name: ".zshrc"
-      ansible.builtin.copy:
-        src: ".zshrc"
+      file:
+        src: "{{ playbook_dir }}/roles/cli/files/.zshrc"
         dest: "/home/{{ current_user }}/.zshrc"
-        owner: "{{ current_user }}"
-        group: "{{ current_user }}"
+        state: link
 
     - name: ".zshrc.d"
       ansible.builtin.file:
@@ -23,15 +22,13 @@
         group: "{{ current_user }}"
 
     - name: "user.zsh"
-      ansible.builtin.copy:
-        src: ".zshrc.d/user.zsh"
+      file:
+        src: "{{ playbook_dir }}/roles/cli/files/.zshrc.d/user.zsh"
         dest: "/home/{{ current_user }}/.zshrc.d/user.zsh"
-        owner: "{{ current_user }}"
-        group: "{{ current_user }}"
+        state: link
 
     - name: "Powerline 10k"
-      ansible.builtin.copy:
-        src: ".zshrc.d/p10k.zsh"
+      file:
+        src: "{{ playbook_dir }}/roles/cli/files/.zshrc.d/p10k.zsh"
         dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
-        owner: "{{ current_user }}"
-        group: "{{ current_user }}"
+        state: link
