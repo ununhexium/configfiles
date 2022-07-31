@@ -1,16 +1,15 @@
 ## packages
 
-ansible
-fzf
-git
-vim
 virtualbox
 vagrant
 
 ## CLI config
 
-update-alternatives --set editor /usr/bin/vim.basic
-
-ansible-galaxy install ontic.fonts
-
 automate nerd font installation
+
+## Firefox config
+
+### set theme automacally
+
+https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script
+

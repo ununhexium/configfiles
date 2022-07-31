@@ -8,3 +8,9 @@ Thai, french, emoji etc. use the same single line selection principle
 Automate git repo clone
 Cargo build release
 install and symlink
+
+## Firefox config
+
+### set theme automacally
+
+https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script

@@ -1,0 +1,10 @@
+- name: "Sensors"
+  become_user: root
+  block:
+    - name: "Install lm-sensors"
+      ansible.builtin.package:
+        name: lm-sensors
+        state: latest
+
+    - name: "Detect sensors"
+      ansible.builtin.shell: "sensors-detect --auto"

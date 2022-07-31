@@ -5,3 +5,4 @@
 - include_tasks: git_install.yml
 - include_tasks: git_config.yml
 - include_tasks: user.yml
+- include_tasks: sensors.yml
