@@ -1,7 +1,8 @@
 
 - name: Install the essential desktop packages
-  block:
+  become_user: root
 
+  block:
     - name: "Others: apt GUI tools"
       ansible.builtin.package:
         name:
@@ -12,6 +13,8 @@
           - flameshot
           - gource
           - imagemagick
+          - i3
+          - i3blocks
           - kdiff3
           - redshift-gtk
           - rofi

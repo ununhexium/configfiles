@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ $(cat /sys/devices/system/cpu/intel_pstate/no_turbo) -eq 0 ]]; then
+    echo '<span foreground="yellow"></span>'
+else
+    echo ""
+fi
+

@@ -20,6 +20,7 @@
 #          - { candidate: java, version: 17.0.4-zulu }
 
       - role: cli
+      - role: desktop
 
     vars:
       current_user: "uuh"

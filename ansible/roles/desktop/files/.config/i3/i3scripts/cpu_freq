@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+freqs=$(cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq)
+cpu_count=$(echo $freqs | wc -l)
+
+average=$(echo $freqs | awk "END { printf(\"%.02f\", s / $cpu_count / 1000 / 1000) } { s += \$1 }" | head -c 4)
+
+graphite "monitoring.cpu.frequency" $(echo $freqs | awk "END { printf(\"%.0f\", s * 1000 / ${cpu_count} ) } { s += \$1 }")
+
+echo "${average}㎓"
+

@@ -1,0 +1,19 @@
+- name: "i3"
+  block:
+    - name: "Link i3 config and scripts"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/i3"
+        dest: "/home/{{ current_user }}/.config/i3"
+        state: link
+
+    - name: "Link i3 blocks config"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/i3blocks"
+        dest: "/home/{{ current_user }}/.config/i3blocks"
+        state: link
+
+    - name: "Link rofi config"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/rofi"
+        dest: "/home/{{ current_user }}/.config/rofi"
+        state: link

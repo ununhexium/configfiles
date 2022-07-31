@@ -1,0 +1,139 @@
+/**
+ * ROFI Color theme
+ * User: ununhexium
+ * Copyright: Creative commons, Attribution
+ */
+
+/* Global settings and color variables */
+* {
+   highlight:        bold #ff00ff;
+
+   gray:             #aaaaaa;
+   red:              #aa0000;
+
+   blackentry:       #000000;
+   darkgray:         #848484;
+   font: "FuraCode Nerd Font Mono 24";
+   background-color: black;
+}
+
+window {
+   background-color: black;
+   anchor: center;
+   location: center;
+   y-offset: 0%;
+}
+
+mainbox {
+   background-color: cyan;
+   spacing: 0px;
+   border: 1;
+   padding: 10px;
+   children: [inputbar, message,/* sidebar,*/ listview];
+}
+
+message {
+   padding: 6px 10px;
+   background-color: black;
+}
+
+textbox {
+   text-color:gray;
+   background-color:black;
+}
+
+listview {
+   fixed-height: false;
+   dynamic: true;
+   scrollbar: true;
+   spacing: 5px;
+   padding: 1px 0px 0px 0px;
+   margin: 0px 0px 1px 0px;
+   background: black;
+}
+
+element {
+   padding: 15px 50px;
+}
+
+element normal.normal {
+   padding: 0px 15px;
+   text-color: gray;
+}
+
+element normal.urgent {
+   text-color: red;
+}
+
+element normal.active {
+   text-color: magenta;
+}
+
+element selected.normal {
+    text-color: cyan;
+}
+
+element selected.urgent {
+    background-color: red;
+    text-color: black;
+}
+
+element selected.active {
+    background-color: black;
+    text-color: cyan;
+}
+
+element alternate.normal {
+    text-color: gray;
+}
+
+element alternate.urgent {
+    text-color: red;
+}
+
+element alternate.active {
+    text-color: magenta;
+}
+
+scrollbar {
+   background-color: black;
+   handle-color: magenta;
+   handle-width: 40px;
+}
+
+sidebar {
+   background-color: red;
+}
+
+button {
+   background-color: black;
+   text-color: darkgray;
+}
+
+button selected {
+    text-color: magenta;
+}
+
+inputbar {
+   background-color: black;
+   text-color: cyan;
+   spacing: 0px;
+}
+
+prompt {
+   padding: 6px 9px;
+   background-color: cyan;
+   text-color: black;
+}
+
+entry {
+   padding: 6px 10px;
+   background-color: black;
+   text-color: magenta;
+}
+
+case-indicator {
+   padding: 6px 10px;
+   text-color: magenta;
+   background-color: black;
+}
