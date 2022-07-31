@@ -56,7 +56,6 @@ alias pomodoro='while true; do notify-send Pomodoro Resume; sleep 1500; notify-s
 alias rlf='readlink -f'
 alias sarahconnor="cd $PWD"
 alias speedometer="speedometer -r $IFACE -t $IFACE"
-alias zu="vi $HOME/.zshrc.user"
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST

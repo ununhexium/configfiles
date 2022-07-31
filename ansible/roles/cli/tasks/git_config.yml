@@ -1,0 +1,5 @@
+- name: "Git config"
+  file:
+    src: "{{ playbook_dir }}/roles/cli/files/.gitconfig"
+    dest: "/home/{{ current_user }}/.gitconfig"
+    state: link

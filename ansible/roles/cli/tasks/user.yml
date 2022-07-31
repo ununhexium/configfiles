@@ -1,4 +1,4 @@
-- name: "User install"
+- name: "User scripts install"
   block:
     - name: "Custom scripts"
       ansible.builtin.file:
@@ -7,9 +7,3 @@
         owner: "{{ current_user }}"
         group: "{{ current_user }}"
         state: link
-
-    - name: "git"
-      include: git.yml
-
-    - name: "zsh"
-      include: zsh.yml

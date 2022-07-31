@@ -2,10 +2,22 @@
 - name: Install the essential desktop packages
   block:
 
-    - name: "Others: apt"
+    - name: "Others: apt GUI tools"
       ansible.builtin.package:
         name:
+          - arandr
+          - compton
           - deluge
+          - dunst
+          - flameshot
+          - gource
+          - imagemagick
           - kdiff3
           - redshift-gtk
+          - rofi
+          - terminator
+          - unclutter
+          - vim-gui-common
+          - xterm
+
         state: latest

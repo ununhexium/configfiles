@@ -2,52 +2,26 @@
   - name: "Setup 116"
     hosts: localhost
     gather_facts: yes
+    become_method: sudo
 
     roles:
       - role: ontic.fonts
-        tags:
-          - never
-          - system
 
       - role: gantsign.golang
         golang_gopath: '$HOME/.go'
-        tags: user
 
       - role: Comcast.sdkman
         sdkman_user: "{{ current_user }}"
         sdkman_group: "{{ current_user }}"
         sdkman_auto_answer: true
         sdkman_update: true
-        tags: user
+        sdkman_install_packages:
+          - candidate: gradle
+#          - { candidate: java, version: 17.0.4-zulu }
+
+      - role: cli
 
     vars:
       current_user: "uuh"
-      vim_dir: "{{ ansible_env.HOME }}/.vim"
-      vimrc: "{{ ansible_env.HOME }}/.vimrc"
 
     connection: local
-
-    tasks:
-      - name: "Desktop Essentials"
-        ansible.builtin.include: roles/desktop/essentials.yml
-        tags:
-          - never
-          - system
-
-      - name: "CLI Essentials"
-        ansible.builtin.include: roles/cli/essentials.yml
-        tags:
-          - never
-          - system
-
-      - name: "User"
-        ansible.builtin.include: roles/cli/user.yml
-        tags: user
-
-      - name: "Rust"
-        ansible.builtin.include: roles/cli/rust.yml
-        tags: rust
-
-      - name: "Vim"
-        ansible.builtin.include: roles/cli/vim.yml
-        tags: rust

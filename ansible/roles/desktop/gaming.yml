@@ -1,0 +1,5 @@
+- name : "Gaming"
+  block:
+    - name: "Steam"
+      package: steam
+      state: latest

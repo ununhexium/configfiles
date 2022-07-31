@@ -10,8 +10,6 @@
           - fzf
         state: latest
       become: yes
-      tags:
-        - install_packages
 
     - name: Ensure .vim/{autoload,bundle} directory exists
       file:

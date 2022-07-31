@@ -1,0 +1,10 @@
+- name: "Git install"
+  become_user: root
+  block:
+
+    - name: "Git package"
+      ansible.builtin.package:
+        name:
+          - git
+          - tig
+        state: latest

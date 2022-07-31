@@ -13,14 +13,10 @@
         dest: /tmp/sh.rustup.rs
         mode: '0755'
         force: 'yes'
-      tags:
-        - rust
 
     - name: "Install rust/cargo"
       when: cargo_exists is failed
       shell: /tmp/sh.rustup.rs -y
-      tags:
-        - rust
 
     - name: "Enable cargo in ZSH"
       when: cargo_exists is failed
@@ -30,7 +26,26 @@
         line: "[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env"
 
     - name: "Install bat"
-      shell: "cargo install bat"
+      shell: "{{ cargo_exec }} install bat"
+      args:
+        creates: "{{ cargo_bin }}/bat"
+
+    - name: "Install fd-find"
+      shell: "{{ cargo_exec }} install fd-find"
+      args:
+        creates: "{{ cargo_bin }}/fd"
 
     - name: "Install git delta"
-      shell: "cargo install git-delta"
+      shell: "{{ cargo_exec }} install git-delta"
+      args:
+        creates: "{{ cargo_bin }}/delta"
+
+    - name: "Install hexyl"
+      shell: "{{ cargo_exec }} install hexyl"
+      args:
+        creates: "{{ cargo_bin }}/hexyl"
+
+    - name: "Install ripgrep"
+      shell: "{{ cargo_exec }} install ripgrep"
+      args:
+        creates: "{{ cargo_bin }}/rg"

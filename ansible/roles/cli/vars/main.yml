@@ -1,0 +1,8 @@
+---
+# vars file for roles/cli-role
+cargo_home: "$HOME/.cargo/"
+cargo_bin: "$HOME/.cargo/bin/"
+cargo_exec: "$HOME/.cargo/bin/cargo"
+
+vim_dir: "{{ ansible_env.HOME }}/.vim"
+vimrc: "{{ ansible_env.HOME }}/.vimrc"

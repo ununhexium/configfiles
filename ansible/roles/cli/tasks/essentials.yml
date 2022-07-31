@@ -1,0 +1,39 @@
+
+- name: Install the essential packages
+  become_user: root
+
+  block:
+  - name: "apt-file"
+    block:
+      - name: "apt-file package"
+        ansible.builtin.package:
+          name: apt-file
+          state: latest
+      - name: "apt-file update"
+        ansible.builtin.shell: "apt-file update"
+
+  - name: "Others: apt cli tools"
+    ansible.builtin.package:
+      name:
+        - apt-file
+        - bfs
+        - build-essential
+        - chafa
+        - curl
+        - entr
+        - exa
+        - fzf
+        - glances
+        - htop
+        - iftop
+        - iotop
+        - python3
+        - python3-pip
+        - ranger
+        - redshift
+        - speedometer
+        - tree
+        - vim
+        - vim-runtime
+        - xz-utils
+      state: latest

@@ -1,0 +1,7 @@
+---
+- include_tasks: essentials.yml
+- include_tasks: zsh.yml
+- include_tasks: rust.yml
+- include_tasks: git_install.yml
+- include_tasks: git_config.yml
+- include_tasks: user.yml
