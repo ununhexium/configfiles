@@ -1,0 +1,19 @@
+- name: "User install"
+  block:
+    - name: "Custom scripts"
+      ansible.builtin.file:
+        src: "/home/{{ current_user }}/dev/ununhexium/configfiles/.local/scripts"
+        dest: "/home/{{ current_user }}/.local/scripts"
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
+        state: link
+
+    - name: "Git config"
+      ansible.builtin.copy:
+        src: ".gitconfig"
+        dest: "/home/{{ current_user }}/.gitconfig"
+        owner: "{{ current_user }}"
+        group: "{{ current_user }}"
+
+    - name: "Zsh"
+      include: zsh.yml

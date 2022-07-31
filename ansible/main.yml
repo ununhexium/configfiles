@@ -4,15 +4,20 @@
 
     roles:
       - role: ontic.fonts
+        tags:
+          - never
+          - system
 
       - role: gantsign.golang
         golang_gopath: '$HOME/.go'
+        tags: user
 
       - role: Comcast.sdkman
         sdkman_user: "{{ current_user }}"
         sdkman_group: "{{ current_user }}"
         sdkman_auto_answer: true
         sdkman_update: true
+        tags: user
 
     vars:
       current_user: "uuh"
@@ -22,7 +27,13 @@
     tasks:
       - name: "Essentials"
         ansible.builtin.include: roles/desktop/essentials.yml
-        tags: essentials
+        tags:
+          - never
+          - system
+
+      - name: "User"
+        ansible.builtin.include: roles/desktop/user.yml
+        tags: user
 
       - name: "Rust"
         ansible.builtin.include: roles/desktop/rust.yml

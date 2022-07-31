@@ -1,7 +1,8 @@
 - name: "Rust"
   block:
     - name: "Check if cargo is installed"
-      shell: command -v cargo
+      shell: "test -f /home/{{ current_user }}/.cargo/bin/cargo"
+      become_user: "{{ current_user }}"
       register: cargo_exists
       ignore_errors: yes
 
@@ -27,3 +28,9 @@
         path: "/home/{{ current_user }}/.zsh.ansible"
         create: yes
         line: "[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env"
+
+    - name: "Install bat"
+      shell: "cargo install bat"
+
+    - name: "Install git delta"
+      shell: "cargo install git-delta"

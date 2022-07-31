@@ -35,9 +35,3 @@
         dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
         owner: "{{ current_user }}"
         group: "{{ current_user }}"
-
-#    - name: ".zshrc.ansible.zsh"
-#      ansible.builtin.lineinfile:
-#        path: "/home/{{ current_user }}/.zsh.ansible"
-#        create: yes
-#        line: ""
