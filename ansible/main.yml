@@ -19,6 +19,8 @@
           - candidate: gradle
 #          - { candidate: java, version: 17.0.4-zulu }
 
+      - role: aisbergg.lm_sensors
+
       - role: cli
       - role: desktop
 

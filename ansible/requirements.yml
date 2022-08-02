@@ -1,5 +1,7 @@
 ---
 
+- src: aisbergg.lm_sensors
+
 - src: gantsign.golang
 
 - src: Comcast.sdkman

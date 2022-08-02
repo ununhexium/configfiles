@@ -9,3 +9,7 @@ sudo ansible-galaxy install -r ./ansible/requirements.yml
 sudo ansible-playbook ./ansible/main.yml
 
 [[ $(which zsh) ]] && sudo chsh --shell "$(which zsh)" "$USER"
+
+
+# Refresh the binaries index
+[[ $SHELL =~ '/zsh$' ]] && rehash
