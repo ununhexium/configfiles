@@ -13,3 +13,8 @@ sudo ansible-playbook ./ansible/main.yml
 
 # Refresh the binaries index
 [[ $SHELL =~ '/zsh$' ]] && rehash
+
+echo "MANUAL STEPS"
+
+echo "Get uBlock https://www.google.com/search?q=ublock"
+

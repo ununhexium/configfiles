@@ -1,0 +1,20 @@
+- name: "Discord"
+  block:
+
+    - name: "Discord dependencies"
+      ansible.builtin.package:
+        name:
+          - libgconf-2-4
+          - libc++1
+        state: latest
+
+    - name: "Discord download"
+      get_url:
+        url: https://discord.com/api/download?platform=linux&format=deb
+        dest: /tmp/discord.deb
+        mode: '0400'
+        force: 'yes'
+
+    - name: "Discord deb install"
+      ansible.builtin.apt:
+        deb: /tmp/discord.deb
