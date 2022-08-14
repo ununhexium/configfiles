@@ -6,6 +6,7 @@
 - include_tasks: git_config.yml
 - include_tasks: user.yml
 - include_tasks: python.yml
+- include_tasks: database_tools.yml
 
   
 # TODO: check if this is now handled by the custom installer

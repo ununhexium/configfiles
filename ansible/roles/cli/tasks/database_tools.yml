@@ -1,0 +1,4 @@
+- name: "Database tools"
+  ansible.builtin.package:
+    name: sqlite3
+    state: latest
