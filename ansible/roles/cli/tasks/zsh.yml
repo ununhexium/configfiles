@@ -32,3 +32,11 @@
         src: "{{ playbook_dir }}/roles/cli/files/.zshrc.d/p10k.zsh"
         dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
         state: link
+
+    - name: "ZSH syntax highlight"
+      ansible.builtin.git:
+        repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
+        dest: "/home/{{ current_user }}/dev/zsh-users/zsh-syntax-highlighting/"
+        clone: yes
+        update: yes
+        version: "0.7.1"
