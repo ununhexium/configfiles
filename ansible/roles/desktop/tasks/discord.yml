@@ -1,5 +1,9 @@
 - name: "Discord"
   block:
+    - name: Check if discord is present
+      command: ls /usr/bin/discord
+      register: discord_installed
+      ignore_errors: yes
 
     - name: "Discord dependencies"
       ansible.builtin.package:
@@ -7,6 +11,7 @@
           - libgconf-2-4
           - libc++1
         state: latest
+      when: discord_installed is failed
 
     - name: "Discord download"
       get_url:
@@ -14,7 +19,9 @@
         dest: /tmp/discord.deb
         mode: '0400'
         force: 'yes'
+      when: discord_installed is failed
 
     - name: "Discord deb install"
       ansible.builtin.apt:
         deb: /tmp/discord.deb
+      when: discord_installed is failed
