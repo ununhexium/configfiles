@@ -1,0 +1,27 @@
+- name: "sway"
+  block:
+    - name: "Others: apt GUI tools"
+      ansible.builtin.package:
+        name:
+          - sway
+          - swaylock
+
+        state: latest
+
+    - name: "Link sway config and scripts"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/sway"
+        dest: "/home/{{ current_user }}/.config/sway"
+        state: link
+
+    - name: "Link i3 blocks config"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/i3blocks"
+        dest: "/home/{{ current_user }}/.config/i3blocks"
+        state: link
+
+    - name: "Link rofi config"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/rofi"
+        dest: "/home/{{ current_user }}/.config/rofi"
+        state: link

@@ -1,4 +1,5 @@
 ---
 - include_tasks: essentials.yml
-- include_tasks: i3.yml
+#- include_tasks: i3.yml
+- include_tasks: sway.yml
 - include_tasks: discord.yml

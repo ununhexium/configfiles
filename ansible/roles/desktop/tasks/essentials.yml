@@ -7,15 +7,13 @@
       ansible.builtin.package:
         name:
           - arandr
-          - compton
           - deluge
           - dunst
           - flameshot
           - gource
           - imagemagick
-          - i3
-          - i3blocks
           - kdiff3
+          - libinput-tools
           - redshift-gtk
           - rofi
           - terminator
