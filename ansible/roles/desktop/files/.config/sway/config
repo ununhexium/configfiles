@@ -208,6 +208,30 @@ bindsym $mod+grave exec --no-startup-id i3emoji
 # No crazy mouse
 focus_follows_mouse no
 
+# Keyboard config
+
+input type:keyboard {
+
+  # Capslock key should work as escape key
+  # See /usr/share/X11/xkb/rules/xorg.lst for options
+  xkb_options caps:escape
+
+  xkb_numlock enabled
+
+  repeat_delay 200
+  repeat_rate 30
+}
+
+# Mouse config
+
+input type:mouse {
+    #tap enabled
+    natural_scroll disabled
+    #dwt enabled
+    accel_profile "flat"
+    pointer_accel -1
+}
+
 # Startup programs
 
 # Compositor for window transparency
@@ -240,7 +264,7 @@ exec --no-startup-id start-pulseaudio-x11
 # exec --no-startup-id unclutter -idle 1 -root
 exec --no-startup-id xbindkeys
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id xset r rate 200 30
+#exec --no-startup-id xset r rate 200 30
 #exec --no-startup-id krb5-auth-dialog
 
 # Wallpaper
