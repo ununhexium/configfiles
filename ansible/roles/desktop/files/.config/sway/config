@@ -68,16 +68,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Name the workspaces
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace0 "0"
+set $workspace1 "Ⅰ"
+set $workspace2 "Ⅱ"
+set $workspace3 "Ⅲ"
+set $workspace4 "Ⅳ"
+set $workspace5 "Ⅴ"
+set $workspace6 "Ⅵ"
+set $workspace7 "Ⅶ"
+set $workspace8 "Ⅷ"
+set $workspace9 "Ⅸ"
+set $workspace0 "Ⅹ"
 
 # Switch to workspace
 bindsym $mod+0 workspace $workspace0
