@@ -10,6 +10,12 @@ sudo ansible-playbook ./ansible/main.yml
 
 [[ $(which zsh) ]] && sudo chsh --shell "$(which zsh)" "$USER"
 
+# Glow
+# Installed here because I didn't find a way to add this apt repo with ansible
+# Tried: https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html
+
+echo 'deb [trusted=yes] https://repo.charm.sh/apt/ /' | sudo tee /etc/apt/sources.list.d/charm.list
+sudo apt update && sudo apt install glow
 
 # Refresh the binaries index
 [[ $SHELL =~ '/zsh$' ]] && rehash
