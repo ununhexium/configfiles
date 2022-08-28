@@ -1,5 +1,8 @@
 ---
 # vars file for roles/cli-role
+
+current_user_home: "/home/{{ current_user }}"
+
 cargo_home: "$HOME/.cargo/"
 cargo_bin: "$HOME/.cargo/bin/"
 cargo_exec: "$HOME/.cargo/bin/cargo"

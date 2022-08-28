@@ -1,0 +1,14 @@
+- name: Greenclip
+  block:
+    - name: Check if greenclip is present
+      command: greenclip
+      register: greenclip_installed
+      ignore_errors: yes
+
+    - name: "Greenclip download"
+      get_url:
+        url: https://github.com/erebe/greenclip/releases/download/v4.2/greenclip
+        dest: "{{ current_user_home }}/.local/bin/greenclip"
+        mode: '0544'
+        force: 'yes'
+      when: greenclip_installed is failed

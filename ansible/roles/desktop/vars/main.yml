@@ -1,2 +1,4 @@
 ---
 # vars file for roles/desktop
+
+current_user_home: "/home/{{ current_user }}"
