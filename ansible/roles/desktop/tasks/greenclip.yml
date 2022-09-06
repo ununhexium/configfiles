@@ -5,10 +5,30 @@
       register: greenclip_installed
       ignore_errors: yes
 
+    - name: Check if user bin folder is present
+      command: ls "{{ current_user_bin }}"
+      register: bin_folder_present
+      ignore_errors: yes
+
+    - name: Create user bin folder
+      file:
+        path: "{{ current_user_bin }}"
+        state: directory
+        recurse: yes
+        mode: 0750
+      when: bin_folder_present
+
     - name: "Greenclip download"
       get_url:
         url: https://github.com/erebe/greenclip/releases/download/v4.2/greenclip
-        dest: "{{ current_user_home }}/.local/bin/greenclip"
+        dest: "{{ current_user_bin }}/greenclip"
         mode: '0544'
         force: 'yes'
+        owner: "{{ current_user }}"
       when: greenclip_installed is failed
+
+    - name: "Greenclip config"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.config/greenclip.toml"
+        dest: "{{ current_user_home }}/.config/greenclip.toml"
+        state: link

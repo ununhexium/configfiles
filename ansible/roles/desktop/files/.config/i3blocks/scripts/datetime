@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+now="$(date '+%H:%M')"
+
+echo "$now"
+echo "$now"
+
+late="22:[3-5]."
+verylate="2[3-4]:.*"
+
+[[ $now =~ $late ]] &&  echo "#00FFFF"
+[[ $now =~ $verylate ]] &&  echo "#FF00FF"
+
+
+exit 0

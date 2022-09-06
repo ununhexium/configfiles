@@ -1,6 +1,6 @@
 # i3blocks config file
 # Global properties
-command=~/.config/i3/i3scripts/$BLOCK_NAME
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
 align=center
 separator=true
 separator_block_width=50
@@ -16,7 +16,7 @@ min_width=0
 # Wifi signal strenght
 [wifi]
 label=
-instance=wlp0s20f3
+instance=enp8s0
 #color=#00cde0
 #border=#00cde0
 interval=5

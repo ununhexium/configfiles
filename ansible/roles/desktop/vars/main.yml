@@ -1,4 +1,5 @@
 ---
 # vars file for roles/desktop
 
-current_user_home: "/home/{{ current_user }}"
+current_user_home: "/home/{{ current_user }}/"
+current_user_bin: "/home/{{ current_user }}/.local/bin/"

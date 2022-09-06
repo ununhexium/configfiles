@@ -1,0 +1,12 @@
+#!/bin/bash
+
+current=$(cat /sys/class/backlight/intel_backlight/brightness)
+max=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+levels=(  )
+levels_count=${#levels[@]}
+
+index=$(echo "(($current-1) * $levels_count / $max)" | bc)
+percent=$(echo "100 * $current / $max" | bc)
+
+echo "${levels[$index]} $percent%"
+

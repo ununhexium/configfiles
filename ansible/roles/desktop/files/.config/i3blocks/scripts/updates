@@ -1,0 +1,22 @@
+#!/bin/bash
+
+sudo apt update 2> /dev/null > /dev/null
+
+normal=$(apt list --upgradable 2>/dev/null | wc -l)
+security=$(apt list --upgradable 2>/dev/null | grep "\-security" | wc -l)
+
+output=""
+if [ $security -ne 0 ]; then
+	indicator=""
+	if [ $normal -ne 0 ]; then
+		indicator="<sup><span foreground='#FF00FF'>+$normal</span></sup>"
+	fi
+	output="<span foreground='#FF00FF'> </span><span font_weight='bold' foreground='#FF00FF'>${security}$indicator</span>"
+	notify-send --urgency critical "$security Security updates available"
+elif [ $normal -ne 0 ]; then
+	output="<span foreground='#00FFFF'> $normal</span>"
+fi
+
+echo "$output"
+
+exit 0
