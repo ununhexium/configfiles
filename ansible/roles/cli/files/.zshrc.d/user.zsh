@@ -50,7 +50,6 @@ alias listwifi="iwlist wlp2s0 scan"
 alias la="ls -lah"
 alias ll="ls -lah"
 alias mvnw="./mvnw"
-alias mkvirtualenv3="mkvirtualenv --python=/usr/bin/python3"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"
 alias pomodoro='while true; do notify-send Pomodoro Resume; sleep 1500; notify-send --urgency critical --expire-time 300000 Pomodoro Pause; done'
 alias rlf='readlink -f'
@@ -154,11 +153,6 @@ PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 ## Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 
-
-## Virtualenv
-export WORKON_HOME="$HOME/.virtualenvs"
-# source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-source "$HOME/.local/bin/virtualenvwrapper_lazy.sh"
 
 
 ## ZSH

@@ -1,7 +1,6 @@
 source /usr/share/zsh-antigen/antigen.zsh
 
 source ~/.zshrc.d/user.zsh
-source ~/.zshrc.d/ansible.zsh
 source ~/.zshrc.d/conda.zsh
 
 
