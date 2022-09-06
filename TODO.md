@@ -14,3 +14,5 @@ install and symlink
 ### set theme automacally
 
 https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script
+
+### Detect CPU temperature automatically
