@@ -33,6 +33,18 @@
         dest: "/home/{{ current_user }}/.zshrc.d/p10k.zsh"
         state: link
 
+    - name: "NVM"
+      file:
+        src: "{{ playbook_dir }}/roles/cli/files/.zshrc.d/nvm.zsh"
+        dest: "/home/{{ current_user }}/.zshrc.d/nvm.zsh"
+        state: link
+
+    - name: "Conda"
+      file:
+        src: "{{ playbook_dir }}/roles/cli/files/.zshrc.d/conda.zsh"
+        dest: "/home/{{ current_user }}/.zshrc.d/conda.zsh"
+        state: link
+
     - name: "ZSH syntax highlight"
       ansible.builtin.git:
         repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'

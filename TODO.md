@@ -16,3 +16,5 @@ install and symlink
 https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script
 
 ### Detect CPU temperature automatically
+
+### Link Terminator config and save it in this repo
