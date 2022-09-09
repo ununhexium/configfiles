@@ -60,7 +60,7 @@ show() {
             ;;
 
         inode/directory*)
-            lsd "$1"
+            ls "$1"
             ;;
 
         inode/symlink*)

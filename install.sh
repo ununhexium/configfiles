@@ -26,4 +26,8 @@ fi
 echo "MANUAL STEPS"
 
 echo "Get uBlock https://www.google.com/search?q=ublock"
-
+echo
+echo "Bypass the graphical login and use the console so ZSH sources the right env (especially PATH)"
+echo "sudo systemctl set-default multi-user.target"
+echo "To revert and boot into the graphical display manager again"
+echo "sudo systemctl set-default graphical.target"

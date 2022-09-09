@@ -10,5 +10,7 @@ fi
 
 echo ": $(date +%s):0;sudo apt install $package" >> ~/.zsh_history
 
+rehash
+
 exit 0
 

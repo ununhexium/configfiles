@@ -11,3 +11,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export SDKMAN_OFFLINE_MODE=false
 
 
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)

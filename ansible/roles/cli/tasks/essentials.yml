@@ -43,4 +43,6 @@
           - vim
           - vim-runtime
           - xz-utils
+          - ydotool
+          - ydotoold
         state: latest
