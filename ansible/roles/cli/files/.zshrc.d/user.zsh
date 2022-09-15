@@ -95,13 +95,15 @@ fuck () {
     test -n "$TF_CMD" && print -s $TF_CMD
 }
 
+## FZF
+export FZF_DEFAULT_OPTS='--layout=default'
 
 ## GIT
 function ggo {
     cd $(fzf_ggo)
 }
 
-function gch() {
+function gco() {
  git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
 }
 
