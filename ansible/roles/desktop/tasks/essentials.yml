@@ -21,6 +21,7 @@
           - terminator
           - unclutter
           - vim-gui-common
+          - xclip
           - xterm
 
         state: latest

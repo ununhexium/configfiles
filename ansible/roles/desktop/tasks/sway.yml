@@ -20,6 +20,12 @@
         dest: "/home/{{ current_user }}/.config/i3blocks"
         state: link
 
+    - name: "Link .resources"
+      ansible.builtin.file:
+        src: "{{ playbook_dir }}/roles/desktop/files/.resources"
+        dest: "/home/{{ current_user }}/.resources"
+        state: link
+
 #    - name: "Link rofi config"
 #      ansible.builtin.file:
 #        src: "{{ playbook_dir }}/roles/desktop/files/.config/rofi"
