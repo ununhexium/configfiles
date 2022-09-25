@@ -18,3 +18,27 @@ https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from
 ### Detect CPU temperature automatically
 
 ### Link Terminator config and save it in this repo
+## packages
+
+virtualbox
+vagrant
+
+## CLI config
+
+automate nerd font installation
+
+## Firefox config
+
+### set theme automacally
+
+https://askubuntu.com/questions/313483/how-do-i-change-firefoxs-aboutconfig-from-a-shell-script
+
+## FZF
+
+find a way to always show the preview window
+
+## Flameshot on wayland
+
+https://github.com/flameshot-org/flameshot/blob/master/docs/Sway%20and%20wlroots%20support.md
+
+

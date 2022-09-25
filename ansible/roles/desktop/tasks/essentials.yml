@@ -21,6 +21,7 @@
           - terminator
           - unclutter
           - vim-gui-common
+          - vlc
           - xclip
           - xterm
 
