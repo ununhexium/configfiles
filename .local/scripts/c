@@ -23,7 +23,7 @@ show() {
             ;;
 
         application/json*)
-            cat "$1" | rq
+            cat "$1" | jq
             ;;
 
         application/pdf*)
@@ -60,7 +60,7 @@ show() {
             ;;
 
         inode/directory*)
-            ls "$1"
+            ls --color "$1"
             ;;
 
         inode/symlink*)

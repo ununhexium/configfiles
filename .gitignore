@@ -6,5 +6,5 @@ build/
 *.class
 
 
-
+.local/scripts/openapi-generator-*.jar
 
