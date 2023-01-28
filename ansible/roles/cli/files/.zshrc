@@ -25,3 +25,5 @@ source <(ng completion script)
 
 # To customize prompt, run `p10k configure` or edit ~/.zshrc.d/p10k.zsh.
 [[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
+
+source /home/uuh/.config/broot/launcher/bash/br

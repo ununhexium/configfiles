@@ -4,7 +4,7 @@ if [ $# -gt 1 ]; then
   echo "Only 1 argument: the file where to paste the clipboard content"
 fi
 
-xclip -o > "$1"
-xclip -o
+xclip -o -selection clipboard > "$1"
+xclip -o -selection clipboard
 
 exit 0
