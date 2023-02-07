@@ -68,16 +68,16 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Name the workspaces
-set $workspace1 "Ⅰ"
-set $workspace2 "Ⅱ"
-set $workspace3 "Ⅲ"
-set $workspace4 "Ⅳ"
-set $workspace5 "Ⅴ"
-set $workspace6 "Ⅵ"
-set $workspace7 "Ⅶ"
-set $workspace8 "Ⅷ"
-set $workspace9 "Ⅸ"
-set $workspace0 "Ⅹ"
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace0 "0"
 
 # Switch to workspace
 bindsym $mod+0 workspace $workspace0
@@ -165,19 +165,20 @@ client.placeholder          $magenta $magenta   $silver    $magenta
 # Start i3blocks to display a workspace bar
 bar
 {
-	position top
-	status_command 2>/tmp/i3blocks.err i3blocks
-	#i3bar_command i3bar -t
-	font pango: FuraCode Nerd Font Mono 20
-	colors
-	{
-                        # Border	# Background	# Text
-		focused_workspace   $silver   $silver	  $elegant
-		active_workspace    $elegant  $elegant  $orange
-		inactive_workspace  $elegant  $elegant 	$cyan
-		urgent_workspace    $acqua    $acqua    $silver
-		background          $elegant
-   	}
+    swaybar_command waybar
+#	position top
+#	status_command 2>/tmp/i3blocks.err i3blocks
+#	#i3bar_command i3bar -t
+#	font pango: FuraCode Nerd Font Mono 20
+#	colors
+#	{
+#                        # Border	# Background	# Text
+#		focused_workspace   $silver   $silver	  $elegant
+#		active_workspace    $elegant  $elegant  $orange
+#		inactive_workspace  $elegant  $elegant 	$cyan
+#		urgent_workspace    $acqua    $acqua    $silver
+#		background          $elegant
+#   	}
 }
 
 # Volume

@@ -1,3 +1,4 @@
+
 - name: "sway"
   block:
     - name: "Others: apt GUI tools"
@@ -5,6 +6,7 @@
         name:
           - sway
           - swaylock
+          - waybar
 
         state: latest
 
@@ -39,5 +41,3 @@
         clone: yes
         update: yes
         version: "master"
-
-

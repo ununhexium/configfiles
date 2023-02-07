@@ -1,0 +1,6 @@
+
+- name: "Link waybar config"
+  ansible.builtin.file:
+    src: "{{ playbook_dir }}/roles/desktop/files/.config/waybar"
+    dest: "/home/{{ current_user }}/.config/waybar"
+    state: link
