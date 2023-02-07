@@ -8,7 +8,7 @@ fi
 source /usr/share/zsh-antigen/antigen.zsh
 
 source ~/.zshrc.d/user.zsh
-source ~/.zshrc.d/conda.zsh
+source ~/.zshrc.d/pyenv.zsh
 source ~/.zshrc.d/nvm.zsh
 
 

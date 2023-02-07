@@ -194,7 +194,7 @@ bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=k
 bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
 
 # Screenshots
-bindsym Print exec flameshot gui
+bindsym Print exec grimshot copy area
 bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
