@@ -146,8 +146,8 @@ mode "resize"
 bindsym $mod+r mode "resize"
 
 # Defining colors
-set $cyan	 #00ffff
-set $acqua	 #007089 
+set $primary	 #999999
+set $acqua	 #007089
 set $wine 	 #72003e
 set $magenta #ff00ff
 set $orange  #ff8700
@@ -156,8 +156,8 @@ set $toxic   #8EC000
 set $elegant #00002c99
 
 # Set some nice colors      border	 background text	   indicator
-client.focused              $cyan	 $cyan      $elegant   $cyan
-client.unfocused            $elegant $elegant   $cyan      $elegant
+client.focused              $primary	 $primary      $elegant   $primary
+client.unfocused            $elegant $elegant   $primary      $elegant
 client.focused_inactive     $acqua   $acqua     $silver    $acqua
 client.urgent               $magenta $magenta   $silver    $magenta
 client.placeholder          $magenta $magenta   $silver    $magenta
@@ -175,7 +175,7 @@ bar
 #                        # Border	# Background	# Text
 #		focused_workspace   $silver   $silver	  $elegant
 #		active_workspace    $elegant  $elegant  $orange
-#		inactive_workspace  $elegant  $elegant 	$cyan
+#		inactive_workspace  $elegant  $elegant 	$primary
 #		urgent_workspace    $acqua    $acqua    $silver
 #		background          $elegant
 #   	}
