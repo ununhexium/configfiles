@@ -123,18 +123,14 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
+//    ,"custom/ubuntuUpdates": {
+//        	 "format": "XX {}"
+//            ,"interval": 10 
+//            ,"exec": "python3 /home/uuh/.config/waybar/ubuntuUpdates.py"
+//            ,"return-type": "json"
+//            ,"format": "{}"
+//            ,"tooltip": true
+//    }
 }
 

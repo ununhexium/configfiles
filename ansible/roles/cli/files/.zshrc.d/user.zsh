@@ -152,6 +152,9 @@ PERL_MB_OPT="--install_base \"/home/uuh/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 
 
+## Pygmentize
+alias pygmentize='pygmentize -P style=dracula'
+
 ## Rust
 export PATH="$PATH:$HOME/.cargo/bin"
 

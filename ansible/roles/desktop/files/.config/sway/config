@@ -196,7 +196,9 @@ bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=k
 
 # Screenshots
 bindsym Print exec grimshot copy area
-bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
+bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+bindsym $mod+Shift+Control+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | sed -e 's/#/0x/' | tr '[:upper:]' '[:lower:]' | wl-copy
+#bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
 bindsym $mod+Pause exec locker.sh

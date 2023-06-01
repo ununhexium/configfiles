@@ -50,3 +50,5 @@
 	name = Christophe '116' Loiseau
 	email = 116@lab0.net
 
+[init]
+	defaultBranch = master
