@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/env sh
 
 # Use FZF to select an apt package and install it
 
@@ -9,8 +9,6 @@ if [ ! -z "$package" ]; then
 fi
 
 echo ": $(date +%s):0;sudo apt install $package" >> ~/.zsh_history
-
-rehash
 
 exit 0
 

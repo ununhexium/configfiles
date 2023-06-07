@@ -154,6 +154,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 
 ## Pygmentize
 alias pygmentize='pygmentize -P style=dracula'
+alias ccat=pygmentize
 
 ## Rust
 export PATH="$PATH:$HOME/.cargo/bin"
