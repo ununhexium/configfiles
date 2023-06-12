@@ -1,0 +1,10 @@
+- name: Create Dunst config folder
+  file:
+    path: "/home/{{ current_user }}/.config/dunst/"
+    state: directory
+
+- name: "Git config"
+  file:
+    src: "{{ playbook_dir }}/roles/cli/files/dunstrc"
+    dest: "/home/{{ current_user }}/.config/dunst/dunstrc"
+    state: link

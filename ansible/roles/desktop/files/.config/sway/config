@@ -62,7 +62,7 @@ workspace_layout tabbed
 bindsym $mod+Shift+space floating toggle
 
 # Change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
@@ -207,6 +207,10 @@ bindsym $mod+P exec locker.sh
 # emoji search
 # TODO: rebuild emoji resource file
 bindsym $mod+grave exec --no-startup-id i3emoji
+
+# Dunst Ack
+bindsym $mod+space exec --no-startup-id dunstctl close
+bindsym $mod+Alt+space exec --no-startup-id dunstctl history-pop
 
 # No crazy mouse
 focus_follows_mouse no

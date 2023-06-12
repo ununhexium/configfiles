@@ -8,6 +8,7 @@
 - include_tasks: python.yml
 - include_tasks: database_tools.yml
 - include_tasks: cpp.yml
+- include_tasks: dunst.yml
 
   
 # TODO: check if this is now handled by the custom installer

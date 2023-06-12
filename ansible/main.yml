@@ -10,16 +10,16 @@
       - role: gantsign.golang
         golang_gopath: '$HOME/.go'
 
-      - role: Comcast.sdkman
-        sdkman_user: "{{ current_user }}"
-        sdkman_group: "{{ current_user }}"
-        sdkman_auto_answer: true
-        sdkman_update: true
-        sdkman_install_packages:
-          - candidate: gradle
+#      - role: Comcast.sdkman
+#        sdkman_user: "{{ current_user }}"
+#        sdkman_group: "{{ current_user }}"
+#        sdkman_auto_answer: true
+#        sdkman_update: true
+#        sdkman_install_packages:
+#          - candidate: gradle
 #          - { candidate: java, version: 17.0.4-zulu }
 
-      - role: aisbergg.lm_sensors
+#      - role: aisbergg.lm_sensors
 
       - role: cli
       - role: desktop
