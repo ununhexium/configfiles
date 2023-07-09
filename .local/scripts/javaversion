@@ -3,15 +3,7 @@
 filename=$(basename -- "$1")
 extension="${filename##*.}"
 
-unzipdir='/tmp/ram/unzip/'
-
-classversion() {
-    regex=".*major version: ([0-9]+).*"
-    if [[ "$1" =~ $regex ]]; then
-        echo "Java $(echo "${BASH_REMATCH[1]} - 44" | bc)"
-    fi
-}
-
+unzipdir="/tmp"
 
 case "$extension" in
     class) 
@@ -22,7 +14,7 @@ case "$extension" in
         [ ! -d "$unzipdir" ] && mkdir "$unzipdir"
         cecho GREEN "Unzipping..."
         unzip -q -o "$1" -d "$unzipdir/$filename"
-        classversion "$(fd . --extension class "$unzipdir/$filename" | xargs javap -verbose | grep --text major | sort -r | head -n1)"
+        fd . --extension class "$unzipdir/$filename" | xargs javap -verbose | grep --text major | sort -r | uniq
         rm -rf "${unzipdir:?}/${filename:?}" 
         ;;
     *) cecho RED "Don't know how to read $1"

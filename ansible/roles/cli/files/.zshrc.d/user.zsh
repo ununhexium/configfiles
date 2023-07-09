@@ -28,7 +28,7 @@ antigen apply
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
-export LESS="-j.5 -R --hilite-unread"
+export LESS="-j.5 -R --hilite-unread --use-color --color=Sr"
 
 # COMPLETION
 ## Gradle
