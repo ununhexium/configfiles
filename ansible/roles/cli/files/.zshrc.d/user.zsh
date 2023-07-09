@@ -103,6 +103,10 @@ function ggo {
     cd $(fzf_ggo)
 }
 
+function gcot {
+    git checkout $(git tag --list | fzf)
+}
+
 function gco() {
  git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
 }
@@ -114,6 +118,17 @@ function dgo {
 
 function echopath {
 	echo $PATH | sed -e "s/:/\n/g"
+}
+
+## GRADLE
+
+function gra {
+    if [[ -f ./gradlew ]]
+    then
+        ./gradlew "$@"
+    else
+        gradle "$@"
+    fi
 }
 
 
@@ -142,6 +157,9 @@ export NVM_DIR="$HOME/.nvm"
 ## SDK Man
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+## ORT
+
+alias ort='/home/uuh/dev/oss-review-toolkit/ort/cli/build/install/ort/bin/ort'
 
 ## PERL
 
@@ -155,6 +173,11 @@ PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 ## Pygmentize
 alias pygmentize='pygmentize -P style=dracula'
 alias ccat=pygmentize
+
+## RUBY
+
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
+
 
 ## Rust
 export PATH="$PATH:$HOME/.cargo/bin"

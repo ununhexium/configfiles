@@ -194,8 +194,12 @@ bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_bac
 bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
 bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
 
+exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec --no-startup-id hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 # Screenshots
 bindsym Print exec grimshot copy area
+bindsym Shift+Print exec grimshot copy window
 bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 bindsym $mod+Shift+Control+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | sed -e 's/#/0x/' | tr '[:upper:]' '[:lower:]' | wl-copy
 #bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor

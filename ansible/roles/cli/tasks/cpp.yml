@@ -4,6 +4,7 @@
       package:
         name:
           - g++
+          - ccache
           - cmake
           - build-essential
           - qtbase5-dev
