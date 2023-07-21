@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 show_as_jar() {
     unzip -l "$1" && javaversion "$1"
@@ -11,6 +11,11 @@ show() {
     filetype=$(file --brief --mime "$1")
 
     #echo "Filetype: $filetype"
+
+    if [[ ! -z ${DEBUG+x} ]]; then
+        cecho green "$extension"
+    fi
+
 
     case $filetype in
 
@@ -34,12 +39,23 @@ show() {
             dpkg --contents "$1"
             ;;
 
-        application/x-xz*)
-            tar --list --verbose --file="$1"
-            ;;
-
         application/x-bzip2*)
             tar --bzip2 --list --verbose --file="$1"
+            ;;
+
+        application/x-java-applet*)
+            case $extension in
+                class)
+                    javap -v "$1" | $PAGER
+                    ;;
+                *)
+                    hexyl "$1"
+                    ;;
+            esac
+            ;;
+
+        application/x-xz*)
+            tar --list --verbose --file="$1"
             ;;
 
         application/zip*)
@@ -80,7 +96,7 @@ show() {
             vlc "$1" --fullscreen --play-and-exit
             ;;
 
-        *) cecho RED "Don't know how to best show $1"
+        *) cecho RED "Don't know how to best show $1 of type $filetype"
             ;;
     esac
 }
