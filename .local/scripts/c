@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 show_as_jar() {
     unzip -l "$1" && javaversion "$1"
 }
 
-show() {
+show_as_file() {
 	filename=$(basename -- "$1")
 	extension="${filename##*.}"
 	filename="${filename%.*}"
@@ -101,7 +101,18 @@ show() {
     esac
 }
 
-for file in "$@"; do
-	show "$file"
+show() {
+    if [[ ! -f "$1" ]] ; then 
+        cecho -n yellow "$1"
+        echo " is not a file, try which/whence to see if it's an alias or a function name"
+        exit 1
+    else
+        cecho red "file"
+        show_as_file "$1"
+    fi
+}
+
+for what in "$@"; do
+	show "$what"
 done
 

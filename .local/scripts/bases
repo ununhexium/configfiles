@@ -1,0 +1,31 @@
+#!/usr/bin/env zsh
+
+for i in "$@"; do
+    case "$i" in
+        '0x'*)
+            echo "hex ${i:2}"
+            j=$((16#${i:2}))
+            ;;
+        '0b'*)
+            echo "bin ${i:2}"
+            j=$((2#${i:2}))
+            ;;
+        '0'*)
+            echo "oct ${i:1}"
+            j=$((8#${i:1}))
+            ;;
+        *)
+            echo "dec ${i}"
+            j=$i
+            ;;
+    esac
+
+    echo -n '0b' ; cecho blue $(([##2]j))
+    echo -n ' 0' ; cecho cyan  $(([##8]j))
+    echo -n '  ' ; cecho green $(([##10]j))
+    echo -n '0x' ; cecho yellow $(([##16]j))
+
+    echo
+done
+
+
