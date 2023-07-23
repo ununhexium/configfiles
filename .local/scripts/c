@@ -46,7 +46,7 @@ show_as_file() {
         application/x-java-applet*)
             case $extension in
                 class)
-                    javap -v "$1" | $PAGER
+                    javap -v "$1"
                     ;;
                 *)
                     hexyl "$1"
@@ -107,7 +107,6 @@ show() {
         echo " is not a file, try which/whence to see if it's an alias or a function name"
         exit 1
     else
-        cecho red "file"
         show_as_file "$1"
     fi
 }

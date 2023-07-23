@@ -147,6 +147,7 @@ bindsym $mod+r mode "resize"
 
 # Defining colors
 set $primary	 #999999
+set $secondary	 #555555
 set $acqua	 #007089
 set $wine 	 #72003e
 set $magenta #ff00ff
@@ -157,8 +158,8 @@ set $elegant #00002c99
 
 # Set some nice colors      border	 background text	   indicator
 client.focused              $primary	 $primary      $elegant   $primary
-client.unfocused            $elegant $elegant   $primary      $elegant
-client.focused_inactive     $acqua   $acqua     $silver    $acqua
+client.unfocused            $secondary $secondary   $primary      $elegant
+client.focused_inactive     $secondary   $secondary     $silver    $acqua
 client.urgent               $magenta $magenta   $silver    $magenta
 client.placeholder          $magenta $magenta   $silver    $magenta
 
