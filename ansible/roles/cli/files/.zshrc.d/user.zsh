@@ -122,6 +122,14 @@ function echopath {
 	echo $PATH | sed -e "s/:/\n/g"
 }
 
+## GO
+
+export PATH="$PATH:$HOME/app/go/current/bin"
+
+## Go Buster
+
+export PATH="$PATH:$HOME/app/gobuster/current/"
+
 ## GRADLE
 
 function gra {
@@ -134,8 +142,14 @@ function gra {
 }
 
 
-# HISTORY
+## HISTORY
 export HISTSIZE=100000
+
+## JAVA
+
+### jclasslib
+
+export PATH="$PATH:/home/uuh/app/jclasslib/current/bin"
 
 
 ## MDV
