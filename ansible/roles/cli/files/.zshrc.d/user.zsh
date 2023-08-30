@@ -124,7 +124,8 @@ function echopath {
 
 ## GO
 
-export PATH="$PATH:$HOME/app/go/current/bin"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/app/go/current/bin:$GOPATH/bin"
 
 ## Go Buster
 
