@@ -15,6 +15,11 @@ antigen theme romkatv/powerlevel10k
 #antigen bundle mvn
 antigen bundle "greymd/docker-zsh-completion"
 antigen bundle unixorn/fzf-zsh-plugin@main
+antigen bundle zsh-users/zsh-autosuggestions
+
+plugins=(
+    zsh-autosuggestions
+)
 
 #zstyle ':completion:*:mvn:*' show-all-phases true
 zstyle ':completion:*:manuals'    separate-sections true
@@ -171,13 +176,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-## SDK Man
-source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-## ORT
-
-alias ort='/home/uuh/dev/oss-review-toolkit/ort/cli/build/install/ort/bin/ort'
-
 ## PERL
 
 PATH="/home/uuh/perl5/bin${PATH:+:${PATH}}"; export PATH;
@@ -200,6 +198,11 @@ export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 
 
+## SDK Man
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+## TODO
+alias t='todo-txt'
 
 ## ZSH
 source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
