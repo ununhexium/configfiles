@@ -32,18 +32,35 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
 # Move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+
 # move the workspace to a different screen
 bindsym $mod+Control+Left exec i3-msg move workspace to output left
 bindsym $mod+Control+Right exec i3-msg move workspace to output right
 
+bindsym $mod+Control+h exec i3-msg move workspace to output left
+bindsym $mod+Control+l exec i3-msg move workspace to output right
+
+
 # Split in horizontal orientation
-bindsym $mod+h split h
+# Commented out because of VI-style 
+#bindsym $mod+h split h
+bindsym $mod+Shift+v split h
 
 # Split in vertical orientation
 bindsym $mod+v split v
