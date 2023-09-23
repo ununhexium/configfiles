@@ -1,0 +1,41 @@
+#!/usr/bin/env zsh
+
+hist="$HOME/.zsh_history"
+tmp="$TMP/toclear"
+bkp="$HOME/.backup/hist"
+
+mkdir --parents "$bkp"
+mkdir --parents "$tmp"
+
+selection="$tmp/selection"
+remainder="$tmp/remainder"
+
+cat "$hist" | fzf --multi > "$selection"
+
+safe_date=$(date --iso-8601=seconds | sed 's/[+:]/_/g')
+cp "$hist" "$bkp/$safe_date"
+
+cat "$hist" | grep --fixed-strings --line-regexp --invert-match --file="$selection" > "$remainder" 
+if [[ $? -ne 0 ]]; then
+    cecho blue Aborted
+    exit 2
+fi
+
+diff --color=always -u "$hist" "$remainder"
+
+cecho red -n 'Confirm? [y/N]'
+read conf
+
+choice=$(echo "$conf" | tr '[[:upper:]]' '[[:lower:]]')
+
+case "$choice" in
+    y|ye|yes|yeah)
+        cp "$remainder" "$hist"
+        cecho blue 'replaced the history'
+        ;;
+    *)
+        cecho green "Kept previous history"
+        ;;
+esac
+
+exit 0

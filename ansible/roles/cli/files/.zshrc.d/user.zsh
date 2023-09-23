@@ -34,7 +34,17 @@ export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
 export LESS="-j.5 -R --hilite-unread --use-color --color=Sr"
-export PAGER='most'
+
+# man pages color
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[7;33;40m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;33m'
+
+export PAGER='less'
 
 # COMPLETION
 ## Gradle

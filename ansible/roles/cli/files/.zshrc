@@ -27,3 +27,4 @@ source <(ng completion script)
 [[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
 
 source /home/uuh/.config/broot/launcher/bash/br
+
