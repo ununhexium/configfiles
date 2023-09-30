@@ -2,7 +2,6 @@
 
 source "$ZDOTDIR/p10k.zsh"
 
-source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # Custom scripts
 export PATH="$PATH:$HOME/.local/scripts:$HOME/.local/bin"
@@ -38,13 +37,7 @@ export LESS="-j.5 -R --hilite-unread --use-color --color=Sr"
 export VISUAL=vim
 export PAGER='less'
 
-# COMPLETION
-## Gradle
-fpath=(/home/uuh/.zsh/gradle-completion $fpath)
-
-## custom
-fpath=(~/.local/scripts/completion $fpath)
-
+# MORE!
 for f in $(ls "$ZDOTDIR/include")
 do
     source "${ZDOTDIR}/include/$f"
@@ -80,31 +73,10 @@ fuck () {
     test -n "$TF_CMD" && print -s $TF_CMD
 }
 
-#  ## FZF
-#  export FZF_DEFAULT_OPTS='--layout=default'
-#  
-## GIT
-function ggo {
-    cd $(fzf_ggo)
+function echopath {
+	echo $PATH | sed -e "s/:/\n/g"
 }
-#  
-#  function gcot {
-#      git checkout $(git tag --list | fzf)
-#  }
-#  
-#  function gco() {
-#   git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
-#  }
-#  
-#  function dgo {
-#      ranger --choosedir=/tmp/dirselection
-#      cd $(cat /tmp/dirselection)
-#  }
-#  
-#  function echopath {
-#  	echo $PATH | sed -e "s/:/\n/g"
-#  }
-#  
+
 #  ## GO
 #  
 #  export GOPATH="$HOME/go"
@@ -126,9 +98,6 @@ function ggo {
 #  }
 #  
 #  
-#  ## HISTORY
-#  export HISTSIZE=100000
-#  
 #  ## JAVA
 #  
 #  ### jclasslib
@@ -138,10 +107,6 @@ function ggo {
 #  
 #  ## MDV
 #  export MDV_THEME="884.0134"
-#  
-#  
-#  ## Multiscreen
-#  PATH="$PATH:$HOME/.screenlayout"
 #  
 #  
 #  ## NPM, NVM, Node JS
@@ -163,10 +128,6 @@ function ggo {
 #  PERL_MM_OPT="INSTALL_BASE=/home/uuh/perl5"; export PERL_MM_OPT;
 #  
 #  
-#  ## Pygmentize
-#  alias pygmentize='pygmentize -P style=dracula'
-#  alias ccat=pygmentize
-#  
 #  ## RUBY
 #  
 #  export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
@@ -185,3 +146,5 @@ function ggo {
 
 source "${ZDOTDIR}/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
 source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
