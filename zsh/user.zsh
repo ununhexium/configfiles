@@ -172,10 +172,6 @@ function ggo {
 #  export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 
-## Rust
-export PATH="$PATH:$HOME/.cargo/bin"
-
-
 #  ## SDK Man
 #  source "$HOME/.sdkman/bin/sdkman-init.sh"
 #  

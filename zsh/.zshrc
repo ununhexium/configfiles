@@ -30,3 +30,4 @@ export SDKMAN_OFFLINE_MODE=false
 
 #source /home/uuh/.config/broot/launcher/bash/br
 
+
