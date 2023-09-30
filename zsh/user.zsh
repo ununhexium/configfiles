@@ -133,17 +133,6 @@ function echopath {
 #  export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 
-#  ## SDK Man
-#  source "$HOME/.sdkman/bin/sdkman-init.sh"
-#  
-#  ## TODO
-#  alias t='todo-txt'
-#  
-#  ## ZSH
-#  source /home/uuh/dev/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#  
-
-
 source "${ZDOTDIR}/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
 source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
