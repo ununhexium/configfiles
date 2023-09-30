@@ -1,0 +1,4 @@
+zsh-users/zsh-completions
+
+# prompts
+romkatv/powerlevel10k kind:fpath
