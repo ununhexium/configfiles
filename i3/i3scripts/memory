@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+# to hold the result of extract
+ext=""
+
+high=50
+warn=25
+crit=10
+
+function extract() {
+    echo $(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
+}
+
+function compute_color() {
+    [[ "$1" -lt "$crit" ]] && echo "#FF00FF" && return
+    [[ "$1" -lt "$warn" ]] && echo "#FFFF00" && return
+    [[ "$1" -lt "$high" ]] && echo "#00FFFF" && return
+    echo "#FFFFFF"
+}
+
+function memory() {
+    mem_kb=$(extract "MemAvailable")
+    #mem_kb="4456789"
+    mem_gb=$(echo "scale=1 ; $mem_kb / 1024 / 1024" | bc)
+
+    mem_total=$(extract "MemTotal")
+    mem_percent=$(echo "$mem_kb * 100 / $mem_total" | bc)
+
+    swap_kb=$(extract "SwapFree")
+    #swap_kb="4456789"
+    swap_mb=$(echo "scale=1 ; $swap_kb / 1024 / 1024" | bc)
+
+    swap_total=$(extract "SwapTotal")
+    swap_percent=$(echo "($swap_kb) * 100 / $swap_total" | bc)
+
+    mem_color=$(compute_color $mem_percent)
+    swap_color=$(compute_color $swap_percent)
+
+    if [ $mem_percent -lt 5 ]; then
+        notify-send "LOW MEMORY" "The memory is used at $mem_percent%"
+    fi
+
+    if [ $swap_percent -lt 75 ]; then 
+        swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
+    fi
+    echo "<span foreground='$mem_color'></span><span font_weight='bold' foreground='$mem_color'>${mem_gb} GB $swap_message</span>"
+    graphite "monitoring.memory.free" "$((mem_kb * 1024))"
+}
+
+case $BLOCK_BUTTON in
+    1)
+        name=memory_usage_click
+        terminator -T $name -e "htop --sort-key PERCENT_MEM" &
+        # Dirty hack to give time to terminator to start
+        #while [ -z "$ID" ]; do
+        #    ID=$(xdotool search --name $name)
+        #done
+        #xdotool windowmove $ID $(expr $BLOCK_X - 500) 100
+        #xdotool windowsize $ID 1000 700
+
+        ## Close htop cleanly
+        #xdotool search --name $name behave %@ blur windowfocus key F10
+        #xdotool keyup F10
+        #;;
+esac
+
+memory
+
+exit 0

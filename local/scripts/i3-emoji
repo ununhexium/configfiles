@@ -1,8 +1,9 @@
 #!/bin/sh
 # adapted from https://github.com/LukeSmithxyz/voidrice/blob/9524786a864ee3614e37ab260e413c3eaadf78fd/.scripts/i3cmds/dmenuunicode
 # Give rofi list of all unicode characters to copy.
+# Arch emoki support: sudo pacman -S noto-fonts-emoji
 
-chosen=$(grep -v "#" ~/.resources/emoji | rofi -i -dmenu -font 'Fira Code 32' )
+chosen=$(grep -v "#" "$XDG_DATA_HOME/emoji" | rofi -i -dmenu -font 'Noto Sans 32' )
 
 [ "$chosen" != "" ] || exit
 
