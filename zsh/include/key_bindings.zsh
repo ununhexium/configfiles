@@ -6,8 +6,10 @@ bindkey "^[[1;5D" backward-word
 bindkey '^[[3~' delete-char
 # Home
 bindkey '^[[H' beginning-of-line
+bindkey '^A' beginning-of-line
 # End
 bindkey '^[[F' end-of-line
+bindkey '^E' end-of-line
 
 autoload -z edit-command-line
 zle -N edit-command-line

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [[ "$1" =~ 'bla*' ]]
+    then
+        color=B
+    else
+        color="$(echo $1 | tr [:upper:] [:lower:])"
+fi
+
+
+case "$1" in
+    B*) echo "$(tput setaf 0)${2:-XXX}" ;;
+    r*) echo "$(tput setaf 1)${2:-XXX}" ;;
+    g*) echo "$(tput setaf 2)${2:-XXX}" ;;
+    y*) echo "$(tput setaf 3)${2:-XXX}" ;;
+    b*) echo "$(tput setaf 4)${2:-XXX}" ;;
+    m*) echo "$(tput setaf 5)${2:-XXX}" ;;
+    c*) echo "$(tput setaf 6)${2:-XXX}" ;;
+    w*) echo "$(tput setaf 7)${2:-XXX}" ;;
+esac

@@ -188,4 +188,4 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 
 source "${ZDOTDIR}/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
-
+source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
