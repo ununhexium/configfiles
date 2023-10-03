@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dir="$TMP/cfzf"
+tmp="$dir/$RANDOM$RANDOM"
+[[ ! -d "$dir" ]] && mkdir "$dir"
+cat > "$tmp"
+
+fzf --preview="grep --color=always -C 10 {} $tmp" < "$tmp"
+
