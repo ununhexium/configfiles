@@ -10,6 +10,9 @@ bindkey '^A' beginning-of-line
 # End
 bindkey '^[[F' end-of-line
 bindkey '^E' end-of-line
+# Backspace
+bindkey '^?' backward-delete-char
+
 
 autoload -z edit-command-line
 zle -N edit-command-line

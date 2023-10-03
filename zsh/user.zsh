@@ -25,6 +25,9 @@ zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
 zstyle ':completion:*'            menu select
 
+# allow comments in commands
+setopt interactivecomments
+
 #antigen apply
 
 # General linux
