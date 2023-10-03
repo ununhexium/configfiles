@@ -2,12 +2,12 @@
 # Ctrl + ->
 bindkey "^[[1;5C" forward-word
 # framebuffer
-bindkey "^[[C" forward-word
+#bindkey "^[[C" forward-word
 
 # Ctrl + <-
 bindkey "^[[1;5D" backward-word
 # framebuffer
-bindkey "^[[D" backward-word
+#bindkey "^[[D" backward-word
 
 # Delete
 bindkey '^[[3~' delete-char

@@ -142,7 +142,7 @@
     # xev might be helpful to find names for keys
 
     # close notification
-    #close = ctrl+space
+    close = mod4+space
 
     # close all notifications
     #close_all = ctrl+shift+space
@@ -157,17 +157,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#222221"
+    foreground = "#a9aca6"
     timeout = 10
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#3483eb"
+    foreground = "#295183"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
+    background = "#a30000"
     foreground = "#ffffff"
     timeout = 0
 

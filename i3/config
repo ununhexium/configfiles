@@ -58,7 +58,7 @@ workspace_layout tabbed
 bindsym $mod+Shift+space floating toggle
 
 # Change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+a focus parent
@@ -216,6 +216,11 @@ exec --no-startup-id compton
 exec --no-startup-id greenclip daemon
 bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
+# Notifications
+exec --no-startup-id dunst
+bindsym $mod+space exec --no-startup-id dunstctl close
+bindsym $mod+Alt+space exec --no-startup-id dunstctl history-pop
+
 
 #i3 menu
 #Not used anymore
@@ -229,7 +234,7 @@ bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 #exec --no-startup-id firewall-applet
 exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
-#exec --no-startup-id notify-send "Welcome back 116!"
+exec --no-startup-id notify-send "Welcome back 116!"
 exec --no-startup-id redshift-gtk
 #exec --no-startup-id start-pulseaudio-x11
 #exec --no-startup-id xbindkeys
