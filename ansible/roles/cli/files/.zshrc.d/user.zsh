@@ -205,7 +205,8 @@ export PATH="$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin"
 
 
 ## Rust
-export PATH="$PATH:$HOME/.cargo/bin"
+export CARGO_BIN="$HOME/.cargo/bin"
+export PATH="$PATH:$CARGO_BIN"
 
 
 ## SDK Man

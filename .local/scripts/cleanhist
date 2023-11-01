@@ -10,7 +10,7 @@ mkdir --parents "$tmp"
 selection="$tmp/selection"
 remainder="$tmp/remainder"
 
-cat "$hist" | fzf --multi > "$selection"
+tac "$hist" | fzf --multi > "$selection"
 
 safe_date=$(date --iso-8601=seconds | sed 's/[+:]/_/g')
 cp "$hist" "$bkp/$safe_date"

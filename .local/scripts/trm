@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+tmp="$TMP/todo-txt"
+
+if [[ ! -e "$tmp" ]]; then
+    mkdir "$tmp"
+fi
+
+selection="$tmp/selection"
+
+todo-txt ls | fzf --multi | cut -d ' ' -f 1 > "$selection"
+
+for i in $(cat "$selection"); do 
+    cecho red "todo-txt rm $i"
+    todo-txt rm $i
+done
+

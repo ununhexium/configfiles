@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+xclip -o -selection clipboard | iconv -f utf-8 -t ascii//TRANSLIT | tr '\n' ' ' | tr -cd '[:print:]' | sed -E -e 's/\n/ /g' | sed -E -e 's/ +/ /g' | sed -E -e 's/^ //g' | sed -E -e 's/\[[0-9]+\]//g' > /tmp/f && wpm --load /tmp/f
+

@@ -2,6 +2,8 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+color delek
+
 " Configuration vim Airline
 set laststatus=2
 set tabstop=4

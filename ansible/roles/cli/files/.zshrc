@@ -28,3 +28,7 @@ source <(ng completion script)
 
 source /home/uuh/.config/broot/launcher/bash/br
 
+
+# Add JBang to environment
+alias j!=jbang
+export PATH="$HOME/.jbang/bin:$PATH"
