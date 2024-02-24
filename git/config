@@ -47,9 +47,13 @@
 [merge]
 	tool = kdiff3
 
-[user]
-	name = Christophe '116' Loiseau
-	email = 116@lab0.net
-
 [init]
 	defaultBranch = master
+
+[includeIf "gitdir:/home/uuh/dev/"]
+  path = config-home
+
+[includeIf "gitdir:/home/uuh/dev/sovity/"]
+#[includeIf "hasconfig:remote.*.url:*sovity/**"]
+  path = config-sovity
+
