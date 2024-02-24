@@ -2,17 +2,17 @@
 size = 10.0
 
 [font.bold]
-family = "Source Code Pro Black"
+family = "SauceCodePro Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "Source Code Pro BlackIt"
+family = "SauceCodePro Nerd Font Propo"
 style = "Bold Italic"
 
 [font.italic]
-family = "Source Code Pro It"
+family = "SauceCodePro Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "Source Code Pro"
+family = "SauceCodePro Nerd Font Propo"
 style = "Regular"

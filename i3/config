@@ -14,7 +14,8 @@ font pango: SauceCodePro Nerd Font Propo 14
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec terminator
+#bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -24,9 +25,13 @@ bindsym $mod+d exec rofi -show run
 
 # Move between windows
 bindsym $mod+Left focus left
+bindsym $mod+h focus left
 bindsym $mod+Down focus down
+bindsym $mod+j focus down
 bindsym $mod+Up focus up
+bindsym $mod+k focus up
 bindsym $mod+Right focus right
+bindsym $mod+l focus right
 
 # Move focused window
 bindsym $mod+Shift+Left move left
@@ -39,10 +44,10 @@ bindsym $mod+Control+Left exec i3-msg move workspace to output left
 bindsym $mod+Control+Right exec i3-msg move workspace to output right
 
 # Split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+n split h
 
 # Split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+m split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

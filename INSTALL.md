@@ -21,6 +21,12 @@ export REPO='/path/to/the/cloned/repos/root'
 ln -s "$REPO"/git ~/.config/git
 ```
 
+## Neovim
+
+```sh
+ln -s "$REPO"/nvim "$HOME"/.config/nvim
+``
+
 ## Zsh
 
 Link the config
@@ -49,6 +55,7 @@ sudo pacman -S ttf-sourcecodepro-nerd
 ## Alacritty
 
 ```sh
+pacman -S ttf-sourcecodepro-nerd
 ln -s "$REPO/alacritty" ~/.config
 ```
 
@@ -61,3 +68,9 @@ pacman -S xorg-xinput
 
 Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 
+## i3
+
+```sh
+ln -s "$REPO"/i3/ "$HOME"/.config/i3
+ln -s "$REPO"/i3blocks "$HOME"/.config/i3blocks
+```

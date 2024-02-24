@@ -8,6 +8,7 @@ alias g="git"
 alias hex=hexyl
 alias ikotlin="kotlinc-jvm"
 alias listwifi="iwlist wlp2s0 scan"
+alias ls="ls --color"
 alias ll="eza -l --all"
 alias mvnw="./mvnw"
 alias pipsi="python3 -m pipsi --home $WORKON_HOME"

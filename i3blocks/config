@@ -26,10 +26,10 @@ min_width=0
 ##label=
 ##interval=2
 #
-## CPU usage
-##[cpu_usage]
-##label=
-##interval=2
+# CPU usage
+[cpu_usage]
+label=
+interval=2
 #
 ## Free space of /
 #[disk]
