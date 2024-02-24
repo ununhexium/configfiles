@@ -32,10 +32,10 @@ label=
 interval=2
 #
 ## Free space of /
-#[disk]
-#label=
-#instance=/home
-#interval=600
+[disk]
+label=
+instance=/home
+interval=600
 #
 ##Available security updates
 #[updates]
@@ -55,8 +55,8 @@ interval=2
 #interval=2
 #
 ## Free RAM
-#[memory]
-#interval=2
+[memory]
+interval=2
 #
 ## Volume
 #[volume]
@@ -69,9 +69,9 @@ interval=2
 ##interval=1
 #
 ## Time
-#[datetime]
-#label=
-#interval=5
+[datetime]
+label=
+interval=5
 #
 ## Streaming/recording
 ##[stream]
@@ -82,4 +82,7 @@ interval=2
 #
 #[battery]
 #interval=60
+[sys_battery]
+label=Bat 
+interval=60
 #

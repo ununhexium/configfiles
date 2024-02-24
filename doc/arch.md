@@ -28,3 +28,10 @@ Having the wrong system time leads to various authentication issues
 
 https://wiki.archlinux.org/title/systemd-timesyncd
 
+###
+
+For `hostname` command
+
+```sh
+pacman -S inetutils
+```

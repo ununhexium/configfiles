@@ -4,7 +4,7 @@
 
 Init submodules
 
-```sh
+```bash
 git submodule init
 git submodule update
 ```
@@ -21,11 +21,19 @@ export REPO='/path/to/the/cloned/repos/root'
 ln -s "$REPO"/git ~/.config/git
 ```
 
+# TUI
+
+## Scripts
+
+```sh
+ln -s "$REPO"/local/scripts "$HOME/.local/scripts"
+```
+
 ## Neovim
 
 ```sh
 ln -s "$REPO"/nvim "$HOME"/.config/nvim
-``
+```
 
 ## Zsh
 
@@ -42,9 +50,7 @@ ln -s ~/.config/zsh/.zshenv ~/.zshenv
 ln -s ~/.config/zsh/.zshrc ~/.zshrc
 ```
 
-```sh
-zsh
-```
+# GUI
 
 ## General
 
@@ -55,7 +61,6 @@ sudo pacman -S ttf-sourcecodepro-nerd
 ## Alacritty
 
 ```sh
-pacman -S ttf-sourcecodepro-nerd
 ln -s "$REPO/alacritty" ~/.config
 ```
 
@@ -71,6 +76,15 @@ Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 ## i3
 
 ```sh
+pacman -S i3-wm i3blocks i3status i3lock
 ln -s "$REPO"/i3/ "$HOME"/.config/i3
 ln -s "$REPO"/i3blocks "$HOME"/.config/i3blocks
+```
+
+### Custom lock screen
+
+
+```sh
+pacman -S scrot 
+clone git@github.com:ununhexium/hexpxl.git
 ```
