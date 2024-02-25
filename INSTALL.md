@@ -18,37 +18,42 @@ export REPO='/path/to/the/cloned/repos/root'
 ## Git
 
 ```sh
-ln -s "$REPO"/git ~/.config/git
+ln -s "$REPO/git" "$HOME/.config/git"
 ```
 
 # TUI
-
-## Scripts
-
-```sh
-ln -s "$REPO"/local/scripts "$HOME/.local/scripts"
-```
-
-## Neovim
-
-```sh
-ln -s "$REPO"/nvim "$HOME"/.config/nvim
-```
 
 ## Zsh
 
 Link the config
 
 ```sh
-ln -s "$REPO/.config/zsh/" ~/.config/zsh
+ln -s "$REPO/.config/zsh/" "$HOME/.config/zsh"
 ```
 
 Link the resource file and folder
 
 ```sh
-ln -s ~/.config/zsh/.zshenv ~/.zshenv
-ln -s ~/.config/zsh/.zshrc ~/.zshrc
+ln -s "$HOME/.config/zsh/.zshenv" "$HOME/.zshenv"
+ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ```
+
+## Scripts
+
+```sh
+pacman -S dpkg feh file glow jq mupdf unzip vlc
+ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
+```
+
+## Neovim
+
+```sh
+ln -s "$REPO/nvim" "$HOME/.config/nvim"
+```
+
+## JVM
+
+Get [SDKMan](https://sdkman.io/)
 
 # GUI
 
@@ -61,7 +66,8 @@ sudo pacman -S ttf-sourcecodepro-nerd
 ## Alacritty
 
 ```sh
-ln -s "$REPO/alacritty" ~/.config
+pacman -S alacritty
+ln -s "$REPO/alacritty" "$HOME/.config"
 ```
 
 ## Touchpad
@@ -77,8 +83,8 @@ Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 
 ```sh
 pacman -S i3-wm i3blocks i3status i3lock
-ln -s "$REPO"/i3/ "$HOME"/.config/i3
-ln -s "$REPO"/i3blocks "$HOME"/.config/i3blocks
+ln -s "$REPO/i3/" "$HOME/.config/i3"
+ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
 
 ### Custom lock screen
@@ -87,4 +93,7 @@ ln -s "$REPO"/i3blocks "$HOME"/.config/i3blocks
 ```sh
 pacman -S scrot 
 clone git@github.com:ununhexium/hexpxl.git
+cd "$HOME/dev/ununhexium/hexpxl"
+cargo build --release
+cp target/release/hexpxl "$HOME/"
 ```
