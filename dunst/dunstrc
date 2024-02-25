@@ -1,6 +1,6 @@
 # vim:ft=cfg
 [global]
-    font = Monospace 14
+    font = FiraCode Nerd Font 20
 
     # allow a small subset of html markup:
     # <b>bold</b>

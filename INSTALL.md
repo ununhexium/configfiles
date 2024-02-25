@@ -88,7 +88,7 @@ ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ## i3
 
 ```sh
-pacman -S i3-wm i3blocks i3status i3lock copyq
+pacman -S flameshot i3-wm i3blocks i3status i3lock numlockx
 ln -s "$REPO/i3/" "$HOME/.config/i3"
 ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
@@ -108,6 +108,24 @@ pacman -S xorg-xinput
 ```
 
 Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
+
+## Copyq
+
+```sh
+pacman -S copyq
+diff -u "$REPO/copyq/copyq.conf" "$HOME/.config/copyq/copyq.conf"
+```
+
+To do: check when to copy the copyq config folder: before or after install. Does it need extra steps to preserve the config?
+
+
+## Dunst
+
+```sh
+pacman -S dunst libnotify
+ln -s "$REPO/dunst" "$HOME/.config/dunst"
+"$HOME/.config/dunst/sample.sh"
+```
 
 ## Custom lock screen
 
