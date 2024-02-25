@@ -60,7 +60,7 @@ Get [SDKMan](https://sdkman.io/)
 ## General
 
 ```sh
-sudo pacman -S ttf-sourcecodepro-nerd
+pacman -S ttf-fira-code ttf-firacode-nerd adobe-source-code-pro-fonts ttf-sourcecodepro-nerd
 ```
 
 ## Alacritty
@@ -97,3 +97,4 @@ cd "$HOME/dev/ununhexium/hexpxl"
 cargo build --release
 cp target/release/hexpxl "$HOME/"
 ```
+

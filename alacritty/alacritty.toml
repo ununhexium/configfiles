@@ -2,17 +2,17 @@
 size = 10.0
 
 [font.bold]
-family = "SauceCodePro Nerd Font Propo"
+family = "FiraCode Nerd Font Propo"
 style = "Bold"
 
 [font.bold_italic]
-family = "SauceCodePro Nerd Font Propo"
+family = "FiraCode Nerd Font Propo"
 style = "Bold Italic"
 
 [font.italic]
-family = "SauceCodePro Nerd Font Propo"
+family = "FiraCode Nerd Font Propo"
 style = "Italic"
 
 [font.normal]
-family = "SauceCodePro Nerd Font Propo"
+family = "FiraCode Nerd Font Propo"
 style = "Regular"
