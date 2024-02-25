@@ -38,11 +38,14 @@ ln -s "$HOME/.config/zsh/.zshenv" "$HOME/.zshenv"
 ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ```
 
-## Scripts
+## ClamAV
+
+[Wiki](https://wiki.archlinux.org/title/ClamAV)
 
 ```sh
-pacman -S dpkg feh file glow jq mupdf unzip vlc
-ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
+pacman -S clamav
+systemctl enable clamav-freshclam.service --now
+sudo -u clamav freshclam  # refresh the virus DB
 ```
 
 ## Neovim
@@ -55,12 +58,39 @@ ln -s "$REPO/nvim" "$HOME/.config/nvim"
 
 Get [SDKMan](https://sdkman.io/)
 
+## AUR
+
+```sh
+pacman -S base-devel
+```
+
 # GUI
+
+## Xorg
+
+```sh
+pacman -S xdotool xorg-xwininfo
+```
 
 ## General
 
 ```sh
 pacman -S ttf-fira-code ttf-firacode-nerd adobe-source-code-pro-fonts ttf-sourcecodepro-nerd
+```
+
+## Scripts
+
+```sh
+pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
+ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
+```
+
+## i3
+
+```sh
+pacman -S i3-wm i3blocks i3status i3lock copyq
+ln -s "$REPO/i3/" "$HOME/.config/i3"
+ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
 
 ## Alacritty
@@ -79,16 +109,7 @@ pacman -S xorg-xinput
 
 Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 
-## i3
-
-```sh
-pacman -S i3-wm i3blocks i3status i3lock
-ln -s "$REPO/i3/" "$HOME/.config/i3"
-ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
-```
-
-### Custom lock screen
-
+## Custom lock screen
 
 ```sh
 pacman -S scrot 
