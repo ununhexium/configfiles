@@ -228,7 +228,7 @@ exec --no-startup-id copyq
 # Notifications
 exec --no-startup-id dunst
 bindsym $mod+space exec --no-startup-id dunstctl close
-bindsym $mod+Alt+space exec --no-startup-id dunstctl history-pop
+bindsym $mod+Mod1+space exec --no-startup-id dunstctl history-pop
 
 
 #i3 menu
