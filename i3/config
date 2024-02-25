@@ -234,6 +234,8 @@ bindsym $mod+Alt+space exec --no-startup-id dunstctl history-pop
 
 
 # Others
+exec --no-startup-id "$HOME/.local/scripts/autoscreen"
+exec --no-startup-id firefox
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id /usr/bin/lxpolkit
 #exec --no-startup-id firewall-applet

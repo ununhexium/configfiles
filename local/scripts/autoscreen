@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+single4k="$HOME/.screenlayout/single4k.sh"
+xrandr | grep 'HDMI-1 connected 3840x2160+1920+0'
+
+if [[ $? && -x "$single4k" ]]; then
+       "$single4k"
+       exit 0
+fi
+
+exit 1
