@@ -27,6 +27,8 @@ bindkey '^[[4~' end-of-line
 # Backspace
 bindkey '^?' backward-delete-char
 
+# Delete word to the right
+bindkey '^[d' delete-word
 
 autoload -z edit-command-line
 zle -N edit-command-line

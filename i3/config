@@ -239,6 +239,7 @@ bindsym $mod+Mod1+Control+space exec --no-startup-id dunstctl close-all
 
 
 # Others
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id "$HOME/.local/scripts/autoscreen"
 exec --no-startup-id firefox
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

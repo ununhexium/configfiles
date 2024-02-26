@@ -93,6 +93,14 @@ ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 pacman -S ttf-fira-code ttf-firacode-nerd adobe-source-code-pro-fonts ttf-sourcecodepro-nerd
 ```
 
+## Battery level
+
+Also requires dunst for the notifications
+
+```sh
+pacman -S xfce4-power-manager
+```
+
 ## Scripts
 
 ```sh
