@@ -170,7 +170,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: SauceCodePro Nerd Font Propo 14
+	font pango: FiraCode Nerd Font Propo 14
 	colors
 	{
                             # Border   # Background   # Text
@@ -229,6 +229,7 @@ exec --no-startup-id copyq
 exec --no-startup-id dunst
 bindsym $mod+space exec --no-startup-id dunstctl close
 bindsym $mod+Mod1+space exec --no-startup-id dunstctl history-pop
+bindsym $mod+Mod1+Control+space exec --no-startup-id dunstctl close-all
 
 
 #i3 menu
