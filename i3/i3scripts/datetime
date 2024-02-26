@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+if [[ $BLOCK_BUTTON -eq 1 ]]
+then
+  notify-send 'Time' "$(date)"
+elif [[ $BLOCK_BUTTON -eq 3 ]]  
+then
+  notify-send 'Calendar' "$(cal)"
+fi
+
 now="$(date '+%H:%M')"
 
 echo "$now"
@@ -11,5 +19,5 @@ verylate="2[3-4]:.*"
 [[ $now =~ $late ]] &&  echo "#00FFFF"
 [[ $now =~ $verylate ]] &&  echo "#FF00FF"
 
-
 exit 0
+

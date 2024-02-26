@@ -14,8 +14,9 @@
     # popup
     origin=top-center
     width=(300,9999)
+    height=(0,9999)
     scale=1
-    idle_threshold = 0
+#    idle_threshold = 1
     monitor = 0
     follow = mouse
     sticky_history = yes

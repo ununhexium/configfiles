@@ -7,6 +7,12 @@ high=50
 warn=25
 crit=10
 
+if [[ $BLOCK_BUTTON -eq 1 ]]
+then
+  notify-send 'Memory usage' "$(ps -eo comm,%mem,%cpu --sort=-%mem | head -10)"
+fi
+
+
 function extract() {
     echo $(cat /proc/meminfo | grep "$1" | sed -E -e 's/ +/-/g' | cut -d- -f2)
 }
