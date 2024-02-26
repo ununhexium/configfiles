@@ -1,6 +1,7 @@
 alias ai='aptinstall'
 alias click="xdg-open"
 alias cg='cyberghostvpn'
+alias d='docker'
 alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias df="df -hl"
 alias f="fuck"

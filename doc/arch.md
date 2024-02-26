@@ -22,6 +22,19 @@ Regen the menu
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
+### Check for updates
+
+```sh
+pacman -Syy
+pacman -Qu
+```
+
+Install updates
+
+```sh
+pacman -Su
+```
+
 ### System time sync
 
 Having the wrong system time leads to various authentication issues
