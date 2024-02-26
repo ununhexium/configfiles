@@ -170,7 +170,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: FiraCode Nerd Font Propo 14
+	font pango: FiraCode Nerd Font Propo 20
 	colors
 	{
                             # Border   # Background   # Text

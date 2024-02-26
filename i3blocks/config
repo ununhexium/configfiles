@@ -82,7 +82,10 @@ interval=5
 #
 #[battery]
 #interval=60
-[sys_battery]
-label=Bat 
-interval=60
 #
+#[sys_battery]
+#label=Bat 
+#interval=60
+#
+[battery.sh]
+interval=30
