@@ -38,6 +38,12 @@ ln -s "$HOME/.config/zsh/.zshenv" "$HOME/.zshenv"
 ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ```
 
+## CLI
+
+```sh
+pacman -S entr
+```
+
 ## ClamAV
 
 [Wiki](https://wiki.archlinux.org/title/ClamAV)
@@ -69,7 +75,8 @@ pacman -S base-devel
 ## Xorg
 
 ```sh
-pacman -S xdotool xorg-xwininfo
+pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts xbindkeys xdotool xorg-xev xorg-xwininfo
+ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
 
 ## General
@@ -122,9 +129,15 @@ To do: check when to copy the copyq config folder: before or after install. Does
 ## Dunst
 
 ```sh
-pacman -S dunst libnotify
+pacman -S adwaita-icon-theme dunst libnotify
 ln -s "$REPO/dunst" "$HOME/.config/dunst"
 "$HOME/.config/dunst/sample.sh"
+```
+
+## Development
+
+```sh
+pacman -S kdiff3
 ```
 
 ## Custom lock screen
