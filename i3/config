@@ -105,12 +105,13 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 
 # Always open some programs on specified workspace
-assign [class="cmus"]		            $workspace7
+assign [class="cmus"]		                $workspace7
 assign [class="firefox"]                $workspace1
-assign [class="idea"]	   	            $workspace2
-assign [class="jetbrains-studio"]	   	$workspace2
-assign [class="Nautilus"]	            $workspace4
-assign [class="Steam"]		            $workspace0
+assign [class="Chromium"]               $workspace7
+assign [class="idea"]	   	              $workspace2
+assign [class="jetbrains-studio"]	     	$workspace2
+assign [class="Nautilus"]	              $workspace4
+assign [class="Steam"]		              $workspace0
 assign [class="VirtualBox"]	            $workspace5
 assign [title="Android Emulator -.*"]   $workspace5
 assign [title="discord"]                $workspace7 
@@ -242,6 +243,7 @@ bindsym $mod+Mod1+Control+space exec --no-startup-id dunstctl close-all
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id "$HOME/.local/scripts/autoscreen"
 exec --no-startup-id firefox
+exec --no-startup-id chromium
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id /usr/bin/lxpolkit
 #exec --no-startup-id firewall-applet
