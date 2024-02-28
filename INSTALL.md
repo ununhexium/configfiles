@@ -49,7 +49,7 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S entr
+pacman -S entr strace
 ```
 
 ## ClamAV
@@ -83,14 +83,25 @@ pacman -S base-devel
 ## Xorg
 
 ```sh
-pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts xbindkeys xdotool xorg-xev xorg-xwininfo
+pacman -S xbindkeys xdotool xorg-xev xorg-xwininfo
 ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
 
 ## General
 
 ```sh
-pacman -S ttf-fira-code ttf-firacode-nerd adobe-source-code-pro-fonts ttf-sourcecodepro-nerd
+pacman -S \
+  adobe-source-code-pro-fonts \
+  chromium \
+  firefox \
+  flameshot \
+  gimp \
+  noto-fonts-cjk \
+  noto-fonts-emoji \
+  noto-fonts \
+  ttf-fira-code \
+  ttf-firacode-nerd \
+  ttf-sourcecodepro-nerd
 ```
 
 ## Battery level
@@ -111,7 +122,7 @@ ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ## i3
 
 ```sh
-pacman -S flameshot i3-wm i3blocks i3status i3lock numlockx
+pacman -S i3-wm i3blocks i3status i3lock numlockx
 ln -s "$REPO/i3/" "$HOME/.config/i3"
 ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
@@ -126,8 +137,7 @@ ln -s "$REPO/alacritty" "$HOME/.config"
 ## Touchpad
 
 ```sh
-pacman -S xf86-input-synaptics
-pacman -S xorg-xinput
+pacman -S xf86-input-synaptics xorg-xinput
 ```
 
 Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
@@ -166,3 +176,8 @@ cargo build --release
 cp target/release/hexpxl "$HOME/"
 ```
 
+## Graphics
+
+```sh
+pacman -S gimp
+```

@@ -18,7 +18,7 @@ then
 fi
 
 # Alert if level low
-if [[ $(cat $last) -ne $l ]]; then
+if [[ $(cat $last) -ne $l && $(cat /sys/class/power_supply/BAT0/status) != 'Charging' ]]; then
   echo $l > $last
   level=$(echo "$l / 10 * 10" | bc)
   if [[ $l -le $crit ]]; then
@@ -30,7 +30,10 @@ if [[ $(cat $last) -ne $l ]]; then
   fi
 fi
 
-if [[ $(cat /sys/class/power_supply/BAT0/status) = 'Charging' ]]; then
+
+if [[ $(cat /sys/class/power_supply/BAT0/status) = 'Full' ]]; then
+  echo "<span size='xx-large' color='white'>󱈑</span>"
+elif [[ $(cat /sys/class/power_supply/BAT0/status) = 'Charging' ]]; then
   icons=(󰢟 󰢜 󰂆 󰂇 󰂈 󰢝 󰂉 󰢞 󰂊 󰂋 󰂅)
   color=(red orange yellow green green green green green green green cyan)
   # icons count
@@ -38,15 +41,15 @@ if [[ $(cat /sys/class/power_supply/BAT0/status) = 'Charging' ]]; then
   # index in the icons array
   i=$(echo "($l + 5) / ($c - 1)" | bc)
 
-  echo "<span color='${color[$i]}'>${icons[$i]}</span>"
+  echo "<span size='xx-large' color='${color[$i]}'>${icons[$i]}</span>"
 else
-  icons=(󰂎 󰁺 󰁻 󰁼 󰁽 󰁾 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
+  icons=(󰂎 󰁺 󰁻 󰁼 󰁽 󰁾 󰁿 󰂀 󰂁 󰂂 󰁹)
   color=(magenta red orange yellow white white white white white white cyan)
   # icons count
   c="${#icons[@]}"
   # index in the icons array
   i=$(echo "($l + 5) / ($c - 1)" | bc)
 
-  echo "<span color='${color[$i]}'>${icons[$i]}</span>"
+  echo "<span size='xx-large' color='${color[$i]}'>${icons[$i]}</span>"
 fi
 

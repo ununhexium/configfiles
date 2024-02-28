@@ -4,6 +4,8 @@
 	b = branch
 	co = checkout
 	d = diff
+# log -n1 !'git rev-list -n1 '
+# !sh -c 'git diff --name-status $1^ $1' -
 	dc = diff --cached
 	dh = diff --cached HEAD^
 	ds = diff --cached --stat
