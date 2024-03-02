@@ -1,3 +1,23 @@
+# Arch isntall
+
+## USB Install
+
+[official doc](https://wiki.archlinux.org/title/Installation_guide)
+
+
+## At pacstrap
+
+```sh
+pacstrap /mnt \
+    dhcpcd \
+    linux \
+    linux-firmware \
+    lvm2 \
+    mkinitcpio \
+    man-db \
+    man-pages \
+```
+
 
 ## After USB install
 
