@@ -243,7 +243,7 @@ input type:keyboard {
 
   # Capslock key should work as escape key
   # See /usr/share/X11/xkb/rules/xorg.lst for options
-  xkb_options caps:escape
+  #xkb_options caps:escape
 
   xkb_numlock enabled
 
@@ -303,7 +303,8 @@ exec --no-startup-Wallpaper redshift -l 45:0
 
 # Wallpaper
 #exec --no-startup-id /home/uuh/.local/scripts/i3background
-exec --no-startup-id feh --bg-scale /home/uuh/Pictures/reunion.jpeg
+#exec --no-startup-id feh --bg-scale /home/uuh/.config/wallpaper/1.jpg
+exec --no-startup-id swaybg --image /home/uuh/.config/wallpaper/1.jpg
 
 # WAYLAND
 

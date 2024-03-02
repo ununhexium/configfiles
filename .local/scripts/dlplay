@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+case "$1" in 
+    a*) mode=audio ; cd "$HOME/Music" ;;
+    v*) mode=video ; cd "$HOME/Videos" ;;
+    *) cecho "Can't assign a mode for $1, use either of a/audio/v/video" ; exit 1 ;;
+esac
+
+
+name=$(yt-dlp --restrict-filenames --print filename "$2")
+
+cecho blue "Looking for $name"
+
+maybe=$(find . | grep --fixed-strings "$name")
+
+if [ ! $? -eq 0 ]
+then
+    target=$(find . -type d | fzf)
+
+    if [ ! -d "$target" ]
+    then
+        mkdir -p "$target"
+        cecho yellow "Created new folder $target"
+    fi
+
+    cd "$target"
+
+    echo $PWD
+
+    case $mode in
+        audio)
+            yt-dlp --restrict-filenames --format bestaudio "$2"
+            ;;
+        video)
+            yt-dlp --restrict-filenames "$2"
+            ;;
+    esac
+else
+    cecho green "The file $maybe is already available locally"
+fi
+
+forsure=$(find . | grep --fixed-strings "$name")
+
+cvlc "$forsure"

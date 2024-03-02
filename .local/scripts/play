@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+find ~/Music -type f | fzf --print0 | xargs --null cvlc
+
