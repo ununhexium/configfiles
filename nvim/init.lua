@@ -65,3 +65,4 @@ vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+vim.api.nvim_set_option("clipboard","unnamed")
