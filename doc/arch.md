@@ -7,19 +7,45 @@
 
 ## At pacstrap
 
+Get this part of the file
+
+```sh
+curl https://raw.githubusercontent.com/ununhexium/configfiles/yet-another/doc/arch.md | grep 'pacstrap /mnt' -A 10
+```
+
+Note: the branch name `yet-another` may be different.
+
+
 ```sh
 pacstrap /mnt \
+    base \
     dhcpcd \
+    grub \
     linux \
     linux-firmware \
     lvm2 \
     mkinitcpio \
     man-db \
     man-pages \
+    neovim \
+    pacman \
+    zsh \
+
 ```
 
+## After chroot
+
+```sh
+zsh
+```
 
 ## After USB install
+
+## Time sync
+
+```sh
+systemctl enable --now systemd-timesyncd.service
+```
 
 ### Install backup kernel in case something goes terribly wrong
 
