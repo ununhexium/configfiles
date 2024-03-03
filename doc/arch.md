@@ -3,7 +3,7 @@
 ## USB Install
 
 [official doc](https://wiki.archlinux.org/title/Installation_guide)
-
+[full encryption](https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268) shortcut
 
 ## At pacstrap
 
@@ -20,6 +20,8 @@ Note: the branch name `yet-another` may be different.
 pacstrap /mnt \
     base \
     dhcpcd \
+    efibootmgr \
+    fzf \
     grub \
     linux \
     linux-firmware \
@@ -27,6 +29,7 @@ pacstrap /mnt \
     mkinitcpio \
     man-db \
     man-pages \
+    networkmanager \
     neovim \
     pacman \
     zsh \
@@ -40,6 +43,12 @@ zsh
 ```
 
 ## After USB install
+
+## Network
+
+[stacks](https://wiki.archlinux.org/title/Network_configuration#Network_managers)
+
+[wifi for noobs](https://wiki.archlinux.org/title/NetworkManager)
 
 ## Time sync
 
