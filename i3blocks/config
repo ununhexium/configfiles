@@ -2,7 +2,7 @@
 # Global properties
 command=~/.config/i3/i3scripts/$BLOCK_NAME
 align=center
-separator=true
+separator=false
 separator_block_width=50
 markup=pango
 #border_top=0
@@ -27,13 +27,20 @@ min_width=0
 ##interval=2
 #
 # CPU usage
-[cpu_usage]
-label=
+#[cpu_usage]
+#label=<big> </big>
+#interval=2
+
+[usedcpu]
+interval=1
+
+# CPU Freq
+[cpu_freq]
 interval=2
 #
 ## Free space of /
 [disk]
-label=
+label=<span size='xx-large'>󰋊 </span>
 instance=/home
 interval=600
 #
@@ -70,7 +77,7 @@ interval=2
 #
 ## Time
 [datetime]
-label=
+label=<big> </big>
 interval=5
 #
 ## Streaming/recording

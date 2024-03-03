@@ -49,7 +49,7 @@ function memory() {
     if [ $swap_percent -lt 75 ]; then 
         swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
     fi
-    echo "<span foreground='$mem_color'></span><span font_weight='bold' foreground='$mem_color'>${mem_gb} GB $swap_message</span>"
+    echo "<span foreground='$mem_color' size='x-large'> </span><span font_weight='bold' foreground='$mem_color'>${mem_gb} GB $swap_message</span>"
     graphite "monitoring.memory.free" "$((mem_kb * 1024))"
 }
 

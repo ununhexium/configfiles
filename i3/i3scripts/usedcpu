@@ -5,7 +5,8 @@
 PREV_TOTAL=0
 PREV_IDLE=0
 
-cpuFile="/tmp/ram/.cpu"
+cpuFile="/dev/shm/i3block/.cpu"
+[[ ! -d "$cpuFile" ]] && mkdir -p "$(dirname "$cpuFile")"
 
 if [[ -f "${cpuFile}" ]]; then
   fileCont=$(cat "${cpuFile}")
@@ -36,17 +37,23 @@ if [[ "${PREV_TOTAL}" != "" ]] && [[ "${PREV_IDLE}" != "" ]]; then
 
   graphite "monitoring.cpu.usage" "$DIFF_USAGE"
 
+  load_raw=$(cat /proc/loadavg | cut -d\  -f1)
+  cpu_count=$(nproc --all)
+  load=$(echo "100 * $load_raw / $cpu_count" | bc)
   COLOR="white"
-  if [[ $DIFF_USAGE -gt 50 ]] ; then
+  if [[ $load -gt 50 ]] ; then
     COLOR="cyan"
   fi 
-  if [[ $DIFF_USAGE -gt 80 ]] ; then
+  if [[ $load -gt 80 ]] ; then
     COLOR="yellow"
   fi
-  if [[ $DIFF_USAGE -gt 95 ]] ; then
+  if [[ $load -gt 95 ]] ; then
+    COLOR="red"
+  fi
+  if [[ $load -gt 120 ]] ; then
     COLOR="magenta"
   fi
-  echo "  ${DIFF_USAGE}%"
+  echo "<span color='$COLOR' size='x-large'>  ${DIFF_USAGE}%</span>"
 else
     echo "  ?"
 fi

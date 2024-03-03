@@ -54,7 +54,7 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S acpi base-devel bc broot entr git lynx strace tldr unzip zip
+pacman -S acpi base-devel bc broot entr git htop lynx strace stress tldr unzip zip
 ```
 
 ## Cargo dependencies
@@ -205,6 +205,12 @@ clone git@github.com:ununhexium/hexpxl.git
 cd "$HOME/dev/ununhexium/hexpxl"
 cargo build --release
 cp target/release/hexpxl "$HOME/.local/bin/hexpxl"
+```
+
+## Audio
+
+```sh
+pacman -S alsa-utils pamixer pulseaudio pulseaudio-alsa pavucontrol
 ```
 
 ## Graphics
