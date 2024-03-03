@@ -15,18 +15,18 @@ Remember the repo's root
 export REPO='/path/to/the/cloned/repos/root'
 ```
 
+## Git
+
+```sh
+ln -s "$REPO/git" "$HOME/.config/git"
+```
+
 # System
 
 Disable power button.
 
 ```sh
 diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
-```
-
-## Git
-
-```sh
-ln -s "$REPO/git" "$HOME/.config/git"
 ```
 
 # TUI

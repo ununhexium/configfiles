@@ -1,22 +1,30 @@
-# Arch isntall
+# Arch install
+
+Setup with
+* full disk encryption
+* Encrypted boot with LUKS1
+* Encrypted LVM with LUKS2
 
 ## USB Install
 
 [official doc](https://wiki.archlinux.org/title/Installation_guide)
 [full encryption](https://gist.github.com/huntrar/e42aee630bee3295b2c671d098c81268) shortcut
 
+TODO: partitioning
+
 ## At pacstrap
 
 Get this part of the file
 
 ```sh
-curl https://raw.githubusercontent.com/ununhexium/configfiles/yet-another/doc/arch.md | grep 'pacstrap /mnt' -A 10
+curl https://raw.githubusercontent.com/ununhexium/configfiles/yet-another/doc/arch.md | grep 'pacstrap' -A 15
 ```
 
 Note: the branch name `yet-another` may be different.
 
 
 ```sh
+#MARKER1
 pacstrap /mnt \
     base \
     dhcpcd \
@@ -26,12 +34,16 @@ pacstrap /mnt \
     linux \
     linux-firmware \
     lvm2 \
+    lynx \
     mkinitcpio \
     man-db \
     man-pages \
     networkmanager \
     neovim \
     pacman \
+    sudo \
+    tmux \
+    which \
     zsh \
 
 ```
@@ -40,15 +52,44 @@ pacstrap /mnt \
 
 ```sh
 zsh
+alias vi=nvim
 ```
 
-## After USB install
+## Crypttab
+
+```sh
+vi /etc/crypttab
+```
+
+Add line
+
+```
+boot /dev/nvme0n1p3 /root/secrets/crypto_keyfile.bin
+```
 
 ## Network
 
 [stacks](https://wiki.archlinux.org/title/Network_configuration#Network_managers)
 
 [wifi for noobs](https://wiki.archlinux.org/title/NetworkManager)
+
+## After USB install
+
+
+## Create regular user
+
+adduser --groups audio,video --create-home --shell /usr/bin/zsh USER
+passwd USER
+EDITOR=nvim visudo
+add USER to sudoers
+
+## Wifi
+
+```sh
+nmtui
+```
+
+Activate connection > Select some wifi
 
 ## Time sync
 
