@@ -5,7 +5,9 @@ dir=$(dirname "$last")
 [[ ! -d "$dir" ]] && mkdir -p "$dir"
 
 # Battery level
-l=$(cat /sys/class/power_supply/BAT0/capacity)
+# TODO: rename in udev
+l=$(cat /sys/class/power_supply/{BAT0,CMB0}/capacity)
+status=$(cat /sys/class/power_supply/{BAT0,CMB0}/status)
 #l=4
 # low level alert
 low=20
@@ -14,26 +16,26 @@ crit=10
 if [[ $BLOCK_BUTTON -eq 1 ]]
 then
   level=$(echo "$l / 10 * 10" | bc)
-  notify-send --urgency=normal --icon battery-level-$level-symbolic 'Battery' --hint int:value:$l
+  notify-send --urgency=normal --icon battery-level-$level-symbolic "Battery" --hint int:value:$l
 fi
 
 # Alert if level low
-if [[ $(cat $last) -ne $l && $(cat /sys/class/power_supply/BAT0/status) != 'Charging' ]]; then
+if [[ $(cat $last) -ne $l && "$status" != "Charging" ]]; then
   echo $l > $last
   level=$(echo "$l / 10 * 10" | bc)
   if [[ $l -le $crit ]]; then
-    notify-send --urgency=critical --icon battery-level-$level-symbolic 'Battery' --hint int:value:$l
+    notify-send --urgency=critical --icon battery-level-$level-symbolic "Battery" --hint int:value:$l
   elif [[ $l -le $low && $(($l % 5)) -eq 0 ]]; then
-    notify-send --urgency=normal --icon battery-level-$level-symbolic 'Battery low!' --hint int:value:$l
+    notify-send --urgency=normal --icon battery-level-$level-symbolic "Battery low!" --hint int:value:$l
   else
     // nada
   fi
 fi
 
 
-if [[ $(cat /sys/class/power_supply/BAT0/status) = 'Full' ]]; then
+if [[ "$status" = "Full" ]]; then
   echo "<span size='xx-large' color='white'>󱈑</span>"
-elif [[ $(cat /sys/class/power_supply/BAT0/status) = 'Charging' ]]; then
+elif [[ "$status" = "Charging" ]]; then
   icons=(󰢟 󰢜 󰂆 󰂇 󰂈 󰢝 󰂉 󰢞 󰂊 󰂋 󰂅)
   color=(red orange yellow green green green green green green green cyan)
   # icons count

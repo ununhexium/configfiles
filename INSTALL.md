@@ -1,5 +1,18 @@
 # Installation steps
 
+## Github access
+
+```sh
+ssh-keygen
+```
+
+And upload the keys or use older keys.
+
+```sh
+pacman -S git git-delta
+git clone '/path/to/the/cloned/repos/root'
+```
+
 ## Get everything
 
 Init submodules
@@ -21,14 +34,6 @@ export REPO='/path/to/the/cloned/repos/root'
 ln -s "$REPO/git" "$HOME/.config/git"
 ```
 
-# System
-
-Disable power button.
-
-```sh
-diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
-```
-
 # TUI
 
 ## Zsh
@@ -36,7 +41,7 @@ diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
 Link the config
 
 ```sh
-ln -s "$REPO/.config/zsh/" "$HOME/.config/zsh"
+ln -s "$REPO/.config/zsh/" "$HOME/zsh"
 ```
 
 Link the resource file and folder
@@ -49,7 +54,15 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S entr strace
+pacman -S acpi base-devel bc broot entr git lynx strace tldr unzip zip
+```
+
+## Cargo dependencies
+
+```sh
+pacman -S rustup
+rustup install stable
+rustup install eza hexyl
 ```
 
 ## ClamAV
@@ -68,14 +81,18 @@ sudo -u clamav freshclam  # refresh the virus DB
 ln -s "$REPO/nvim" "$HOME/.config/nvim"
 ```
 
-## JVM
-
-Get [SDKMan](https://sdkman.io/)
-
 ## AUR
 
 ```sh
 pacman -S base-devel
+```
+
+# System
+
+Disable power button.
+
+```sh
+diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
 ```
 
 # GUI
@@ -83,7 +100,7 @@ pacman -S base-devel
 ## Xorg
 
 ```sh
-pacman -S xbindkeys xdotool xorg-xev xorg-xwininfo
+pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xwininfo
 ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
 
@@ -160,10 +177,24 @@ ln -s "$REPO/dunst" "$HOME/.config/dunst"
 "$HOME/.config/dunst/sample.sh"
 ```
 
+## Network
+
+```sh
+pacman -S network-manager-applet
+```
+
 ## Development
 
 ```sh
 pacman -S kdiff3
+```
+
+## JVM
+
+Get [SDKMan](https://sdkman.io/)
+
+```sh
+sdk search java ...
 ```
 
 ## Custom lock screen
@@ -173,7 +204,7 @@ pacman -S scrot
 clone git@github.com:ununhexium/hexpxl.git
 cd "$HOME/dev/ununhexium/hexpxl"
 cargo build --release
-cp target/release/hexpxl "$HOME/"
+cp target/release/hexpxl "$HOME/.local/bin/hexpxl"
 ```
 
 ## Graphics
