@@ -54,7 +54,7 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S acpi base-devel bc broot entr git htop lynx strace stress tldr unzip zip
+pacman -S acpi base-devel bc bind broot entr git htop lynx strace stress tldr unzip zip
 ```
 
 ## Cargo dependencies
@@ -113,6 +113,7 @@ pacman -S \
   firefox \
   flameshot \
   gimp \
+  network-manager-applet \
   noto-fonts-cjk \
   noto-fonts-emoji \
   noto-fonts \
@@ -213,8 +214,24 @@ cp target/release/hexpxl "$HOME/.local/bin/hexpxl"
 pacman -S alsa-utils pamixer pulseaudio pulseaudio-alsa pavucontrol
 ```
 
+## Development
+
+```sh
+pacman -S kdiff3
+```
+
 ## Graphics
 
 ```sh
 pacman -S gimp
 ```
+
+## Screen
+
+```sh
+pacman -S geoclue redshift
+```
+
+Try it
+/usr/lib/geoclue-2.0/demos/where-am-i
+

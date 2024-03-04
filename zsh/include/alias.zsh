@@ -8,6 +8,7 @@ alias f="fuck"
 alias g="git"
 alias hex=hexyl
 alias ikotlin="kotlinc-jvm"
+alias k='kubectl'
 alias listwifi="iwlist wlp2s0 scan"
 alias ls="ls --color"
 alias ll="eza -l --all"

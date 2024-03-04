@@ -53,6 +53,9 @@ show_as_file() {
                     ;;
             esac
             ;;
+	application/x-tar*)
+	    tar tvf "$1"
+	    ;;
 
         application/x-xz*)
             tar --list --verbose --file="$1"

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [[ $BLOCK_BUTTON -eq 1 ]]
+then
+  xdg-open "https://github.com/pulls" 2>&1 > /dev/null
+  i3-msg "workspace number 1" 2>&1 > /dev/null
+fi
+
+echo ""
+
