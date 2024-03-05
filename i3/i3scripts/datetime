@@ -8,7 +8,12 @@ then
   notify-send 'Calendar' "$(cal)"
 fi
 
-now="$(date '+%H:%M')"
+icon=(           )
+#icon_index=$(echo "$(date +%I) % 12" | bc)
+offset_date=$(date -d @$(echo "$(date +%s) + 30*60" | bc) +%I)
+icon_index=$(echo "$offset_date % 12" | bc)
+
+now="<span size='xx-large'>${icon[$icon_index]}</span> $(date '+%H:%M')"
 
 echo "$now"
 echo "$now"

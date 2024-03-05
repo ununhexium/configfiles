@@ -88,7 +88,7 @@ show_as_file() {
 
         text/*)
             case $extension in
-                md) glow "$1"
+                md) glow --pager "$1"
                     ;;
                 *) bat "$1"
                     ;;

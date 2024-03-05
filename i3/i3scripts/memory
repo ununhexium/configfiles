@@ -32,9 +32,10 @@ function memory() {
     mem_total=$(extract "MemTotal")
     mem_percent=$(echo "$mem_kb * 100 / $mem_total" | bc)
 
-    swap_kb=$(extract "SwapFree")
-    #swap_kb="4456789"
-    swap_mb=$(echo "scale=1 ; $swap_kb / 1024 / 1024" | bc)
+    swap_total=$(extract "SwapTotal:")
+    swap_free=$(extract "SwapFree:")
+    swap_kb=$(( $swap_total - $swap_free ))
+    swap_gb=$(echo "$swap_kb / 1024 / 1024" | bc)
 
     swap_total=$(extract "SwapTotal")
     swap_percent=$(echo "($swap_kb) * 100 / $swap_total" | bc)
@@ -43,11 +44,12 @@ function memory() {
     swap_color=$(compute_color $swap_percent)
 
     if [ $mem_percent -lt 5 ]; then
-        notify-send "LOW MEMORY" "The memory is used at $mem_percent%"
+#        notify-send "LOW MEMORY" "The memory is used at $mem_percent%"
+        echo > /dev/null;
     fi
 
-    if [ $swap_percent -lt 75 ]; then 
-        swap_message="<sup><span foreground='$swap_color'>+$swap_mb MB</span></sup>"
+    if [ $swap_gb -ge 1 ]; then 
+        swap_message="<span foreground='$swap_color'>+$swap_gb GB</span>"
     fi
     echo "<span foreground='$mem_color' size='x-large'> </span><span font_weight='bold' foreground='$mem_color'>${mem_gb} GB $swap_message</span>"
     graphite "monitoring.memory.free" "$((mem_kb * 1024))"

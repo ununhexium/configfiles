@@ -53,7 +53,7 @@ if [[ "${PREV_TOTAL}" != "" ]] && [[ "${PREV_IDLE}" != "" ]]; then
   if [[ $load -gt 120 ]] ; then
     COLOR="magenta"
   fi
-  echo "<span color='$COLOR' size='x-large'>  ${DIFF_USAGE}%</span>"
+  echo "<span color='$COLOR'><span size='x-large'> </span>$(printf %3s ${DIFF_USAGE})%</span>"
 else
     echo "  ?"
 fi

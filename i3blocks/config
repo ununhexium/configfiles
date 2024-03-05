@@ -13,9 +13,6 @@ min_width=0
 
 # Blocks
 
-[github_pr]
-interval=60
-
 ## Wifi signal strenght
 #[wifi]
 #label=
@@ -40,6 +37,10 @@ interval=1
 # CPU Freq
 [cpu_freq]
 interval=2
+
+[github_pr]
+interval=60
+
 #
 ## Free space of /
 [disk]
@@ -80,7 +81,6 @@ interval=2
 #
 ## Time
 [datetime]
-label=<big> </big>
 interval=5
 #
 ## Streaming/recording
@@ -99,3 +99,9 @@ interval=5
 #
 [battery.sh]
 interval=30
+
+[vpn.sh]
+interval=10
+
+[empty]
+interval=60
