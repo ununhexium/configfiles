@@ -258,3 +258,4 @@ exec --no-startup-id redshift-gtk
 exec_always --no-startup-id xset r rate 200 30
 #exec --no-startup-id krb5-auth-dialog
 exec --no-startup-id flameshot
+exec --no-startup-id redshift -l 51.0:5.9
