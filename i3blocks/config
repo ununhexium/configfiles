@@ -13,6 +13,9 @@ min_width=0
 
 # Blocks
 
+[netdata.sh]
+interval=10
+
 ## Wifi signal strenght
 #[wifi]
 #label=

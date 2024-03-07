@@ -115,6 +115,13 @@ sudo tlp start
 tlp-stat -b
 ```
 
+## Monitoring
+
+```sh
+pacman -S netdata
+systemctl enable --now netdata
+```
+
 # GUI
 
 ## Xorg
