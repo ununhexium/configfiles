@@ -89,10 +89,30 @@ pacman -S base-devel
 
 # System
 
-Disable power button.
+## Disable power button.
 
 ```sh
 diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
+```
+
+## Energy saving and battery care
+
+```sh
+pacman -S tlp
+```
+
+Check the config
+
+```sh
+diff -u "$REPO/tlp/tlp.conf" /etc/tlp.conf
+```
+
+Then start tlp and check the status
+
+```sh
+systemctl enable --now tlp
+sudo tlp start
+tlp-stat -b
 ```
 
 # GUI

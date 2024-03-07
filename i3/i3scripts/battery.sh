@@ -33,8 +33,13 @@ if [[ $(cat $last) -ne $l && "$status" != "Charging" ]]; then
 fi
 
 
-if [[ "$status" = "Full" ]]; then
-  echo "<span size='xx-large' color='white'>󱈑</span>"
+if [[ "$status" = "Not charging" || "$status" = "Full" ]]; then
+  if [[ $(cat /sys/class/power_supply/BAT0/charge_control_end_threshold) -lt 90 ]]
+  then
+    echo "<span size='xx-large' color='white'>󱈑</span>"
+  else
+    echo "<span size='xx-large' color='white'>󰂏</span>"
+  fi
 elif [[ "$status" = "Charging" ]]; then
   icons=(󰢟 󰢜 󰂆 󰂇 󰂈 󰢝 󰂉 󰢞 󰂊 󰂋 󰂅)
   color=(red orange yellow green green green green green green green cyan)
@@ -54,4 +59,6 @@ else
 
   echo "<span size='xx-large' color='${color[$i]}'>${icons[$i]}</span>"
 fi
+
+exit 0
 
