@@ -54,7 +54,7 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S acpi base-devel bc bind broot entr git htop lynx strace stress tldr unzip zip
+pacman -S acpi base-devel bc bind broot entr git htop inetutils lynx strace stress tldr unzip zip
 ```
 
 ## Cargo dependencies
