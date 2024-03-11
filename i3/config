@@ -238,6 +238,8 @@ bindsym $mod+Mod1+Control+space exec --no-startup-id dunstctl close-all
 #bindsym $mod+M exec --no-startup-id i3menu
 #bindsym $mod+Shift+M exec --no-startup-id i3maps
 
+# Toggle touchpad
+bindsym $mod+Menu exec --no-startup-id "$HOME/.local/scripts/toggle_touchpad.sh"
 
 # Others
 exec --no-startup-id xfce4-power-manager
@@ -250,7 +252,6 @@ exec --no-startup-id "$HOME/.local/scripts/i3-startup.sh"
 exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
 exec --no-startup-id notify-send --urgency=low "" "~ Start ~"
-exec --no-startup-id redshift-gtk
 #exec --no-startup-id start-pulseaudio-x11
 #exec --no-startup-id xbindkeys
 #exec --no-startup-id xfce4-power-manager
