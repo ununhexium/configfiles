@@ -3,7 +3,8 @@
     # message
     font = FiraCode Nerd Font 16
     format = "<big><b>%s</b></big>\n<small>%a</small>\n%p %b"
-    sort = urgency_descending
+#    sort = urgency_descending
+    sort = update
     indicate_hidden = yes
     alignment = center
     show_age_threshold = 60

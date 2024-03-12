@@ -215,12 +215,12 @@ focus_follows_mouse no
 
 # Compositor for window transparency
 #exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
-exec --no-startup-id compton
+#exec --no-startup-id compton
 
 #Clipboard
 #exec --no-startup-id clipster -d
 #exec --no-startup-id clipit
-exec --no-startup-id greenclip daemon
+#exec --no-startup-id greenclip daemon
 #bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+v exec --no-startup-id copyq show
 exec --no-startup-id copyq
