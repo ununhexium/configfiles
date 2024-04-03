@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-case $(hostname) in
+case "$(hostname)" in
   mind)
-    firefox
+    firefox &
     ;;
   makemake)
-    firefox
-    chromium
+    chromium &
+    firefox &
     ;;
 esac
