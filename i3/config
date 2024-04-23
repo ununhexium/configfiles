@@ -206,6 +206,7 @@ bindsym $mod+Control+p exec --no-startup-id xcolor
 
 # hex pixel locker
 bindsym $mod+Pause exec i3-locker.sh
+bindsym $mod+F12 exec i3-locker.sh
 bindsym $mod+P exec i3-locker.sh
 
 # emoji search
