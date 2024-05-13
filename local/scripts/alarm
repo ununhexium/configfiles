@@ -1,26 +1,37 @@
 #!/usr/bin/env bash
 
-## TODO: validate format hh:mm:ss.SSS
+function Alarm() {
+  notify-send --urgency critical "$1"
+}
 
-separators=$(echo "$1" | tr --delete --complement ':' | wc -c )
+function Sleep() {
+  ## TODO: validate format hh:mm:ss.SSS
+  separators=$(echo "$2" | tr --delete --complement ':' | wc -c )
+  
+  echo $separators
+  
+  case $separators in
+  	0)
+  		seconds="$2"
+  		;;
+  	1)
+  		seconds=$(echo "$2" | awk -F: '{ print ($1 * 60) + $2 }')
+  		;;
+  	2)
+  		seconds=$(echo "$2" | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+  		;;
+  esac
+  
+  echo $seconds
+  
+  sleep "$seconds"
+}
 
-echo $separators
-
-case $separators in
-	0)
-		seconds="$1"
-		;;
-	1)
-		seconds=$(echo "$1" | awk -F: '{ print ($1 * 60) + $2 }')
-		;;
-	2)
-		seconds=$(echo "$1" | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
-		;;
-esac
-
-echo $seconds
-
-sleep "$seconds"
-
-notify-send --urgency critical "$2"
+if [[ $* -lt 2 ]]
+then
+  Alarm ${1:-"Finished"}
+else
+  Sleep $@
+  Alarm $1
+fi
 
