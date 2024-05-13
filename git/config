@@ -56,6 +56,5 @@
   path = config-home
 
 [includeIf "gitdir:/home/uuh/dev/sovity/"]
-#[includeIf "hasconfig:remote.*.url:*sovity/**"]
   path = config-sovity
 

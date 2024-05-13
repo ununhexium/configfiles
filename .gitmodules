@@ -19,3 +19,6 @@
 [submodule "zsh/zsh-syntax-highlighting"]
 	path = zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/zsh-manydots-magic"]
+	path = zsh/zsh-manydots-magic
+	url = git@github.com:knu/zsh-manydots-magic.git
