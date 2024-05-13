@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+jps | grep 'GradleDaemon' | cut -d ' ' -f 1 | xargs kill
+
