@@ -1,10 +1,55 @@
 input {
   border: none;
-  outline: 2px solid red;
+  outline: 3px solid darkred;
+  accent-color: #9b59b6;
 }
 
 input:checked {
   border: none;
-  outline: 2px solid lime;
+  outline: 3px solid green;
+}
+
+h1::before {
+  content: '①';
+  color: gray;
+  position:relative;
+}
+
+h2::before {
+  content: '②';
+  color: gray;
+  position:relative;
+}
+
+
+h3::before {
+  content: '③';
+  color: gray;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+
+h4::before {
+  content: '④';
+  color: gray;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+
+h5::before {
+  content: '⑤';
+  color: gray;
+  font-weight: normal;
+  font-size: 1.2em;
+}
+
+
+h6::before {
+  content: '⑥';
+  color: gray;
+  font-weight: normal;
+  font-size: 1.2em;
 }
 
