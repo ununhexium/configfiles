@@ -1,0 +1,10 @@
+input {
+  border: none;
+  outline: 2px solid red;
+}
+
+input:checked {
+  border: none;
+  outline: 2px solid lime;
+}
+
