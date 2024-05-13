@@ -90,18 +90,6 @@ function echopath {
 #  
 #  export PATH="$PATH:$HOME/app/gobuster/current/"
 #  
-#  ## GRADLE
-#  
-#  function gra {
-#      if [[ -f ./gradlew ]]
-#      then
-#          ./gradlew "$@"
-#      else
-#          gradle "$@"
-#      fi
-#  }
-#  
-#  
 #  ## JAVA
 #  
 #  ### jclasslib
@@ -138,6 +126,8 @@ function echopath {
 
 
 source "${ZDOTDIR}/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh"
-source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#808080,bold'
+source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
