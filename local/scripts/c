@@ -79,7 +79,7 @@ show_as_file() {
             ;;
 
         inode/directory*)
-            ls --color "$1"
+            eza --all --long "$1"
             ;;
 
         inode/symlink*)
@@ -105,7 +105,7 @@ show_as_file() {
 }
 
 show() {
-    if [[ ! -f "$1" ]] ; then 
+    if [[ ! -f "$1" && ! -d "$1" ]] ; then 
         cecho -n yellow "$1"
         echo " is not a file, try which/whence to see if it's an alias or a function name"
         exit 1
