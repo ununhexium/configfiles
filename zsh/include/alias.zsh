@@ -6,6 +6,7 @@ alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{
 alias df="df -hl"
 alias f="fuck"
 alias g="git"
+alias grep='grep --color'
 alias hex=hexyl
 alias ikotlin="kotlinc-jvm"
 alias k='kubectl'
