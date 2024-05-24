@@ -53,6 +53,9 @@ show_as_file() {
                     ;;
             esac
             ;;
+        application/x-java-keystore*)
+          keytool -list -storepass changeit -keystore "$1"
+          ;;
 	application/x-tar*)
 	    tar tvf "$1"
 	    ;;
@@ -87,11 +90,18 @@ show_as_file() {
             ;;
 
         text/*)
-            case $extension in
-                md) glow --pager "$1"
-                    ;;
-                *) bat "$1"
-                    ;;
+            case $(file --brief "$1") in
+              "PEM certificate")
+                openssl x509 -noout -text -in "$1"
+                ;;
+              *)
+                case $extension in
+                  md) glow --pager "$1"
+                      ;;
+                  *) bat "$1"
+                      ;;
+                  esac
+              ;;
             esac
             ;;
 
