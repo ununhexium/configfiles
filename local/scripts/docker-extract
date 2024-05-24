@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+docker pull "$1"
+target="$HOME/holygrenade/docker-extract-$1"
+mkdir -p "$target"
+cd "$target"
+docker save -o image.tar "$1"
+tar xf image.tar
+echo "Extracted to $target"
