@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Read stdin and put it in the clipboard
+
+while IFS= read -r line
+do
+  echo "$line"
+done | xclip -in -selection clipboard
