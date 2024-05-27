@@ -5,5 +5,5 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-nvim "$(which "$1")"
+${EDITOR:-nvim:-vim:-vi} "$(which "$1")"
 
