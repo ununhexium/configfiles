@@ -1,5 +1,6 @@
 [alias]
   aa = add -A
+  adc = !git aa && git dc
   amend = commit --amend
   b = branch
   co = checkout
@@ -15,7 +16,7 @@
   lg = !"git lg1"
   lm = log --author="116@lab0.net" --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   pat = pull --all --tags
-  pullff = pull --ff-only
+  puff = pull --ff-only
   r = restore
   ri = rebase -i
   rs = restore --staged
@@ -48,7 +49,15 @@
   diffFilter = delta --color-only
 
 [merge]
-  tool = kdiff3
+#  tool = kdiff3
+  tool = intellij
+
+[mergetool "intellij"]
+  cmd = '/home/uuh/.local/bin/idea.sh' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  trustExitCode = true
+
+[mergetool]
+  keepBackup = false
 
 [init]
   defaultBranch = master
