@@ -24,6 +24,12 @@ bindkey '^E' end-of-line
 # framebuffer
 bindkey '^[[4~' end-of-line
 
+# Page up
+bindkey '[5~' beginning-of-line
+
+# Page down
+bindkey '[6~' end-of-line
+
 # Backspace
 bindkey '^?' backward-delete-char
 
