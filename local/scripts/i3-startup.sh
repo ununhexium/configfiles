@@ -7,5 +7,6 @@ case "$(hostname)" in
   makemake)
     chromium &
     firefox &
+    idea.sh &
     ;;
 esac

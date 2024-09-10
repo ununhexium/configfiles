@@ -67,3 +67,5 @@ vim.opt.smarttab = true
 vim.opt.expandtab = true
 
 vim.api.nvim_set_option("clipboard","unnamed")
+
+vim.cmd 'colorscheme sorbet'
