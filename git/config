@@ -53,7 +53,7 @@
   tool = intellij
 
 [mergetool "intellij"]
-  cmd = '/home/uuh/.local/bin/idea.sh' merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
+  cmd = '/home/uuh/.local/bin/idea' merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
   trustExitCode = true
 
 [mergetool]
