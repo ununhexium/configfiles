@@ -24,5 +24,5 @@ fi
 
 if [[ $critical -eq 0 && $warning -eq 0 ]]
 then
-  echo "<span size='xx-large'></span>"
+  echo "<span size='x-large'></span>"
 fi
