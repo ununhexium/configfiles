@@ -35,7 +35,7 @@ setopt interactivecomments
 export TMP=/tmp/$USER
 if [ ! -d "$TMP" ]; then mkdir "$TMP"; fi
 
-export LESS="-j.5 -R --hilite-unread --use-color --color=Sr"
+export LESS="-j.5 -R --hilite-unread --use-color --color=Skm"
 
 export EDITOR=nvim
 export VISUAL=vim
