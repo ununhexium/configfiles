@@ -125,7 +125,7 @@ for_window [title="Android Emulator -.*"]       floating enable
 for_window [title="cpu_usage_click"]            floating enable 
 for_window [class="Gnome-power-statistics"]     floating enable 
 for_window [class="feh"]                        floating enable 
-for_window [class="copyq"]                      floating enable
+for_window [class="copyq"]                      floating enable move position center move position center
 
 
 # Reload the configuration file
