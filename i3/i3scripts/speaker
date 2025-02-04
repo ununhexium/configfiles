@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
-
-if [[ $BLOCK_BUTTON -eq 1 ]]; then
-  amixer -q set Speaker toggle
-fi
+case $BLOCK_BUTTON in
+  1)
+    amixer -q set Speaker toggle
+    ;;
+  4)
+    amixer -q set Speaker 5%+
+    ;;
+  5)
+    amixer -q set Speaker 5%-
+    ;;
+esac
 
 if [[ $(amixer get Speaker | grep '\[on\]' | wc -l) -gt 0 ]]; then
   echo '󰕾'
