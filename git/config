@@ -9,6 +9,7 @@
   date = "!f() { git log --format='%C(bold blue)%h %C(bold green)%ai%C(reset) %ar' --max-count=1 $(git rev-list -n1 $1); }; f"
   dc = diff --cached
   dh = diff --cached HEAD^
+  dm = "!f() { git diff $(git merge-base HEAD main); }; f"
   ds = diff --cached --stat
   fat = fetch --all --tags
   lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -53,7 +54,7 @@
   tool = intellij
 
 [mergetool "intellij"]
-  cmd = '/home/uuh/.local/bin/idea' merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
+  cmd = '/home/uuh/.local/bin/idea' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
   trustExitCode = true
 
 [mergetool]

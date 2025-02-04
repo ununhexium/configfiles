@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+if [[ $BLOCK_BUTTON -eq 1 ]]; then
+  amixer -q set Speaker toggle
+fi
+
+if [[ $(amixer get Speaker | grep '\[on\]' | wc -l) -gt 0 ]]; then
+  echo '󰕾'
+else
+  echo '󰖁'
+fi
+
+exit 0
+

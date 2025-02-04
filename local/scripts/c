@@ -1,130 +1,130 @@
 #!/usr/bin/env zsh
 
 show_as_jar() {
-    unzip -l "$1" && javaversion "$1"
+  unzip -l "$1" && javaversion "$1"
 }
 
 show_as_file() {
-	filename=$(basename -- "$1")
-	extension="${filename##*.}"
-	filename="${filename%.*}"
-    filetype=$(file --brief --mime "$1")
+  filename=$(basename -- "$1")
+  extension="${filename##*.}"
+  filename="${filename%.*}"
+  filetype=$(file --brief --mime "$1")
 
-    #echo "Filetype: $filetype"
-
-    if [[ ! -z ${DEBUG+x} ]]; then
-        cecho green "$extension"
-    fi
+  if [[ ! -z ${DEBUG+x} ]]; then
+    cecho green "$extension"
+  fi
 
 
-    case $filetype in
+  case $filetype in
 
-    	application/gzip*)
-            tar tvf "$1"
-            ;;
+    application/gzip*)
+      tar tvf "$1"
+      ;;
 
-        application/java-archive*)
-            show_as_jar "$1"
-            ;;
+    application/java-archive*)
+      show_as_jar "$1"
+      ;;
 
-        application/json*)
-            cat "$1" | jq
-            ;;
+    application/json*)
+      cat "$1" | jq
+      ;;
 
-        application/pdf*)
-            mupdf "$1"
-            ;;
+    application/pdf*)
+      mupdf "$1"
+      ;;
 
-        application/vnd.debian.binary-package*)
-            dpkg --contents "$1"
-            ;;
+    application/vnd.debian.binary-package*)
+      dpkg --contents "$1"
+      ;;
 
-        application/x-bzip2*)
-            tar --bzip2 --list --verbose --file="$1"
-            ;;
+    application/x-bzip2*)
+      tar --bzip2 --list --verbose --file="$1"
+      ;;
 
-        application/x-java-applet*)
-            case $extension in
-                class)
-                    javap -v "$1"
-                    ;;
-                *)
-                    hexyl "$1"
-                    ;;
-            esac
-            ;;
-        application/x-java-keystore*)
-          keytool -list -storepass changeit -keystore "$1"
+    application/x-java-applet*)
+      case $extension in
+        class)
+          javap -v "$1"
           ;;
-	application/x-tar*)
-	    tar tvf "$1"
-	    ;;
+        *)
+          hexyl "$1"
+          ;;
+      esac
+      ;;
 
-        application/x-xz*)
-            tar --list --verbose --file="$1"
-            ;;
+    application/x-java-keystore*)
+      keytool -list -storepass changeit -keystore "$1"
+      ;;
 
-        application/zip*)
-            case $extension in
-                jar) show_as_jar "$1"
-                    ;;
-                *) unzip -l "$1"
-                    ;;
-            esac
-            ;;
+    application/x-tar*)
+      tar tvf "$1"
+      ;;
 
-        image/*)
-            feh --auto-zoom --fullscreen "$1"
-            ;;
+    application/x-xz*)
+      tar --list --verbose --file="$1"
+      ;;
 
-        inode/x-empty*)
-            cecho purple "Empty file"
-            ;;
+    application/zip*)
+      case $extension in
+        jar) show_as_jar "$1"
+          ;;
+        *) unzip -l "$1"
+          ;;
+      esac
+      ;;
 
-        inode/directory*)
-            eza --all --long "$1"
-            ;;
+    image/*)
+      feh --auto-zoom --fullscreen "$1"
+      ;;
 
-        inode/symlink*)
-            c $(readlink -f "$1")
-            ;;
+    inode/x-empty*)
+      cecho purple "Empty file"
+      ;;
 
-        text/*)
-            case $(file --brief "$1") in
-              "PEM certificate")
-                openssl x509 -noout -text -in "$1"
-                ;;
-              *)
-                case $extension in
-                  md) glow --pager "$1"
-                      ;;
-                  *) bat "$1"
-                      ;;
-                  esac
+    inode/directory*)
+      eza --all --long "$1"
+      ;;
+
+    inode/symlink*)
+      c $(readlink -f "$1")
+      ;;
+
+    text/*)
+      case $(file --brief "$1") in
+        "PEM certificate")
+          openssl x509 -noout -text -in "$1"
+          ;;
+        *)
+          case $extension in
+            md) glow --pager "$1"
               ;;
-            esac
-            ;;
+            *) bat "$1"
+              ;;
+          esac
+          ;;
+      esac
+      ;;
 
-        video/*)
-            vlc "$1" --fullscreen --play-and-exit
-            ;;
+    video/*)
+      vlc "$1" --fullscreen --play-and-exit
+      ;;
 
-        *) cecho RED "Don't know how to best show $1 of type $filetype"
-            ;;
-    esac
+    *) cecho RED "Don't know how to best show $1 of type $filetype"
+      ;;
+  esac
 }
 
 show() {
-    if [[ ! -f "$1" && ! -d "$1" ]] ; then 
-        cecho -n yellow "$1"
-        echo " is not a file, try which/whence to see if it's an alias or a function name"
-        exit 1
-    else
-        show_as_file "$1"
+  if [[ ! -f "$1" && ! -d "$1" ]] ; then 
+    cecho -n yellow "$1"
+    echo " is not a file, try which/whence to see if it's an alias or a function name"
+    exit 1
+  else
+    show_as_file "$1"
     fi
 }
 
 for what in "$@"; do
-	show "$what"
+  show "$what"
 done
 

@@ -103,6 +103,10 @@ interval=5
 #label=Bat 
 #interval=60
 #
+
+[speaker]
+interval=30
+
 [battery.sh]
 interval=30
 
