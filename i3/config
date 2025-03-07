@@ -112,7 +112,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 # Always open some programs on specified workspace
 assign [class="cmus"]		                $workspace7
 assign [class="firefox"]                $workspace1
-assign [class="Chromium"]               $workspace7
+#assign [class="Chromium"]               $workspace7
 assign [class="idea"]	   	              $workspace2
 assign [class="jetbrains-studio"]	     	$workspace2
 assign [class="Nautilus"]	              $workspace4
@@ -231,6 +231,7 @@ focus_follows_mouse no
 bindsym $mod+v exec --no-startup-id copyq show
 exec --no-startup-id copyq
 # TODO: try clipmenu + rofi
+bindsym $mod+F1 exec ij-open-file
 
 # Notifications
 exec --no-startup-id dunst
@@ -265,4 +266,5 @@ exec_always --no-startup-id xset r rate 200 30
 #exec --no-startup-id krb5-auth-dialog
 exec --no-startup-id flameshot
 exec --no-startup-id redshift -l 51.0:5.9
-exec --no-startup-id unclutter --timeout 1 --jitter 5 --ignore-scrolling --start-hidden
+# hide mouse pointer
+exec --no-startup-id unclutter --timeout 4 --jitter 5 --ignore-scrolling --start-hidden

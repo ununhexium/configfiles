@@ -44,6 +44,9 @@ interval=1
 [cpu_freq]
 interval=2
 
+[cpu_temp.sh]
+interval=2
+
 [github_pr]
 interval=60
 

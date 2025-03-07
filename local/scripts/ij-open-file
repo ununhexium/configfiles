@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+xclip -o -selection primary | xclip -i -selection clipboard
+
+i3-msg workspace number 2
+sleep 0.2
+
+xdotool key "control+shift+n"
+sleep 0.2
+
+xdotool key "control+v"
+sleep 0.2
+
+xdotool key "enter"
+sleep 0.2
+
+
