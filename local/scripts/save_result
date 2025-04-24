@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+src=$(ls "temp" -t | head -n 1)
+version=$(cat "temp/${src}/meta/libs.versions.toml" | grep 'edc = ' | cut -d ' ' -f 3 | tr -d '"')
+dest="results/${version}/$1"
+
+echo src="$src"
+echo version="$version"
+echo dest="$dest"
+
+mkdir -p "$(dirname "$dest")"
+mv "temp/$src" "$dest"
+readlink -f "$dest" | cb
+

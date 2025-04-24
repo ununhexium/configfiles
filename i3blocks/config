@@ -3,7 +3,7 @@
 command=~/.config/i3/i3scripts/$BLOCK_NAME
 align=center
 separator=false
-separator_block_width=50
+separator_block_width=34
 markup=pango
 #border_top=0
 #border_right=0

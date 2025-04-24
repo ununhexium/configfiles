@@ -97,6 +97,12 @@ bindsym $mod+7 workspace $workspace7
 bindsym $mod+8 workspace $workspace8
 bindsym $mod+9 workspace $workspace9
 
+bindsym $mod+Mod1+1 workspace $workspace5
+bindsym $mod+Mod1+2 workspace $workspace6
+bindsym $mod+Mod1+3 workspace $workspace7
+bindsym $mod+Mod1+4 workspace $workspace8
+bindsym $mod+Mod1+5 workspace $workspace9
+
 # Move focused container to workspace
 bindsym $mod+Shift+0 move container to workspace $workspace0
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -154,6 +160,7 @@ bindsym $mod+r mode "resize"
 
 # Defining colors
 set $black	 #000000
+set $yellow  #f7b403
 set $red     #a30000
 set $cyan	 #047a7b
 set $magenta #5d4062
@@ -162,10 +169,11 @@ set $white   #a9aca6
 set $bright  #ffffff
 set $toxic   #8EC000
 set $elegant #00002c
+set $purple  #8858ec
 
 # Set some nice colors      border	 background text	   indicator
-client.focused              $white	 $white     $black     $white
-client.unfocused            $black   $black     $bright     $black
+client.focused              $yellow	 $yellow    $black     $white
+client.unfocused            $black   $black     $purple    $black
 client.focused_inactive     $black   $black     $white     $black
 client.urgent               $magenta $magenta   $white     $magenta
 client.placeholder          $magenta $magenta   $white     $magenta
@@ -176,7 +184,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: FiraCode Nerd Font Propo 20
+	font pango: FiraCode Nerd Font Propo 14
 	colors
 	{
                             # Border   # Background   # Text

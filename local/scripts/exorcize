@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Casts away any unwanted daemon
+#
+jps | grep 'GradleDaemon' | cut -d ' ' -f 1 | xargs kill
+jps | grep 'KotlinCompileDaemon' | cut -d ' ' -f 1 | xargs kill
+
