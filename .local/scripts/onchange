@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# arg1: file
+# arg2: command to run
+# arg3: separator
+
 file=$(readlink -f "$1")
 sep=${3-/}
 command=$(echo "$2" | sed -e "s$sep}{}${sep}\$1${sep}g")

@@ -118,6 +118,8 @@ for_window [title="Android Emulator -.*"]       floating enable
 for_window [title="cpu_usage_click"]            floating enable 
 for_window [class="Gnome-power-statistics"]     floating enable 
 for_window [class="feh"]                        floating enable 
+for_window [class="dev-c15u-justsquares*"]      floating enable 
+for_window [class="MysticWoods"]                floating enable 
 
 
 # Reload the configuration file
@@ -146,7 +148,7 @@ mode "resize"
 bindsym $mod+r mode "resize"
 
 # Defining colors
-set $cyan	 #00ffff
+set $cyan	 #4779B8
 set $acqua	 #007089 
 set $wine 	 #72003e
 set $magenta #ff00ff
@@ -198,7 +200,7 @@ bindsym Print exec flameshot gui
 bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 
 # hex pixel locker
-bindsym $mod+Pause exec locker.sh
+bindsym $mod+Pause exec i3lock
 bindsym $mod+P exec locker.sh
 
 # emoji search
@@ -245,5 +247,5 @@ exec --no-startup-id xset r rate 200 30
 
 # Wallpaper
 #exec --no-startup-id /home/uuh/.local/scripts/i3background
-exec --no-startup-id feh --bg-scale /home/uuh/Pictures/reunion.jpeg
+exec --no-startup-id feh --bg-scale /home/uuh/Pictures/thai_tones.png
 
