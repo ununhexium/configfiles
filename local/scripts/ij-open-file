@@ -9,9 +9,8 @@ xdotool key "control+shift+n"
 sleep 0.2
 
 xdotool key "control+v"
-sleep 0.2
+sleep 0.5
 
 xdotool key "enter"
-sleep 0.2
 
 

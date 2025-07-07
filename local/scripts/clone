@@ -4,7 +4,7 @@
 
 
 sshformat='git@github.com:(.*)/(.*).git'
-httpsformat='https://github.com/(.*)/(.*).git'
+httpsformat='https://(.*@)?github.com/(.*)/(.*).git'
 devDir="$HOME/dev"
 
 cloneit() {

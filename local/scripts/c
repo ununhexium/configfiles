@@ -4,11 +4,15 @@ show_as_jar() {
   unzip -l "$1" && javaversion "$1"
 }
 
+show_as_pem() {
+  openssl x509 -noout -text -in "$1"
+}
+
 show_as_file() {
   filename=$(basename -- "$1")
   extension="${filename##*.}"
   filename="${filename%.*}"
-  filetype=$(file --brief --mime "$1")
+  filetype=$(file --brief --mime -- "$1")
 
   if [[ ! -z ${DEBUG+x} ]]; then
     cecho green "$extension"
@@ -56,6 +60,10 @@ show_as_file() {
       keytool -list -storepass changeit -keystore "$1"
       ;;
 
+    application/x-pem-file*)
+      show_as_pem "$1"
+      ;;
+
     application/x-tar*)
       tar tvf "$1"
       ;;
@@ -89,10 +97,14 @@ show_as_file() {
       c $(readlink -f "$1")
       ;;
 
+    text/x-ssh-private-key*)
+      openssl rsa -text -noout -in "$1"
+      ;;
+
     text/*)
       case $(file --brief "$1") in
         "PEM certificate")
-          openssl x509 -noout -text -in "$1"
+          show_as_pem "$1"
           ;;
         *)
           case $extension in

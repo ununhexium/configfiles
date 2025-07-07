@@ -131,3 +131,8 @@ source "${ZDOTDIR}/zsh-autosuggestions/zsh-autosuggestions.zsh"
 typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#808080,bold'
 source "${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+
+
+# Disable command expansion (!...)
+set -K
+

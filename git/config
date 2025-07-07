@@ -20,6 +20,7 @@
   pat = pull --all --tags
   puff = pull --ff-only
   r = restore
+  rbs = "!f() { git rebase origin/$(git rev-parse --abbrev-ref HEAD); }; f"
   ri = rebase -i
   rs = restore --staged
   s = status
@@ -56,7 +57,7 @@
   tool = intellij
 
 [mergetool "intellij"]
-  cmd = '/home/uuh/.local/bin/idea' merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  cmd = '/home/uuh/.local/bin/idea' merge "$REMOTE" "$LOCAL" "$BASE" "$MERGED"
   trustExitCode = true
 
 [mergetool]
