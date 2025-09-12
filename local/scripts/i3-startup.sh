@@ -8,6 +8,6 @@ case "$(hostname)" in
     exec --no-startup-id i3-msg 'workspace 7; exec /usr/bin/chromium'
     chromium &
     firefox &
-    idea.sh &
+    idea &
     ;;
 esac

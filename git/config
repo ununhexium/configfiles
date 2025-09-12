@@ -4,6 +4,7 @@
   amend = commit --amend
   b = branch
   co = checkout
+  coauth = "!f() { git log --format='Co-Authored-By: %an <%ae>' $1 | sort | uniq; }; f"
   cp = cherry-pick
   d = diff
   date = "!f() { git log --format='%C(bold blue)%h %C(bold green)%ai%C(reset) %ar' --max-count=1 $(git rev-list -n1 $1); }; f"
