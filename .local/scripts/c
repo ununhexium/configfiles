@@ -67,6 +67,10 @@ show_as_file() {
             esac
             ;;
 
+        image/gif*)
+            sxiv -a "$1"
+            ;;
+
         image/*)
             feh --auto-zoom --fullscreen "$1"
             ;;

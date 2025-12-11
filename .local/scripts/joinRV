@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -x
+
+NAME="$1"
+
+pdftoppm "${1}R.pdf" "recto"
+pdftoppm "${1}V.pdf" "verso"
+
+# reverse verso order
+
+min=$(ls recto-* | cut -d\- -f2 | cut -d. -f1 | sort | head -n 1)
+max=$(ls recto-* | cut -d\- -f2 | cut -d. -f1 | sort | tail -n 1)
+log=$(echo -n "$max" | wc -c)
+
+echo "Renumbering recto from $min to $max"
+
+for i in $(seq $min $max); do
+    page=$(($i * 2 - 1))
+    padded=$(printf "%0${log}d" $page)
+    paddedI=$(printf "%0${log}d" $i)
+    dest="page_${padded}.ppm"
+    echo "Page $dest"
+    cp "recto-$paddedI.ppm" "$dest"
+done
+
+min=$(ls verso-* | cut -d\- -f2 | cut -d. -f1 | sort | head -n 1)
+max=$(ls verso-* | cut -d\- -f2 | cut -d. -f1 | sort | tail -n 1)
+
+echo "Flipping verso from $min to $max"
+
+for i in $(seq $min $max); do
+    page=$((($max - $i + 1) * 2))
+    padded=$(printf "%0${log}d\n" $page)
+    paddedI=$(printf "%0${log}d" $i)
+    dest="page_${padded}.ppm"
+    echo "Page $dest"
+    cp "verso-$paddedI.ppm" "$dest"
+done
+
+img2pdf --pagesize "A4" --fit "exact" page_*.ppm -o "$1.pdf"
+

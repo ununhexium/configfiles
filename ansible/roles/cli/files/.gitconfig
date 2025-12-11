@@ -1,5 +1,6 @@
 [alias]
 	aa = add -A
+    adc = !git aa && git dc
 	amend = commit --amend
 	b = branch
 	co = checkout

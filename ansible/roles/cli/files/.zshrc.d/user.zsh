@@ -54,7 +54,6 @@ fpath=(/home/uuh/.zsh/gradle-completion $fpath)
 fpath=(~/.local/scripts/completion $fpath)
 
 
-alias ai='aptinstall'
 alias click="xdg-open"
 alias cg='cyberghostvpn'
 alias dip="docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"

@@ -11,7 +11,7 @@ new_window pixel
 # Font for window titles.
 #font pango: FuraMono Nerd Font Bold 10
 #font pango: Monospace 15
-font pango: FuraCode Nerd Font Mono 15
+font pango: FuraCode Nerd Font Mono 13
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -119,7 +119,9 @@ for_window [title="cpu_usage_click"]            floating enable
 for_window [class="Gnome-power-statistics"]     floating enable 
 for_window [class="feh"]                        floating enable 
 for_window [class="dev-c15u-justsquares*"]      floating enable 
-for_window [class="MysticWoods"]                floating enable 
+for_window [class="mysticwoods"]                floating enable, move position 3000 px 1500 px
+for_window [class="c15u/trains"]                floating enable, move position 3000 px 1500 px
+for_window [class="HexGrid"]                    floating enable, move position 2550 px 1050 px
 
 
 # Reload the configuration file
@@ -170,7 +172,7 @@ bar
 	position top
 	status_command 2>/tmp/i3blocks.err i3blocks
 	i3bar_command i3bar -t
-	font pango: FuraCode Nerd Font Mono 20
+	font pango: FuraCode Nerd Font Mono 18
 	colors
 	{
                         # Border	# Background	# Text
@@ -202,6 +204,7 @@ bindsym $mod+Control+p exec --no-startup-id /home/uuh/.cargo/bin/xcolor
 # hex pixel locker
 bindsym $mod+Pause exec i3lock
 bindsym $mod+P exec locker.sh
+bindsym $mod+F11 exec clicker
 
 # emoji search
 # TODO: rebuild emoji resource file
@@ -214,7 +217,8 @@ focus_follows_mouse no
 
 # Compositor for window transparency
 #exec --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
-exec --no-startup-id compton
+#exec --no-startup-id compton
+exec --no-startup-id picom --vsync
 
 #Clipboard
 #exec --no-startup-id clipster -d
@@ -247,5 +251,5 @@ exec --no-startup-id xset r rate 200 30
 
 # Wallpaper
 #exec --no-startup-id /home/uuh/.local/scripts/i3background
-exec --no-startup-id feh --bg-scale /home/uuh/Pictures/thai_tones.png
-
+#exec --no-startup-id feh --bg-scale /home/uuh/Pictures/thai_tones.png
+exec --no-startup-id numlockx on
