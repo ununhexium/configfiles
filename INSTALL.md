@@ -57,6 +57,12 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 pacman -S acpi base-devel bat bc bind broot entr fzf git htop inetutils lynx strace stress tldr unzip zip
 ```
 
+## Broot
+
+```sh
+broot --install
+```
+
 ## Cargo dependencies
 
 ```sh
