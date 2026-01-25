@@ -54,7 +54,7 @@ ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ## CLI
 
 ```sh
-pacman -S acpi base-devel bc bind broot entr git htop inetutils lynx strace stress tldr unzip zip
+pacman -S acpi base-devel bat bc bind broot entr fzf git htop inetutils lynx strace stress tldr unzip zip
 ```
 
 ## Cargo dependencies
@@ -62,7 +62,7 @@ pacman -S acpi base-devel bc bind broot entr git htop inetutils lynx strace stre
 ```sh
 pacman -S rustup
 rustup install stable
-rustup install eza hexyl
+cargo install eza hexyl
 ```
 
 ## ClamAV
@@ -92,13 +92,19 @@ pacman -S base-devel
 ## Disable power button.
 
 ```sh
-diff -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
+diff --color -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
 ```
 
 ## Energy saving and battery care
 
 ```sh
 pacman -S tlp
+```
+
+or
+
+```sh
+pacman -S tuned
 ```
 
 Check the config
@@ -140,6 +146,8 @@ pacman -S \
   firefox \
   flameshot \
   gimp \
+  kdiff3 \
+  man-db \
   network-manager-applet \
   noto-fonts-cjk \
   noto-fonts-emoji \
@@ -157,7 +165,7 @@ Also requires dunst for the notifications
 pacman -S xfce4-power-manager
 ```
 
-## Scripts
+## Script dependencies
 
 ```sh
 pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
@@ -167,8 +175,10 @@ ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ## i3
 
 ```sh
-pacman -S i3-wm i3blocks i3status i3lock numlockx
-ln -s "$REPO/i3/" "$HOME/.config/i3"
+pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
+# backup current i3 config
+mv "$HOME/.config/i3" "$HOME/config/i3_bkp"
+ln -s "$REPO/i3" "$HOME/.config/i3"
 ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
 
@@ -191,10 +201,14 @@ Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 
 ```sh
 pacman -S copyq
-diff -u "$REPO/copyq/copyq.conf" "$HOME/.config/copyq/copyq.conf"
 ```
 
-To do: check when to copy the copyq config folder: before or after install. Does it need extra steps to preserve the config?
+Start and stop copyq to generate a default config file.
+
+```sh
+diff --color -u "$REPO/copyq/copyq.conf" "$HOME/.config/copyq/copyq.conf"
+cp "$REPO/copyq/copyq.conf" "$HOME/.config/copyq/copyq.conf"
+```
 
 
 ## Dunst
@@ -205,16 +219,12 @@ ln -s "$REPO/dunst" "$HOME/.config/dunst"
 "$HOME/.config/dunst/sample.sh"
 ```
 
+Reboot
+
 ## Network
 
 ```sh
 pacman -S network-manager-applet
-```
-
-## Development
-
-```sh
-pacman -S kdiff3
 ```
 
 ## JVM
@@ -232,6 +242,7 @@ pacman -S scrot
 clone git@github.com:ununhexium/hexpxl.git
 cd "$HOME/dev/ununhexium/hexpxl"
 cargo build --release
+mkdir -p "$HOME/.local/bin"
 cp target/release/hexpxl "$HOME/.local/bin/hexpxl"
 ```
 

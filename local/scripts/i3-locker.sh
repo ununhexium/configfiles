@@ -1,5 +1,7 @@
 #!/bin/bash
 
+notify-send --app-name i3-locker --urgency low low 'Locking...'
+
 screen='/tmp/screen'
 scrot -o "$screen.jpg"
 
