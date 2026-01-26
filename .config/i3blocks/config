@@ -42,17 +42,18 @@ interval=600
 interval=3600
 
 [usedcpu]
-interval=1
+interval=2
 
 # Temperature
 [temperature.sh]
-interval=2
+interval=3
 
 [cpu_freq]
 interval=2
 
 [gpu]
-interval=5
+command=gpu.sh
+interval=1
 
 [turbo]
 interval=2
