@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+hp-scan --size a4 --mode=color --device="airscan:e0:HP Envy 6500e series [B3ECEA]" --file="$i"
+

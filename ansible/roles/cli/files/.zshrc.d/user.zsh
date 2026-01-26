@@ -70,6 +70,7 @@ alias pipsi="python3 -m pipsi --home $WORKON_HOME"
 alias pomodoro='while true; do notify-send Pomodoro Resume; sleep 1500; notify-send --urgency critical --expire-time 300000 Pomodoro Pause; done'
 alias rlf='readlink -f'
 alias sarahconnor="cd $PWD"
+alias scan="hp-scan --size a4 --mode=color --device='airscan:e0:HP Envy 6500e series [B3ECEA]'"
 alias speedometer="speedometer -r $IFACE -t $IFACE"
 alias ytdla='yt-dlp -f bestaudio'
 

@@ -43,10 +43,12 @@ bindsym $mod+Control+Left exec i3-msg move workspace to output left
 bindsym $mod+Control+Right exec i3-msg move workspace to output right
 
 # Split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
+bindsym $mod+n split h
 
 # Split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
+bindsym $mod+m split v
 
 # Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -223,8 +225,11 @@ exec --no-startup-id picom --vsync
 #Clipboard
 #exec --no-startup-id clipster -d
 #exec --no-startup-id clipit
-exec --no-startup-id greenclip daemon
-bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+#exec --no-startup-id greenclip daemon
+#bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+exec --no-startup-id copyq
+bindsym $mod+v exec --no-startup-id copyq show
+for_window [class="copyq"]                      floating enable
 
 
 #i3 menu
@@ -232,6 +237,10 @@ bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show
 #bindsym $mod+M exec --no-startup-id i3menu
 #bindsym $mod+Shift+M exec --no-startup-id i3maps
 
+# setxkbmap
+bindsym $mod+F1 exec --no-startup-id setxkbmap us
+bindsym $mod+F2 exec --no-startup-id setxkbmap fr
+bindsym $mod+F3 exec --no-startup-id setxkbmap de
 
 # Others
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
