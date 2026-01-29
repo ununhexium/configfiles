@@ -160,7 +160,9 @@ pacman -S \
   noto-fonts \
   ttf-fira-code \
   ttf-firacode-nerd \
-  ttf-sourcecodepro-nerd
+  ttf-sourcecodepro-nerd \
+  xcolor \
+  xorg-xsetroot \
 ```
 
 ## Battery level
@@ -240,6 +242,28 @@ Get [SDKMan](https://sdkman.io/)
 ```sh
 sdk search java ...
 ```
+
+Install the latest requirements.
+
+```sh
+sdk install ant;
+sdk install gradle;
+sdk install groovy;
+sdk install java;
+sdk install ki;
+sdk install kotlin;
+sdk install kscript;
+sdk install maven;
+sdk install quarkus;
+sdk install scala;
+sdk install visualvm;
+```
+
+## Idea
+
+Get and download IntelliJ
+
+[https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/)
 
 ## Custom lock screen
 

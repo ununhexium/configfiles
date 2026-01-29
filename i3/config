@@ -25,7 +25,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Start rofi
-bindsym $mod+D exec rofi -show run
+#bindsym $mod+D exec rofi -show run
+bindsym $mod+D exec --no-startup-id "export PATH=~/.local/bin:$PATH; rofi -show run"
 bindsym $mod+Shift+D exec rofi -show window
 
 # Move between windows
@@ -238,7 +239,6 @@ focus_follows_mouse no
 #bindsym $mod+g exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 bindsym $mod+v exec --no-startup-id copyq show
 exec --no-startup-id copyq
-# TODO: try clipmenu + rofi
 bindsym $mod+F1 exec ij-open-file
 
 # Notifications
@@ -254,7 +254,8 @@ bindsym $mod+Mod1+Control+space exec --no-startup-id dunstctl close-all
 #bindsym $mod+Shift+M exec --no-startup-id i3maps
 
 # Toggle touchpad
-bindsym $mod+Menu exec --no-startup-id "$HOME/.local/scripts/toggle_touchpad.sh"
+#bindsym $mod+Menu exec --no-startup-id "$HOME/.local/scripts/toggle_touchpad.sh"
+bindsym XF86TouchpadToggle exec --no-startup-id "$HOME/.local/scripts/toggle_touchpad.sh"
 
 # Others
 exec --no-startup-id xfce4-power-manager
@@ -276,3 +277,5 @@ exec --no-startup-id flameshot
 exec --no-startup-id redshift -l 51.0:5.9
 # hide mouse pointer
 exec --no-startup-id unclutter --timeout 4 --jitter 5 --ignore-scrolling --start-hidden
+# Set background to solid black
+exec --no-startup-id xsetroot -solid  "#000000"
