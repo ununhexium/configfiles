@@ -1,18 +1,22 @@
 #!/usr/bin/env bash
 
+NAME='Master'
+
 case $BLOCK_BUTTON in
   1)
-    amixer -q set Speaker toggle
+    amixer -q set $NAME toggle
     ;;
   4)
-    amixer -q set Speaker 5%+
+    amixer -q set $NAME 5%+
     ;;
   5)
-    amixer -q set Speaker 5%-
+    amixer -q set $NAME 5%-
     ;;
 esac
 
-if [[ $(amixer get Speaker | grep '\[on\]' | wc -l) -gt 0 ]]; then
+
+#if [[ $(amixer get Speaker | grep '\[on\]' | wc -l) -gt 0 ]]; then
+if [[ $(amixer get $NAME | grep '\[on\]' | wc -l) -gt 0 ]]; then
   echo '󰕾'
 else
   echo '󰖁'
