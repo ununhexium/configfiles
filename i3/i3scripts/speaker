@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# amixer scontrols
 NAME='Master'
 
 case $BLOCK_BUTTON in
