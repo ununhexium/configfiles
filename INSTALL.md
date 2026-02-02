@@ -9,7 +9,7 @@ ssh-keygen
 And upload the keys or use older keys.
 
 ```sh
-pacman -S git git-delta
+sudo pacman -S git git-delta
 git clone '/path/to/the/cloned/repos/root'
 ```
 
@@ -39,7 +39,7 @@ ln -s "$REPO/git" "$HOME/.config/git"
 ## Zsh
 
 ```sh
-pacman -S zsh
+sudo pacman -S zsh
 ```
 
 Link the config
@@ -65,7 +65,7 @@ chsh -s `which zsh` uuh
 
 ```sh
 sudo `cat INSTALL.md | head -n LINE | tail -n SIZE`
-pacman -S bat broot entr fzf git inetutils lynx neovim tldr unzip zip
+sudo pacman -S bat broot entr fzf git inetutils lynx neovim tldr unzip zip
 ```
 
 ## Broot
@@ -77,7 +77,7 @@ broot --install
 ## Cargo dependencies
 
 ```sh
-pacman -S rustup
+sudo pacman -S rustup
 rustup install stable
 cargo install eza hexyl
 ```
@@ -85,6 +85,7 @@ cargo install eza hexyl
 ## Neovim
 
 ```sh
+sudo pacman -S luarocks
 ln -s "$REPO/nvim" "$HOME/.config/nvim"
 ```
 
@@ -94,14 +95,14 @@ ln -s "$REPO/nvim" "$HOME/.config/nvim"
 ## Xorg
 
 ```sh
-pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xset xorg-xwininfo
+sudo pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xset xorg-xwininfo
 ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
 
 ## i3
 
 ```sh
-pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
+sudo pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
 # backup current i3 config
 mv "$HOME/.config/i3" "$HOME/.config/i3_bkp"
 ln -s "$REPO/i3" "$HOME/.config/i3"
@@ -112,7 +113,7 @@ ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ## General
 
 ```sh
-pacman -S \
+sudo pacman -S \
   chromium \
   firefox \
   flameshot \
@@ -130,7 +131,7 @@ pacman -S \
 ## Alacritty
 
 ```sh
-pacman -S alacritty
+sudo pacman -S alacritty
 ln -s "$REPO/alacritty" "$HOME/.config"
 ```
 
@@ -141,14 +142,14 @@ Xorg+i3 should now be running ok
 ## Scripts
 
 ```sh
-pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
+sudo pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
 ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ```
 
 ## Touchpad
 
 ```sh
-pacman -S xf86-input-synaptics xorg-xinput
+sudo pacman -S xf86-input-synaptics xorg-xinput
 ```
 
 Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
@@ -156,7 +157,7 @@ Copy [config file](xorg/70-synaptics.conf) to `/etc/X11/xorg.conf.d/`
 ## Copyq
 
 ```sh
-pacman -S copyq
+sudo pacman -S copyq
 ```
 
 Start and stop copyq to generate a default config file.
@@ -170,7 +171,7 @@ cp "$REPO/copyq/copyq.conf" "$HOME/.config/copyq/copyq.conf"
 ## Dunst
 
 ```sh
-pacman -S adwaita-icon-theme dunst libnotify
+sudo pacman -S adwaita-icon-theme dunst libnotify
 ln -s "$REPO/dunst" "$HOME/.config/dunst"
 "$HOME/.config/dunst/sample.sh"
 ```
@@ -180,7 +181,7 @@ Reboot
 ## Network
 
 ```sh
-pacman -S network-manager-applet
+sudo pacman -S network-manager-applet
 ```
 
 ## JVM
@@ -216,7 +217,7 @@ Get and download IntelliJ
 ## Custom lock screen
 
 ```sh
-pacman -S scrot 
+sudo pacman -S scrot 
 clone git@github.com:ununhexium/hexpxl.git
 cd "$HOME/dev/ununhexium/hexpxl"
 cargo build --release
@@ -227,25 +228,25 @@ cp target/release/hexpxl "$HOME/.local/bin/hexpxl"
 ## Audio
 
 ```sh
-pacman -S alsa-utils pamixer pulseaudio pulseaudio-alsa pavucontrol
+sudo pacman -S alsa-utils pamixer pulseaudio pulseaudio-alsa pavucontrol
 ```
 
 ## Development
 
 ```sh
-pacman -S kdiff3
+sudo pacman -S kdiff3
 ```
 
 ## Graphics
 
 ```sh
-pacman -S gimp
+sudo pacman -S gimp
 ```
 
 ## Screen
 
 ```sh
-pacman -S geoclue redshift
+sudo pacman -S geoclue redshift
 ```
 
 Try it
@@ -256,7 +257,7 @@ Try it
 ## More CLI
 
 ```sh
-pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr unzip zip
+sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr tree unzip zip
 ```
 
 # System
@@ -272,19 +273,19 @@ diff --color -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
 Also requires dunst for the notifications
 
 ```sh
-pacman -S xfce4-power-manager
+sudo pacman -S xfce4-power-manager
 ```
 
 ## Energy saving and battery care
 
 ```sh
-pacman -S tlp
+sudo pacman -S tlp
 ```
 
 or
 
 ```sh
-pacman -S tuned
+sudo pacman -S tuned
 ```
 
 Check the config
@@ -304,7 +305,7 @@ tlp-stat -b
 ## Monitoring
 
 ```sh
-pacman -S netdata
+sudo pacman -S netdata
 systemctl enable --now netdata
 ```
 
@@ -313,7 +314,7 @@ systemctl enable --now netdata
 [Wiki](https://wiki.archlinux.org/title/ClamAV)
 
 ```sh
-pacman -S clamav
+sudo pacman -S clamav
 systemctl enable clamav-freshclam.service --now
 sudo -u clamav freshclam  # refresh the virus DB
 ```
