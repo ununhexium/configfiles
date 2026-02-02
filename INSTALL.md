@@ -257,7 +257,7 @@ Try it
 ## More CLI
 
 ```sh
-sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr tree unzip zip
+sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr tree unzip usbutils zip
 ```
 
 # System
