@@ -38,10 +38,14 @@ ln -s "$REPO/git" "$HOME/.config/git"
 
 ## Zsh
 
+```sh
+pacman -S zsh
+```
+
 Link the config
 
 ```sh
-ln -s "$REPO/.config/zsh/" "$HOME/zsh"
+ln -s "$REPO/zsh/" "$HOME/.config/zsh"
 ```
 
 Link the resource file and folder
@@ -51,10 +55,17 @@ ln -s "$HOME/.config/zsh/.zshenv" "$HOME/.zshenv"
 ln -s "$HOME/.config/zsh/.zshrc" "$HOME/.zshrc"
 ```
 
+Start zsh and check that it's workable. Then change the login shell.
+
+```sh
+chsh -s `which zsh` uuh
+```
+
 ## CLI
 
 ```sh
-pacman -S acpi base-devel bat bc bind broot entr fzf git htop inetutils lynx strace stress tldr unzip zip
+sudo `cat INSTALL.md | head -n LINE | tail -n SIZE`
+pacman -S bat broot entr fzf git inetutils lynx neovim tldr unzip zip
 ```
 
 ## Broot
@@ -71,87 +82,40 @@ rustup install stable
 cargo install eza hexyl
 ```
 
-## ClamAV
-
-[Wiki](https://wiki.archlinux.org/title/ClamAV)
-
-```sh
-pacman -S clamav
-systemctl enable clamav-freshclam.service --now
-sudo -u clamav freshclam  # refresh the virus DB
-```
-
 ## Neovim
 
 ```sh
 ln -s "$REPO/nvim" "$HOME/.config/nvim"
 ```
 
-## AUR
-
-```sh
-pacman -S base-devel
-```
-
-# System
-
-## Disable power button.
-
-```sh
-diff --color -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
-```
-
-## Energy saving and battery care
-
-```sh
-pacman -S tlp
-```
-
-or
-
-```sh
-pacman -S tuned
-```
-
-Check the config
-
-```sh
-diff -u "$REPO/tlp/tlp.conf" /etc/tlp.conf
-```
-
-Then start tlp and check the status
-
-```sh
-systemctl enable --now tlp
-sudo tlp start
-tlp-stat -b
-```
-
-## Monitoring
-
-```sh
-pacman -S netdata
-systemctl enable --now netdata
-```
 
 # GUI
 
 ## Xorg
 
 ```sh
-pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xwininfo
+pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xset xorg-xwininfo
 ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
+
+## i3
+
+```sh
+pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
+# backup current i3 config
+mv "$HOME/.config/i3" "$HOME/.config/i3_bkp"
+ln -s "$REPO/i3" "$HOME/.config/i3"
+ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
+```
+
 
 ## General
 
 ```sh
 pacman -S \
-  adobe-source-code-pro-fonts \
   chromium \
   firefox \
   flameshot \
-  gimp \
   kdiff3 \
   man-db \
   network-manager-applet \
@@ -160,34 +124,7 @@ pacman -S \
   noto-fonts \
   ttf-fira-code \
   ttf-firacode-nerd \
-  ttf-sourcecodepro-nerd \
-  xcolor \
   xorg-xsetroot \
-```
-
-## Battery level
-
-Also requires dunst for the notifications
-
-```sh
-pacman -S xfce4-power-manager
-```
-
-## Script dependencies
-
-```sh
-pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
-ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
-```
-
-## i3
-
-```sh
-pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
-# backup current i3 config
-mv "$HOME/.config/i3" "$HOME/config/i3_bkp"
-ln -s "$REPO/i3" "$HOME/.config/i3"
-ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```
 
 ## Alacritty
@@ -195,6 +132,17 @@ ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 ```sh
 pacman -S alacritty
 ln -s "$REPO/alacritty" "$HOME/.config"
+```
+
+## Start X
+
+Xorg+i3 should now be running ok
+
+## Scripts
+
+```sh
+pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
+ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ```
 
 ## Touchpad
@@ -302,4 +250,71 @@ pacman -S geoclue redshift
 
 Try it
 /usr/lib/geoclue-2.0/demos/where-am-i
+
+# Extra
+
+## More CLI
+
+```sh
+pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr unzip zip
+```
+
+# System
+
+## Disable power button.
+
+```sh
+diff --color -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
+```
+
+## Battery level
+
+Also requires dunst for the notifications
+
+```sh
+pacman -S xfce4-power-manager
+```
+
+## Energy saving and battery care
+
+```sh
+pacman -S tlp
+```
+
+or
+
+```sh
+pacman -S tuned
+```
+
+Check the config
+
+```sh
+diff -u "$REPO/tlp/tlp.conf" /etc/tlp.conf
+```
+
+Then start tlp and check the status
+
+```sh
+systemctl enable --now tlp
+sudo tlp start
+tlp-stat -b
+```
+
+## Monitoring
+
+```sh
+pacman -S netdata
+systemctl enable --now netdata
+```
+
+## ClamAV
+
+[Wiki](https://wiki.archlinux.org/title/ClamAV)
+
+```sh
+pacman -S clamav
+systemctl enable clamav-freshclam.service --now
+sudo -u clamav freshclam  # refresh the virus DB
+```
 
