@@ -2,5 +2,5 @@
 
 cd "$HOME/uv/ipython"
 
-uv run --with ipython ipython
+uv run --with ipython --with rich ipython
 

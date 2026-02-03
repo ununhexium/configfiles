@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 show_as_jar() {
   unzip -l "$1" && javaversion "$1"
@@ -108,7 +108,7 @@ show_as_file() {
           ;;
         *)
           case $extension in
-            md) glow --pager "$1"
+            md) rich --pager "$1"
               ;;
             *) bat "$1"
               ;;

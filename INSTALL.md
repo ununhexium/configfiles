@@ -257,12 +257,21 @@ Try it
 ## More CLI
 
 ```sh
-sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx strace stress tldr tree unzip usbutils zip
+sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx pipx strace stress tldr tree unzip usbutils zip
+```
+
+## More python
+
+```sh
+pipx install rich-cli
+pipx install ipython
 ```
 
 # System
 
 ## Disable power button.
+
+Set `HandlePowerKey=ignore`.
 
 ```sh
 diff --color -u /etc/systemd/logind.conf "$REPO/etc/systemd/logind.conf"
