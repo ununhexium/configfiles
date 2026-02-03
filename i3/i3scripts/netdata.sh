@@ -14,15 +14,15 @@ critical=$(echo $alarm | jq .critical)
 
 if [[ $critical -gt 0 ]]
 then
-  echo "<span color='red'><big> </big>$critical</span>"
+  echo "<span color='red'><big> 󰌪 </big>$critical</span>"
 fi
 
 if [[ $warning -gt 0 ]]
 then
-  echo "<span color='yellow'><big> </big>$warning</span>"
+  echo "<span color='yellow'><big> 󰌪 </big>$warning</span>"
 fi
 
 if [[ $critical -eq 0 && $warning -eq 0 ]]
 then
-  echo "<span size='x-large'></span>"
+  echo "<span size='x-large'>󰌪</span>"
 fi
