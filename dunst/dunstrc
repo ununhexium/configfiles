@@ -1,7 +1,7 @@
 # vim:ft=cfg
 [global]
     # message
-    font = FiraCode Nerd Font 16
+    font = FiraCode Nerd Font 12
     format = "<big><b>%s</b></big>\n<small>%a</small>\n%p %b"
 #    sort = urgency_descending
     sort = update

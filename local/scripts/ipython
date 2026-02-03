@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+cd "$HOME/uv/ipython"
+
+uv run --with ipython ipython
+
