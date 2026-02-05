@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 if [ $# -gt 1 ]; then
   echo "Only 1 argument: the file where to paste the clipboard content"
 fi

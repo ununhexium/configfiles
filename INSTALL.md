@@ -337,3 +337,30 @@ systemctl enable clamav-freshclam.service --now
 sudo -u clamav freshclam  # refresh the virus DB
 ```
 
+## Keyring
+
+```sh
+sudo pacman -S gnome-keyring libsecret polkit-gnome seahorse
+```
+
+Enable SSH keys management support:
+
+```sh
+systemctl --user enable gcr-ssh-agent
+systemctl --user status gcr-ssh-agent
+systemctl --user status gcr-ssh-agent
+```
+
+If loging without a session manager, add those 2 lines in /etc/pam.d/login
+
+```sh
+diff -u --color /etc/pam.d/login "$REPO/pam/login"
+```
+
+The following line must be present and enabled in `~/.config/i3/config`
+
+```
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+```
+
+
