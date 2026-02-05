@@ -28,8 +28,6 @@ zstyle ':completion:*'            menu select
 # allow comments in commands
 setopt interactivecomments
 
-#antigen apply
-
 # General linux
 
 export TMP=/tmp/$USER
@@ -44,7 +42,11 @@ export PAGER='less'
 # MORE!
 for f in $(ls "$ZDOTDIR/include")
 do
-    source "${ZDOTDIR}/include/$f"
+  local start=$(date +%s%N)
+  time source "${ZDOTDIR}/include/$f"
+  local end=$(date +%s%N)
+  local elapsed=$(python -c "print( ($end - $start) / 1000 / 1000 )")
+  echo "Sourced ${f%.*} in $elapsed ms"
 done
 
 #  ## ANDROID

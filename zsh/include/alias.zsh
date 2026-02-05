@@ -1,4 +1,3 @@
-alias ai='aptinstall'
 alias click="xdg-open"
 alias cg='cyberghostvpn'
 alias d='docker'
