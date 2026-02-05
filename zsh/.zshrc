@@ -1,3 +1,7 @@
+if ! xset q &>/dev/null; then
+  echo "No Xorg running, setting font..."
+  setfont ter-132n
+fi
 
 source "${ZDOTDIR}/powerlevel10k/powerlevel10k.zsh-theme"
 

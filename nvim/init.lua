@@ -34,3 +34,9 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+vim.opt.tabstop = 2
+vim.opt.smartindent = true
+vim.opt.shiftwidth = 2
+vim.opt.smarttab = true
+vim.opt.expandtab = true
+

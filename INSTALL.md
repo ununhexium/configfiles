@@ -1,5 +1,13 @@
 # Installation steps
 
+## Bigger font
+
+```sh
+sudo pacman -S terminus-font
+setfont ter-132n  # ter-1<size><>
+```
+
+
 ## Github access
 
 ```sh
@@ -114,6 +122,7 @@ ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
 
 ```sh
 sudo pacman -S \
+  baobab \
   chromium \
   firefox \
   flameshot \
