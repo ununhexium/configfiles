@@ -343,14 +343,6 @@ sudo -u clamav freshclam  # refresh the virus DB
 sudo pacman -S gnome-keyring libsecret polkit-gnome seahorse
 ```
 
-Enable SSH keys management support:
-
-```sh
-systemctl --user enable gcr-ssh-agent
-systemctl --user status gcr-ssh-agent
-systemctl --user status gcr-ssh-agent
-```
-
 If loging without a session manager, add those 2 lines in /etc/pam.d/login
 
 ```sh
@@ -371,3 +363,10 @@ Blacklist the `pcspkr` module
 cp "$REPO/etc/modprobe.d/nobeep.conf" '/etc/modprobe.d/nobeep.conf'
 ```
 
+## SSH Agent
+
+Add SSH config
+
+```sh
+diff -u ~/.ssh/config "$REPO/ssh/config"
+```
