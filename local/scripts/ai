@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# TODO: get from keyring
+source /home/uuh/.config/google/.env
+
+echo "$API_KEY"
+
+
+

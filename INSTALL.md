@@ -87,7 +87,7 @@ broot --install
 ```sh
 sudo pacman -S rustup
 rustup install stable
-cargo install eza hexyl
+cargo install eza gradient hexyl
 ```
 
 ## Neovim
@@ -249,7 +249,7 @@ sudo pacman -S kdiff3
 ## Graphics
 
 ```sh
-sudo pacman -S gimp
+sudo pacman -S gimp mesa-utils
 ```
 
 ## Screen

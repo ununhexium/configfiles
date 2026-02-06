@@ -42,11 +42,11 @@ export PAGER='less'
 # MORE!
 for f in $(ls "$ZDOTDIR/include")
 do
-  local start=$(date +%s%N)
+#  local start=$(date +%s%N)
   time source "${ZDOTDIR}/include/$f"
-  local end=$(date +%s%N)
-  local elapsed=$(python -c "print( ($end - $start) / 1000 / 1000 )")
-  echo "Sourced ${f%.*} in $elapsed ms"
+#  local end=$(date +%s%N)
+#  local elapsed=$(python -c "print( ($end - $start) / 1000 / 1000 )")
+#  echo "Sourced ${f%.*} in $elapsed ms"
 done
 
 #  ## ANDROID
