@@ -354,7 +354,7 @@ systemctl --user status gcr-ssh-agent
 If loging without a session manager, add those 2 lines in /etc/pam.d/login
 
 ```sh
-diff -u --color /etc/pam.d/login "$REPO/pam/login"
+diff -u --color /etc/pam.d/login "$REPO/etc/pam.d/login"
 ```
 
 The following line must be present and enabled in `~/.config/i3/config`
@@ -363,4 +363,11 @@ The following line must be present and enabled in `~/.config/i3/config`
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ```
 
+## Disabled PC speaker
+
+Blacklist the `pcspkr` module
+
+```sh
+cp "$REPO/etc/modprobe.d/nobeep.conf" '/etc/modprobe.d/nobeep.conf'
+```
 
