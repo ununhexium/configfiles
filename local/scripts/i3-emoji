@@ -3,7 +3,10 @@
 # Give rofi list of all unicode characters to copy.
 # Arch emoki support: sudo pacman -S noto-fonts-emoji
 
-chosen=$(grep -v "#" "$XDG_DATA_HOME/emoji" | rofi -i -dmenu -font 'Noto Sans 32' )
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+list="$SCRIPT_DIR/../../resources/emoji"
+
+chosen=$(grep -v "#" "$list" | rofi -i -dmenu -font 'Noto Sans 32' )
 
 [ "$chosen" != "" ] || exit
 

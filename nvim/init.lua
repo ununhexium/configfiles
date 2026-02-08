@@ -34,9 +34,14 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+-- set tab width to 2
 vim.opt.tabstop = 2
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
+-- convert tabs to spaces
 vim.opt.expandtab = true
 
+-- Hybrid line numbers
+vim.wo.number = true
+vim.wo.relativenumber = true

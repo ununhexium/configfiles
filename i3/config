@@ -144,6 +144,8 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+default_border pixel 1
+
 # Resize window (you can also use the mouse for that)
 mode "resize"
 {
@@ -171,11 +173,12 @@ set $bright  #ffffff
 set $toxic   #8EC000
 set $elegant #00002c
 set $purple  #8858ec
+set $violet  #3b1c7f
 
 # Set some nice colors      border	 background text	   indicator
 client.focused              $yellow	 $yellow    $black     $white
-client.unfocused            $black   $black     $purple    $black
-client.focused_inactive     $black   $black     $white     $black
+client.unfocused            $black   $violet     $purple    $black
+client.focused_inactive     $black   $violet     $white     $black
 client.urgent               $magenta $magenta   $white     $magenta
 client.placeholder          $magenta $magenta   $white     $magenta
 
@@ -220,9 +223,10 @@ bindsym $mod+F12 exec i3-locker.sh
 bindsym $mod+P exec i3-locker.sh
 
 # Keyboard layouts
-bindsym $mod+Shift+F1 exec --no-startup-id setxkbmap us
-bindsym $mod+Shift+F2 exec --no-startup-id setxkbmap fr
-bindsym $mod+Shift+F3 exec --no-startup-id setxkbmap de
+bindsym $mod+Shift+F1 exec --no-startup-id keyboard-switch us
+bindsym $mod+Shift+F2 exec --no-startup-id keyboard-switch fr
+bindsym $mod+Shift+F3 exec --no-startup-id keyboard-switch de
+bindsym $mod+Shift+F4 exec --no-startup-id keyboard-switch jp
 
 # emoji search
 # TODO: rebuild emoji resource file
@@ -286,3 +290,6 @@ exec --no-startup-id redshift -l 51.0:5.9
 exec --no-startup-id unclutter --timeout 4 --jitter 5 --ignore-scrolling --start-hidden
 # Set background to solid black
 exec --no-startup-id xsetroot -solid  "#000000"
+
+# Japanese
+exec_always --no-startup-id fcitx5

@@ -87,7 +87,7 @@ broot --install
 ```sh
 sudo pacman -S rustup
 rustup install stable
-cargo install eza gradient hexyl
+cargo install eza fd-find gradient hexyl
 ```
 
 ## Neovim
@@ -364,6 +364,12 @@ cp "$REPO/etc/modprobe.d/nobeep.conf" '/etc/modprobe.d/nobeep.conf'
 ```
 
 ## SSH Agent
+
+Enable the ssh socket
+
+```sh
+systemctl --user enable ssh-agent.socket
+```
 
 Add SSH config
 
