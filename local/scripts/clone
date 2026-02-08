@@ -2,10 +2,6 @@
 
 # clones urls like git@github.com:tavianator/bfs.git
 
-platform='https://(.*?)/.*'
-
-echo "Platform: $platform"
-
 sshformat='git@github.com:(.*)/(.*).git'
 httpsformat='https://(.*@)?github.com/(.*)/(.*).git'
 devDir="$HOME/dev"
@@ -29,6 +25,6 @@ if [[ $1 =~ $sshformat ]]; then
 elif [[ $1 =~ $httpsformat ]]; then
     cloneit "$1" "${BASH_REMATCH[1]}" "${BASH_REMATCH[2]}"
 else
-    echo "Don't know how to clone $1"
+    cprintf '{#red} {#yellow}\n' "Don't know how to clone" "$1"
 fi
 
