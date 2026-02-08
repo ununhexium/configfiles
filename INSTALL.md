@@ -87,7 +87,7 @@ broot --install
 ```sh
 sudo pacman -S rustup
 rustup install stable
-cargo install eza fd-find gradient hexyl
+cargo install cprintf eza fd-find gradient hexyl
 ```
 
 ## Neovim
