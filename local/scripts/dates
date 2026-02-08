@@ -8,7 +8,7 @@ function pecho() {
     shift
 
     if [ $MYZONE = $z ]; then
-        cecho green $@
+        cprintf '{#green}\n' $@
     else
         echo $@
     fi

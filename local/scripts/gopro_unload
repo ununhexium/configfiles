@@ -6,7 +6,7 @@ TARGET="$HOME/holygrenade/gopro/$(date +%F)"
 
 #Check SD card is present
 if [ ! -L "$DRIVE" ]; then
-    cecho red "Did you forget to put the sdcard in?"
+    cprintf '{#red}\n' "Did you forget to put the sdcard in?"
     exit 1
 fi
 
@@ -14,24 +14,24 @@ fi
 if [ -z $(mount | grep /mnt/gopro) ]; then
     echo "Mounting..."
     sudo mount "/dev/disk/by-id/usb-SMI_USB_DISK_AA00000000015049-0:0-part1" "$MOUNT" || exit 1
-    cecho green "Mounted"
+    cprintf '{#green}\n' "Mounted"
 else
-    cecho yellow "Already mounted"
+    cprintf '{#yellow}\n' "Already mounted"
 fi
 
 mkdir -p "$TARGET"
-cecho yellow "$TARGET"
+cprintf '{#yellow}\n' "$TARGET"
 
 # Copy videos
-cecho green "Copying videos"
+cprintf '{#green}\n' "Copying videos"
 
 for f in $(ls "$MOUNT/DCIM/100GOPRO/"*".MP4"); do
     output="$TARGET/"$(basename -- "$f")
-    cecho green "Copying $f to $output..."
+    cprintf '{#green}\n' "Copying $f to $output..."
     pv "$f" > "$output"
 done
 
-sudo umount "$MOUNT" && cecho green "Unmounted"
+sudo umount "$MOUNT" && cprintf '{#green}\n' "Unmounted"
 
 exit 0
 

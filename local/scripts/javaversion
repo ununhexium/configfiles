@@ -12,11 +12,11 @@ case "$extension" in
         ;;
     jar)
         [ ! -d "$unzipdir" ] && mkdir "$unzipdir"
-        cecho GREEN "Unzipping..."
+        cprintf '{#g}\n' 'Unzipping...'
         unzip -q -o "$1" -d "$unzipdir/$filename"
         fd . --extension class "$unzipdir/$filename" | xargs javap -verbose | grep --text major | sort -r | uniq
         rm -rf "${unzipdir:?}/${filename:?}" 
         ;;
-    *) cecho RED "Don't know how to read $1"
+    *) cprintf '{#r}\n' "Don't know how to read $1"
         ;;
 esac

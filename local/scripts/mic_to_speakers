@@ -9,10 +9,10 @@ if [ $# -eq 1 ]; then
             pactl unload-module module-loopback
             ;;
         *)
-            cecho red "Argument 1 must be either 'on' or 'off'"
+            cprintf '{#r}\n' "Argument 1 must be either 'on' or 'off'"
             ;;
     esac
 else
-    cecho red "Expected 1 argument: 'on' or 'off'"
+    cprintf '{#r}\n' "Expected 1 argument: 'on' or 'off'"
 fi
 

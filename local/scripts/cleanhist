@@ -17,13 +17,13 @@ cp "$hist" "$bkp/$safe_date"
 
 cat "$hist" | grep --fixed-strings --line-regexp --invert-match --file="$selection" > "$remainder" 
 if [[ $? -ne 0 ]]; then
-    cecho blue Aborted
+    cprintf '{#blue}\n' Aborted
     exit 2
 fi
 
 diff --color=always -u "$hist" "$remainder"
 
-cecho red -n 'Confirm? [y/N]'
+cprintf '{#white/RED} ' 'Confirm? [y/N]'
 read conf
 
 choice=$(echo "$conf" | tr '[[:upper:]]' '[[:lower:]]')
@@ -31,10 +31,10 @@ choice=$(echo "$conf" | tr '[[:upper:]]' '[[:lower:]]')
 case "$choice" in
     y|ye|yes|yeah)
         cp "$remainder" "$hist"
-        cecho blue 'replaced the history'
+        cprintf '{#blue}\n' 'replaced the history'
         ;;
     *)
-        cecho green "Kept previous history"
+        cprintf '{#green}\n' "Kept previous history"
         ;;
 esac
 

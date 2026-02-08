@@ -2,6 +2,9 @@
 
 # clones urls like git@github.com:tavianator/bfs.git
 
+platform='https://(.*?)/.*'
+
+echo "Platform: $platform"
 
 sshformat='git@github.com:(.*)/(.*).git'
 httpsformat='https://(.*@)?github.com/(.*)/(.*).git'
@@ -13,7 +16,7 @@ cloneit() {
     basefolder="$devDir/$repogroup/"
     folder="$basefolder/$reponame"
     if [ ! -e "$folder" ]; then
-        cecho cyan "Create $basefolder"
+        cprintf '{#c}\n' "Create $basefolder"
         mkdir -p "$basefolder"
         cd "$basefolder" || exit 1
         echo git clone "$1" "$reponame"

@@ -20,10 +20,10 @@ for i in "$@"; do
             ;;
     esac
 
-    echo -n '0b' ; cecho blue $(([##2]j))
-    echo -n ' 0' ; cecho cyan  $(([##8]j))
-    echo -n '  ' ; cecho green $(([##10]j))
-    echo -n '0x' ; cecho yellow $(([##16]j))
+    echo -n '0b' ; cprintf '{#m}\n' "$(([##2]j))"
+    echo -n ' 0' ; cprintf '{#c}\n' "$(([##8]j))"
+    echo -n '  ' ; cprintf '{#g}\n' "$(([##10]j))"
+    echo -n '0x' ; cprintf '{#y}\n' "$(([##16]j))"
 
     echo
 done

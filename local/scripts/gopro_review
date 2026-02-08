@@ -8,7 +8,7 @@ for f in $(ls -1); do
         c "$f"
 
         echo -n "What to do with $f? "
-        cecho2 -n -- red "(d)elete "
+        cprintf '{#red}' "(d)elete "
         echo -n "(k)eep "
         echo -n "watch a(g)ain "
 
@@ -17,11 +17,11 @@ for f in $(ls -1); do
         case $choice in
             d*)
                 rm -v "$f"
-                cecho red Deleted
+                cprintf '{#red}\n' Deleted
                 again=false
                 ;;
             k*)
-                cecho green Kept
+                cprintf '{#green}\n' Kept
                 again=false
                 ;;
             g*)

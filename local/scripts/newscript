@@ -3,7 +3,7 @@
 newfile="$(dirname $0)/$1"
 
 if [ $# -eq 0 ]; then 
-    cecho red "Must provide a file name as first arg"
+    cprintf '{#red}\n' "Must provide a file name as first arg"
     exit 1
 fi
 

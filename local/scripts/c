@@ -15,7 +15,7 @@ show_as_file() {
   filetype=$(file --brief --mime -- "$1")
 
   if [[ ! -z ${DEBUG+x} ]]; then
-    cecho green "$extension"
+    cprintf '{#green}\n' "$extension"
   fi
 
 
@@ -86,7 +86,7 @@ show_as_file() {
       ;;
 
     inode/x-empty*)
-      cecho purple "Empty file"
+      cprintf '{#magenta}\n' "Empty file"
       ;;
 
     inode/directory*)
@@ -121,15 +121,14 @@ show_as_file() {
       vlc "$1" --fullscreen --play-and-exit
       ;;
 
-    *) cecho RED "Don't know how to best show $1 of type $filetype"
+    *) cprintf '{#RED}\n' "Don't know how to best show $1 of type $filetype"
       ;;
   esac
 }
 
 show() {
   if [[ ! -f "$1" && ! -d "$1" ]] ; then 
-    cecho -n yellow "$1"
-    echo " is not a file, try which/whence to see if it's an alias or a function name"
+    cprintf "{#yellow} is not a file, try which/whence to see if it's an alias or a function name" "$1"
     exit 1
   else
     show_as_file "$1"

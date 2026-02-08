@@ -22,17 +22,15 @@ Dunst, i3, i3blocks and rofi themes.
 
 My git shortcuts
 
-### `aptinstall`
-
-Combines `apt` with `fzf` to have a quick search tool with package description. No more off by 1 char mistake in `apt install`. No more listing totally irrelevant packages names just because a keyword is in the package's description.
-
 ### `c`
 
 A coomand to show any kind of file the the colors/editor I like.
 
 ### `cecho`
 
-`echo` with basic color support
+~~`echo` with basic color support~~
+
+Replaced by a Rust tool: [`cprintf`](https://crates.io/crates/cprintf)
 
 ### `clone`
 
@@ -69,10 +67,6 @@ Creates a new scripts in the right folder, with executable rights.
 ### `pasto`
 
 Paste the current clipboard content to a file
-
-### `rGit`
-
-Execute git commands recursively in all subfolders which contain a `.git` folder
 
 ### `trash`
 
