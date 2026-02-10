@@ -376,3 +376,29 @@ Add SSH config
 ```sh
 diff -u ~/.ssh/config "$REPO/ssh/config"
 ```
+
+## Fixed Braille
+
+With font [patcher 3.5+](https://github.com/ryanoasis/nerd-fonts)
+
+```sh
+sudo pacman -S fontforge
+mkdir ~/dev/ryanoasis
+git clone --depth=1 https://github.com/ryanoasis/nerd-fonts ~/dev/ryanoasis/nerd-font
+cd ~/dev/ryanoasis/nerd-font
+for size in 'Regular' 'Bold' 'Medium'; do
+    ./font-patcher \
+        --name "Furi Code ${size}" \
+        --outputdir ~/.local/share/fonts/ \
+        --mono \
+        --braille=gapless \
+        --complete \
+        --adjust-line-height /usr/share/fonts/TTF/FiraCode-${size}.ttf;
+done
+```
+
+## Emoji
+
+```sh
+sudo pacman -S rofi-emoji
+```

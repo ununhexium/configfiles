@@ -73,3 +73,5 @@
 [includeIf "gitdir:/home/uuh/dev/sovity/"]
   path = config-sovity
 
+[log]
+	date = iso

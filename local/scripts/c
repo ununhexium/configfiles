@@ -81,6 +81,11 @@ show_as_file() {
       esac
       ;;
 
+    font/sfnt*)
+      gnome-font-viewer "$1"
+      ;;
+
+
     image/*)
       feh --auto-zoom --fullscreen "$1"
       ;;

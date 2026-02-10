@@ -27,6 +27,7 @@ bindsym $mod+Shift+q kill
 # Start rofi
 #bindsym $mod+D exec rofi -show run
 bindsym $mod+D exec --no-startup-id "export PATH=~/.local/bin:$PATH; rofi -show run"
+bindsym $mod+grave exec --no-startup-id rofi -font "Fira Code 32" -modi emoji -show emoji
 bindsym $mod+Shift+D exec rofi -show window
 
 # Move between windows
@@ -230,7 +231,7 @@ bindsym $mod+Shift+F4 exec --no-startup-id keyboard-switch jp
 
 # emoji search
 # TODO: rebuild emoji resource file
-bindsym $mod+grave exec --no-startup-id i3-emoji
+#bindsym $mod+grave exec --no-startup-id i3-emoji
 
 # No crazy mouse
 focus_follows_mouse no
