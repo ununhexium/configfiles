@@ -11,6 +11,7 @@ setfont ter-132n  # ter-1<size><>
 ## Github access
 
 ```sh
+sudo pacman -S openssh
 ssh-keygen
 ```
 
@@ -85,7 +86,7 @@ broot --install
 ## Cargo dependencies
 
 ```sh
-sudo pacman -S rustup
+sudo pacman -S gcc rustup
 rustup install stable
 cargo install cprintf eza fd-find gradient hexyl
 ```
@@ -103,18 +104,19 @@ ln -s "$REPO/nvim" "$HOME/.config/nvim"
 ## Xorg
 
 ```sh
-sudo pacman -S arandr xbindkeys xdotool xorg-xev xorg-xrandr xorg-xset xorg-xwininfo
+sudo pacman -S arandr xbindkeys xdotool xorg-apps xorg-server xorg-xev xorg-xinit xorg-xrandr xorg-xset xorg-xwininfo
 ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ```
 
-## i3
+## i3, alacritty and other basic GUI requirements
 
 ```sh
-sudo pacman -S i3-wm i3blocks i3status i3lock numlockx rofi
+sudo pacman -S alacritty copyq i3-wm i3blocks i3status i3lock numlockx rofi
 # backup current i3 config
 mv "$HOME/.config/i3" "$HOME/.config/i3_bkp"
 ln -s "$REPO/i3" "$HOME/.config/i3"
 ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
+ln -s "$REPO/alacritty" "$HOME/.config"
 ```
 
 
@@ -137,13 +139,6 @@ sudo pacman -S \
   xorg-xsetroot \
 ```
 
-## Alacritty
-
-```sh
-sudo pacman -S alacritty
-ln -s "$REPO/alacritty" "$HOME/.config"
-```
-
 ## Start X
 
 Xorg+i3 should now be running ok
@@ -151,7 +146,7 @@ Xorg+i3 should now be running ok
 ## Scripts
 
 ```sh
-sudo pacman -S dpkg feh file glow jq mupdf unzip vlc xclip
+sudo pacman -S bc dpkg feh file glow jq mupdf unzip vlc xclip
 ln -s "$REPO/local/scripts" "$HOME/.local/scripts"
 ```
 
@@ -266,7 +261,7 @@ Try it
 ## More CLI
 
 ```sh
-sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx pipx strace stress tldr tree unzip usbutils zip
+sudo pacman -S 7zip acpi base-devel bc bind btop htop inetutils lynx python-pipx strace stress tldr tree unzip usbutils zip
 ```
 
 ## More python

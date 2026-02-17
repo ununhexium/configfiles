@@ -5,7 +5,7 @@ dir=$(dirname "$last")
 [[ ! -d "$dir" ]] && mkdir -p "$dir"
 
 # If the battery doesn't exist -> skip
-[[ -d "/sys/class/power_supply/{BAT0,CMB0}" ]] || exit 0
+[[ -d "/sys/class/power_supply/BAT0" || -d "/sys/class/power_supply/CMB0" ]] || exit 0
 
 # Battery level
 # TODO: rename in udev

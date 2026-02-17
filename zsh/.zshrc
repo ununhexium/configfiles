@@ -17,19 +17,5 @@ source "${ZDOTDIR}/user.zsh"
 #source ~/.zshrc.d/pyenv.zsh
 #source ~/.zshrc.d/nvm.zsh
 
-
-# Load Angular CLI autocompletion.
-#source <(ng completion script)
-
-# To customize prompt, run `p10k configure` or edit ~/.zshrc.d/p10k.zsh.
-#[[ ! -f ~/.zshrc.d/p10k.zsh ]] || source ~/.zshrc.d/p10k.zsh
-
-#source /home/uuh/.config/broot/launcher/bash/br
-
-
-
 source /home/uuh/.config/broot/launcher/bash/br
 
-#export NVM_DIR="$HOME/.config/nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
