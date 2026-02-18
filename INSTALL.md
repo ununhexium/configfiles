@@ -86,7 +86,7 @@ broot --install
 ## Cargo dependencies
 
 ```sh
-sudo pacman -S gcc rustup
+sudo pacman -S gcc base-devel jemalloc rustup
 rustup install stable
 cargo install cprintf eza fd-find gradient hexyl
 ```

@@ -3,6 +3,7 @@
 #echo '\udb84\udd04'
 
 STATS=$(gpustat --json)
+[[ $? -ne 0 ]] && exit 1
 GPU_TEMP=$(echo "$STATS" | jq --raw-output '.gpus[0]["temperature.gpu"]')
 GPU_MEMORY=$(echo "$STATS" | jq --raw-output '.gpus[0]["memory.used"]')
 GPU_TOTAL_MEMORY=$(echo "$STATS" | jq --raw-output '.gpus[0]["memory.total"]')
