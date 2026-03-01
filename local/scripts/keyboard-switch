@@ -13,8 +13,9 @@ notify-send "Switching to $1"
 case "$1" in
   'us')
     if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -t
+      fcitx5-remote -T
       fcitx5-remote -s 'keyboard-us'
+      setxkbmap us
     else
       setxkbmap us
     fi
@@ -31,8 +32,9 @@ case "$1" in
 
   'de')
     if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -t
-      fcitx5-remote -s 'keyboard-de'
+      fcitx5-remote -T
+      #fcitx5-remote -s 'keyboard-de'
+      setxkbmap de
     else
       setxkbmap de
     fi

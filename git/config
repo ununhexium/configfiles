@@ -27,6 +27,7 @@
   s = status
   quick-stats = /usr/local/bin/git-quick-stats
   root = rev-parse --show-toplevel
+  wip = "!f() { git commit -am \"WiP: $*\"; }; f"
 
 [color]
   diff = auto
