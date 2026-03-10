@@ -202,14 +202,19 @@ bar
 }
 
 # Volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym $mod+Shift+KP_Add exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym $mod+Shift+KP_Subtract exec amixer -q set Master 5%- unmute
 # Disabled. Mutes the speaker but doesn't unmute them
 #bindsym XF86AudioMute exec amixer -q set Master toggle
+bindsym $mod+Shift+KP_Multiply exec amixer -q set Master toggle
 
 # Backlight
-bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 10%-
-bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 10%+
+bindsym XF86MonBrightnessDown exec brightnessctl --exponent=4 --device=intel_backlight set 6%-
+bindsym $mod+KP_Subtract exec brightnessctl --exponent=4 --device=intel_backlight set 6%-
+bindsym XF86MonBrightnessUp   exec brightnessctl --exponent=4 --device=intel_backlight set 6%+
+bindsym $mod+KP_Add exec brightnessctl --exponent=4 --device=intel_backlight set 6%+
 
 bindsym $mod+XF86MonBrightnessDown exec --no-startup-id brightnessctl --device=kbd_backlight set 0
 bindsym $mod+XF86MonBrightnessUp   exec --no-startup-id brightnessctl --device=kbd_backlight set 255
