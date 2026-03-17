@@ -12,6 +12,7 @@
   dh = diff --cached HEAD^
   dm = "!f() { git diff $(git merge-base HEAD main); }; f"
   ds = diff --cached --stat
+  dsm = diff --stat main
   fat = fetch --all --tags
   grepa = "!f() { git grep \"$@\" $(git rev-list --all); }; f"
   lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all

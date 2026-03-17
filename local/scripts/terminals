@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+mkdir -p '/tmp/alacritty/sockets'
+
+atmp='/tmp/alacritty'
+docker_config="$atmp/docker"
+alacritty \
+  --working-directory "/home/uuh/dev/ununhexium/autolang/runtime" \
+  --command zsh -c "cd //dev/ununhexium/autolang/backend"
+
+i3-msg split h
+alacritty --command "cd ~/dev/ununhexium/autolang/backend/"
+i3-msg split v
+alacritty --command "cd ~/dev/ununhexium/autolang/backend/"

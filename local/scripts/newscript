@@ -18,6 +18,6 @@ chmod u+x "$newfile"
 
 #ln -s "$newfile" "$HOME/.local/bin/$1"
 
-vi "$newfile"
+nvim "$newfile"
 
 

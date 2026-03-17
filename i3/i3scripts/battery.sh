@@ -16,15 +16,14 @@ status=$(cat /sys/class/power_supply/{BAT0,CMB0}/status)
 low=20
 crit=10
 
-if [[ $BLOCK_BUTTON -eq 1 ]]
-then
+if [[ $BLOCK_BUTTON -eq 1 ]]; then
   level=$(echo "$l / 10 * 10" | bc)
-  notify-send --urgency=normal --icon battery-level-$level-symbolic "Battery" --hint int:value:$l
+  notify-send --urgency=normal --icon battery-level-$level-symbolic "Battery" --hint int:value:$l "$(acpi --battery)"
 fi
 
 # Alert if level low
 if [[ $(cat $last) -ne $l && "$status" != "Charging" ]]; then
-  echo $l > $last
+  echo $l >$last
   level=$(echo "$l / 10 * 10" | bc)
   if [[ $l -le $crit ]]; then
     notify-send --urgency=critical --icon battery-level-$level-symbolic "Battery" --hint int:value:$l
@@ -35,10 +34,8 @@ if [[ $(cat $last) -ne $l && "$status" != "Charging" ]]; then
   fi
 fi
 
-
 if [[ "$status" = "Not charging" || "$status" = "Full" ]]; then
-  if [[ $(cat /sys/class/power_supply/BAT0/charge_control_end_threshold) -lt 90 ]]
-  then
+  if [[ $(cat /sys/class/power_supply/BAT0/charge_control_end_threshold) -lt 90 ]]; then
     echo "<span size='xx-large' color='white'>󱈑</span>"
   else
     echo "<span size='xx-large' color='white'>󰂏</span>"
@@ -64,4 +61,3 @@ else
 fi
 
 exit 0
-
