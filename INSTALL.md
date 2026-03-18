@@ -74,7 +74,7 @@ chsh -s `which zsh` uuh
 
 ```sh
 sudo `cat INSTALL.md | head -n LINE | tail -n SIZE`
-sudo pacman -S bat broot entr fzf git inetutils lynx neovim tldr unzip zip
+sudo pacman -S bat broot entr fzf git iftop inetutils lynx neovim tldr unzip wget zip
 ```
 
 ## Broot
