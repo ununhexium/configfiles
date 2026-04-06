@@ -74,7 +74,7 @@ chsh -s `which zsh` uuh
 
 ```sh
 sudo `cat INSTALL.md | head -n LINE | tail -n SIZE`
-sudo pacman -S bat broot entr fzf git iftop inetutils lynx neovim tldr unzip wget zip
+sudo pacman -S bat broot btop entr fzf git iftop inetutils lynx neovim tldr unzip wget zip
 ```
 
 ## Broot
@@ -398,7 +398,19 @@ done
 sudo pacman -S rofi-emoji
 ```
 
-## Fix firefox tab font size
+## Fix firefox
+
+Install the xdg portal packages
+
+```shell
+sudo pacman -S xdg-desktop-portal xdg-desktop-portal-gnome xdg-desktop-portal-gtk
+```
+
+```shell
+dbus-update-activation-environment --systemd DISPLAY
+```
+
+### tab font size
 
 https://www.reddit.com/r/firefox/comments/qlryb6/hello_can_i_change_font_size_of_tab_its_so_tiny/
 
