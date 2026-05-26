@@ -111,7 +111,7 @@ ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ## i3, alacritty and other basic GUI requirements
 
 ```sh
-sudo pacman -S alacritty copyq i3-wm i3blocks i3status i3lock numlockx rofi
+sudo pacman -S alacritty copyq i3-wm i3blocks i3status i3lock kitty numlockx rofi
 # backup current i3 config
 mv "$HOME/.config/i3" "$HOME/.config/i3_bkp"
 ln -s "$REPO/i3" "$HOME/.config/i3"

@@ -8,6 +8,10 @@ show_as_pem() {
   openssl x509 -noout -text -in "$1"
 }
 
+play_audio() {
+  vlc "$1"
+}
+
 show_as_file() {
   filename=$(basename -- "$1")
   extension="${filename##*.}"
@@ -18,129 +22,135 @@ show_as_file() {
     cprintf '{#green}\n' "$extension"
   fi
 
-
   case $filetype in
 
-    application/gzip*)
-      tar tvf "$1"
-      ;;
+  application/gzip*)
+    tar tvf "$1"
+    ;;
 
-    application/java-archive*)
+  application/java-archive*)
+    show_as_jar "$1"
+    ;;
+
+  application/json*)
+    cat "$1" | jq
+    ;;
+
+  application/pdf*)
+    mupdf "$1"
+    ;;
+
+  application/vnd.debian.binary-package*)
+    dpkg --contents "$1"
+    ;;
+
+  application/x-bzip2*)
+    tar --bzip2 --list --verbose --file="$1"
+    ;;
+
+  application/x-java-applet*)
+    case $extension in
+    class)
+      javap -v "$1"
+      ;;
+    *)
+      hexyl "$1"
+      ;;
+    esac
+    ;;
+
+  application/x-java-keystore*)
+    keytool -list -storepass changeit -keystore "$1"
+    ;;
+
+  application/x-pem-file*)
+    show_as_pem "$1"
+    ;;
+
+  application/x-tar*)
+    tar tvf "$1"
+    ;;
+
+  application/x-xz*)
+    tar --list --verbose --file="$1"
+    ;;
+
+  application/zip*)
+    case $extension in
+    jar)
       show_as_jar "$1"
       ;;
-
-    application/json*)
-      cat "$1" | jq
+    *)
+      unzip -l "$1"
       ;;
+    esac
+    ;;
 
-    application/pdf*)
-      mupdf "$1"
-      ;;
+  audio/mpeg*)
+    play_audio "$1"
+    ;;
 
-    application/vnd.debian.binary-package*)
-      dpkg --contents "$1"
-      ;;
+  font/sfnt*)
+    gnome-font-viewer "$1"
+    ;;
 
-    application/x-bzip2*)
-      tar --bzip2 --list --verbose --file="$1"
-      ;;
+  image/*)
+    feh --auto-zoom --fullscreen "$1"
+    ;;
 
-    application/x-java-applet*)
-      case $extension in
-        class)
-          javap -v "$1"
-          ;;
-        *)
-          hexyl "$1"
-          ;;
-      esac
-      ;;
+  inode/x-empty*)
+    cprintf '{#magenta}\n' "Empty file"
+    ;;
 
-    application/x-java-keystore*)
-      keytool -list -storepass changeit -keystore "$1"
-      ;;
+  inode/directory*)
+    eza --all --long "$1"
+    ;;
 
-    application/x-pem-file*)
+  inode/symlink*)
+    c $(readlink -f "$1")
+    ;;
+
+  text/x-ssh-private-key*)
+    openssl rsa -text -noout -in "$1"
+    ;;
+
+  text/*)
+    case $(file --brief "$1") in
+    "PEM certificate")
       show_as_pem "$1"
       ;;
-
-    application/x-tar*)
-      tar tvf "$1"
-      ;;
-
-    application/x-xz*)
-      tar --list --verbose --file="$1"
-      ;;
-
-    application/zip*)
+    *)
       case $extension in
-        jar) show_as_jar "$1"
-          ;;
-        *) unzip -l "$1"
-          ;;
+      md)
+        rich --pager "$1"
+        ;;
+      *)
+        bat "$1"
+        ;;
       esac
       ;;
+    esac
+    ;;
 
-    font/sfnt*)
-      gnome-font-viewer "$1"
-      ;;
+  video/*)
+    vlc "$1" --fullscreen --play-and-exit
+    ;;
 
-
-    image/*)
-      feh --auto-zoom --fullscreen "$1"
-      ;;
-
-    inode/x-empty*)
-      cprintf '{#magenta}\n' "Empty file"
-      ;;
-
-    inode/directory*)
-      eza --all --long "$1"
-      ;;
-
-    inode/symlink*)
-      c $(readlink -f "$1")
-      ;;
-
-    text/x-ssh-private-key*)
-      openssl rsa -text -noout -in "$1"
-      ;;
-
-    text/*)
-      case $(file --brief "$1") in
-        "PEM certificate")
-          show_as_pem "$1"
-          ;;
-        *)
-          case $extension in
-            md) rich --pager "$1"
-              ;;
-            *) bat "$1"
-              ;;
-          esac
-          ;;
-      esac
-      ;;
-
-    video/*)
-      vlc "$1" --fullscreen --play-and-exit
-      ;;
-
-    *) cprintf '{#RED}\n' "Don't know how to best show $1 of type $filetype"
-      ;;
+  *)
+    cprintf '{#RED}\n' "Don't know how to best show $1 of type $filetype"
+    ;;
   esac
 }
 
 show() {
-  if [[ ! -f "$1" && ! -d "$1" ]] ; then 
+  if [[ ! -f "$1" && ! -d "$1" ]]; then
     cprintf "{#yellow} is not a file, try which/whence to see if it's an alias or a function name" "$1"
     exit 1
   else
     show_as_file "$1"
-    fi
+  fi
 }
 
 for what in "$@"; do
   show "$what"
 done
-

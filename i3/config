@@ -19,7 +19,8 @@ floating_modifier $mod
 
 # Start a terminal
 #bindsym $mod+Return exec terminator
-bindsym $mod+Return exec alacritty
+#bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -298,6 +299,8 @@ exec --no-startup-id redshift -l 50.46:6.05
 exec --no-startup-id unclutter --timeout 4 --jitter 5 --ignore-scrolling --start-hidden
 # Set background to solid black
 exec --no-startup-id xsetroot -solid  "#000000"
+# Firefox popup windows
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY
 
 # Japanese
 exec_always --no-startup-id fcitx5
