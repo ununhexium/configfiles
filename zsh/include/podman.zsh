@@ -6,6 +6,7 @@ if pacman -Q | grep podman > /dev/null; then
   export DOCKER_SOCK='/run/user/1000/podman/podman.sock'
   export TESTCONTAINERS_RYUK_DISABLED=true
   alias docker='podman'
+  alias docker-compose='podman-compose'
   alias p='podman'
 fi
 

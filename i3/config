@@ -259,6 +259,7 @@ exec --no-startup-id copyq
 
 # IntelliJ
 bindsym $mod+F1 exec ij-open-file
+bindsym $mod+F2 exec ij-search-string
 
 # Notifications
 exec --no-startup-id dunst

@@ -111,12 +111,16 @@ ln -s "$REPO/xbindkeys" "$HOME/.config/xbindkeys"
 ## i3, alacritty and other basic GUI requirements
 
 ```sh
+<<<<<<< Updated upstream
 sudo pacman -S alacritty copyq i3-wm i3blocks i3status i3lock kitty numlockx rofi
+=======
+sudo pacman -S kitty copyq i3-wm i3blocks i3status i3lock numlockx rofi
+>>>>>>> Stashed changes
 # backup current i3 config
 mv "$HOME/.config/i3" "$HOME/.config/i3_bkp"
 ln -s "$REPO/i3" "$HOME/.config/i3"
 ln -s "$REPO/i3blocks" "$HOME/.config/i3blocks"
-ln -s "$REPO/alacritty" "$HOME/.config"
+ln -s "$REPO/kitty" "$HOME/.config"
 ```
 
 
