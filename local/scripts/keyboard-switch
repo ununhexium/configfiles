@@ -11,42 +11,52 @@ fi
 notify-send "Switching to $1"
 
 case "$1" in
-  'us')
-    if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -T
-      fcitx5-remote -s 'keyboard-us'
-      setxkbmap us
-    else
-      setxkbmap us
-    fi
-    ;;
+'us')
+  if [[ $USE_FCITX = 'true' ]]; then
+    fcitx5-remote -t
+    fcitx5-remote -s 'keyboard-us'
+    setxkbmap us
+  else
+    setxkbmap us
+  fi
+  ;;
 
-  'fr')
-    if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -t
-      fcitx5-remote -s 'keyboard-fr'
-    else
-      setxkbmap fr
-    fi
-    ;;
+'fr')
+  if [[ $USE_FCITX = 'true' ]]; then
+    fcitx5-remote -t
+    fcitx5-remote -s 'keyboard-fr'
+    setxkbmap fr
+  else
+    setxkbmap fr
+  fi
+  ;;
 
-  'de')
-    if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -T
-      #fcitx5-remote -s 'keyboard-de'
-      setxkbmap de
-    else
-      setxkbmap de
-    fi
-    ;;
+'de')
+  if [[ $USE_FCITX = 'true' ]]; then
+    fcitx5-remote -t
+    fcitx5-remote -s 'keyboard-de'
+    setxkbmap de
+  else
+    setxkbmap de
+  fi
+  ;;
 
-  'jp')
-    if [[ $USE_FCITX = 'true' ]]; then
-      fcitx5-remote -t
-      fcitx5-remote -s 'mozc'
-    else
-      notify-send --app-name 'Keyboard Switch' --urgency normal ' ' 'Missing fcitx input method switcher'
-    fi
-    ;;
+'jp')
+  if [[ $USE_FCITX = 'true' ]]; then
+    fcitx5-remote -t
+    fcitx5-remote -s 'mozc'
+  else
+    notify-send --app-name 'Keyboard Switch' --urgency normal ' ' 'Missing fcitx input method switcher'
+  fi
+  ;;
+
+'th')
+  if [[ $USE_FCITX = 'true' ]]; then
+    fcitx5-remote -t
+    fcitx5-remote -s 'libthai'
+  else
+    notify-send --app-name 'Keyboard Switch' --urgency normal ' ' 'Missing fcitx input method switcher'
+  fi
+  ;;
 
 esac

@@ -234,6 +234,7 @@ bindsym $mod+Shift+F1 exec --no-startup-id keyboard-switch us
 bindsym $mod+Shift+F2 exec --no-startup-id keyboard-switch fr
 bindsym $mod+Shift+F3 exec --no-startup-id keyboard-switch de
 bindsym $mod+Shift+F4 exec --no-startup-id keyboard-switch jp
+bindsym $mod+Shift+F5 exec --no-startup-id keyboard-switch th
 
 # emoji search
 # TODO: rebuild emoji resource file
