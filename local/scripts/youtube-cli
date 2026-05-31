@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+#pipx upgrade yt-dlp
+
+cd "$HOME/music/"
+
+# Does it already exist?
+
+url=$1
+
+video_regex=".+v=([a-zA-Z0-9_-]+).*"
+
+function find_video() {
+  echo $(find -type f -regex ".*$1.*")
+}
+
+if [[ $url =~ $video_regex ]]; then
+
+  video_id="${BASH_REMATCH[1]}"
+  cprintf '{}{#green}\n' 'video id: ' "$video_id"
+  result=$(find_video "$video_id")
+
+  if [[ $(echo "$result" | wc -c) -lt 2 ]]; then
+    yt-dlp --no-playlist --embed-thumbnail -f bestaudio -t aac --no-keep-fragments "$1"
+    result=$(find_video "$video_id")
+    vlc "$result"
+  elif [[ $(echo "$result" | wc -l) -gt 1 ]]; then
+    cprintf '{}{#yellow}\n' "Multiple candidates: " "$result"
+  else
+    cprintf '{} "{#green}"\n' "Already downloaded:" "$result"
+    vlc "$result"
+  fi
+else
+  cprintf '{#red}{#yellow}\n' "Not a valid Youtube URL with video parameter: " "$1"
+fi
