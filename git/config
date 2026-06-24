@@ -77,3 +77,6 @@
 
 [log]
 	date = iso
+[user]
+	email = you@example.com
+	name = Your Name

@@ -5,4 +5,9 @@
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Arch-installed nvm + workaround to not load nvm on each new ZSH startup (500ms)
-alias nvm='unalias nvm; source "/usr/share/nvm/init-nvm.sh"; nvm'
+
+# Lazy init
+#alias nvm='unalias nvm; source "/usr/share/nvm/init-nvm.sh"; nvm'
+
+#Eager init
+source "/usr/share/nvm/init-nvm.sh"

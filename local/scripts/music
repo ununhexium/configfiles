@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-find ~/music/ -print0 | fzf --read0 --print0 --multi | xargs -0 cvlc --play-and-exit
+set -x
+
+find ~/music/ -print0 | fzf --read0 --multi | xargs cvlc --extraintf rc --play-and-exit

@@ -23,12 +23,12 @@ if [[ $url =~ $video_regex ]]; then
   if [[ $(echo "$result" | wc -c) -lt 2 ]]; then
     yt-dlp --no-playlist --embed-thumbnail -f bestaudio -t aac --no-keep-fragments "$1"
     result=$(find_video "$video_id")
-    vlc "$result"
+    cvlc --extraintf ncurses --play-and-exit "$result"
   elif [[ $(echo "$result" | wc -l) -gt 1 ]]; then
     cprintf '{}{#yellow}\n' "Multiple candidates: " "$result"
   else
     cprintf '{} "{#green}"\n' "Already downloaded:" "$result"
-    vlc "$result"
+    cvlc --extraintf ncurses --play-and-exit "$result"
   fi
 else
   cprintf '{#red}{#yellow}\n' "Not a valid Youtube URL with video parameter: " "$1"

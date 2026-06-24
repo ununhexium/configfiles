@@ -40,3 +40,6 @@ autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
 
+## Unset self-insert
+bindkey -r "^S"-"^T"
+
