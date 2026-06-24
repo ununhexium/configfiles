@@ -75,8 +75,12 @@
 [includeIf "gitdir:/home/uuh/dev/sovity/"]
   path = config-sovity
 
+[includeIf "gitdir:/home/uuh/dev/ununhexium/autolang/"]
+  path = config-autolang
+
 [log]
 	date = iso
+
 [user]
-	email = you@example.com
-	name = Your Name
+	email = 508418+ununhexium@users.noreply.github.com
+	name = Ununhexium
